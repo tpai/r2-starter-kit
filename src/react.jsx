@@ -1,4 +1,4 @@
-var $ = require("jquery");
+import $ from "jquery";
 
 var Iamreact = React.createClass({
 	getInitialState: function() {
