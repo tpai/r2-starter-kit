@@ -3,6 +3,7 @@ import $ from "jquery";
 var Iamreact = React.createClass({
 	getInitialState: function() {
 		return {
+			id: 0,
 			title: "",
 			body: ""
 		};
@@ -17,7 +18,7 @@ var Iamreact = React.createClass({
 			console.log("FAILED", xhr);
 		})
 		.done(function(data) {
-			self.setState({ title: data.title, body: data.body });
+			self.setState({ id: data.id, title: data.title, body: data.body });
 			console.log("DONE", data);
 		})
 		.always(function(data) {
@@ -29,7 +30,7 @@ var Iamreact = React.createClass({
 		if (this.state.title !== "")
 			return (
 				<div>
-					<h2>{this.state.title}</h2>
+					<h1>{this.state.title}</h1>
 					<p>{this.state.body}</p>
 				</div>
 			);
