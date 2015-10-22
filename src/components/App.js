@@ -1,16 +1,45 @@
-import { bindActionCreators } from "redux";
+import React, { Component } from "react";
 import { connect } from "react-redux";
+
 import Pager from "./Pager";
-import * as PagerAction from "../actions/PagerAction";
+import { fetchPost, prevPage, nextPage } from "../actions/PagerAction";
+
+class App extends Component {
+	constructor(props) {
+		super(props);
+		this.handleClick = this.handleClick.bind(this);
+	}
+	handleClick(amt) {
+		const { dispatch, nowPage } = this.props;
+		if (amt === 1) {
+			dispatch(nextPage(nowPage));
+		}
+	}
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.nowPage !== this.props.nowPage) {
+			const { dispatch, nowPage } = nextProps;
+			dispatch(fetchPost(nowPage));
+		}
+	}
+	componentDidMount() {
+		const { dispatch, nowPage } = this.props;
+		dispatch(fetchPost(nowPage));
+	}
+	render() {
+		const { post, nowPage } = this.props;
+		return (
+			<div>
+				<Pager post={post} nowPage={nowPage} onClick={this.handleClick} />
+			</div>
+		);
+	}
+}
 
 function mapStateToProps(state) {
 	return {
-		nowPage: state.nowPage
+		nowPage: state.nowPage,
+		post: state.post,
 	};
 }
 
-function mapDispatchToProps(dispatch) {
-	return bindActionCreators(PagerAction, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Pager);
+export default connect(mapStateToProps)(App);
