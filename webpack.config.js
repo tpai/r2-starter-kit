@@ -15,7 +15,7 @@ module.exports = {
             // once match any test then call loader
             {
                 test: /\.scss$/,
-                loader: "style!css!sass!"
+                loader: "style!css!sass!autoprefixer!"
             },
             {
                 test: /\.jsx?$/,
