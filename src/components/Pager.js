@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from "react";
-import { fetchPost } from '../actions/PagerAction';
 
 class Pager extends Component {
 	render() {
