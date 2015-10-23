@@ -1,4 +1,4 @@
-import { NEXT_PAGE, PREV_PAGE, RECEIVE_POST } from "../actions/PagerAction";
+import { NEXT_PAGE, PREV_PAGE, REQUEST_POST, RECEIVE_POST } from "../actions/PagerAction";
 
 export function nowPage(state = 1, action) {
 	switch (action.type) {
@@ -13,6 +13,11 @@ export function nowPage(state = 1, action) {
 
 export function post(state = {}, action) {
 	switch (action.type) {
+		case REQUEST_POST:
+			return Object.assign({}, state, {
+				title: "Now",
+				body: "Loading..."
+			});
 		case RECEIVE_POST:
 			return Object.assign({}, state, action.post);
 		default:
