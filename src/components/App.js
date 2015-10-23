@@ -2,37 +2,24 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import Pager from "./Pager";
-import { fetchPost, prevPage, nextPage } from "../actions/PagerAction";
+import { fetchPost } from "../actions/PagerAction";
 
 class App extends Component {
-	constructor(props) {
-		super(props);
-		this.handleClick = this.handleClick.bind(this);
-	}
-	handleClick(amt) {
-		const { dispatch, nowPage } = this.props;
-		if (amt === 1) {
-			dispatch(nextPage(nowPage));
-		}
-		else if (amt === -1) {
-			dispatch(prevPage(nowPage));
-		}
-	}
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.nowPage !== this.props.nowPage) {
-			const { dispatch, nowPage } = nextProps;
-			dispatch(fetchPost(nowPage));
+		const { dispatch, postDetail } = nextProps;
+		if (nextProps.postDetail.nowPage !== postDetail.nowPage) {
+			dispatch(fetchPost(postDetail.nowPage));
 		}
 	}
 	componentDidMount() {
-		const { dispatch, nowPage } = this.props;
-		dispatch(fetchPost(nowPage));
+		const { dispatch, postDetail } = this.props;
+		dispatch(fetchPost(postDetail.nowPage));
 	}
 	render() {
-		const { post, nowPage } = this.props;
+		const { dispatch, postDetail } = this.props;
 		return (
 			<div>
-				<Pager post={post} nowPage={nowPage} onClick={this.handleClick} />
+				<Pager postDetail={postDetail} dispatch={dispatch} />
 			</div>
 		);
 	}
@@ -40,8 +27,10 @@ class App extends Component {
 
 function mapStateToProps(state) {
 	return {
-		nowPage: state.nowPage,
-		post: state.post,
+		postDetail: {
+			nowPage: state.nowPage,
+			post: state.post			
+		}
 	};
 }
 
