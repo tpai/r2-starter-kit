@@ -5,7 +5,7 @@ export function nowPage(state = 1, action) {
 		case NEXT_PAGE:
 			return action.nowPage + 1;
 		case PREV_PAGE:
-			return (action.nowPage > 0)?(action.nowPage - 1):0;
+			return (action.nowPage > 1)?(action.nowPage - 1):1;
 		default:
 			return state;
 	}

@@ -14,6 +14,9 @@ class App extends Component {
 		if (amt === 1) {
 			dispatch(nextPage(nowPage));
 		}
+		else if (amt === -1) {
+			dispatch(prevPage(nowPage));
+		}
 	}
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.nowPage !== this.props.nowPage) {
