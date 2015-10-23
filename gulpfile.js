@@ -13,7 +13,16 @@ gulp.task("webpack", function(callback) {
 });
 
 gulp.task("webpack-watch", function(callback) {
+	webpackcfg.entry = webpackcfg.entry.concat([
+		"webpack-dev-server/client?http://localhost:8080",
+		"webpack/hot/only-dev-server"
+	]);
+	webpackcfg.plugins = [ new webpack.HotModuleReplacementPlugin() ];
+
 	new WebpackDevServer(webpack(webpackcfg), {
+
+		publicPath: webpackcfg.output.publicPath
+
     }).listen(8080, "localhost", function(err) {
         if(err) throw new gutil.PluginError("webpack-dev-server", err);
         gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");

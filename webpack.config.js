@@ -1,15 +1,11 @@
-var webpack = require("webpack");
-
 module.exports = {
     entry: [
-        "webpack-dev-server/client?http://localhost:8080",
-        "webpack/hot/only-dev-server",
         "./index"
     ],
     output: {
-        path: __dirname + "/build",
+        path: __dirname + "/dist",
         filename: "bundle.js",
-        publicPath: "/build/"
+        publicPath: "/dist/"
     },
     module: {
         loaders: [
@@ -21,11 +17,8 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
-                loaders: ["react-hot", "babel"]
+                loader: "babel"
             }
         ]
-    },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ]
+    }
 }
