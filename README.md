@@ -1,6 +1,6 @@
-# RGW Starter Kit
+# R^2GW Starter Kit
 
-> RGW Starter Kit is an boilerplate for web development built on top of React, Gulp and Webpack based on Node.js environment, also containing webpack loader such as sass, babel and react-hot-loader.
+> R^2GW Starter Kit is an boilerplate for web development built on top of React, Redux, Gulp and Webpack based on Node.js environment, also containing webpack loader such as sass, babel and react-hot-loader.
 
 
 ## Usage
