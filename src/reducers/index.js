@@ -1,8 +1,6 @@
 import { combineReducers } from "redux";
-import { nowPage, post } from "./PagerReducer";
+import * as reducers from "./PagerReducer";
 
-const rootReducer = combineReducers({
-	nowPage, post
-});
+const rootReducer = combineReducers(reducers);
 
 export default rootReducer;

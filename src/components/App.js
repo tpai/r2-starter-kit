@@ -6,7 +6,7 @@ import { fetchPost } from "../actions/PagerAction";
 
 class App extends Component {
 	componentWillReceiveProps(nextProps) {
-		const { dispatch, postDetail } = nextProps;
+		const { dispatch, postDetail } = this.props;
 		if (nextProps.postDetail.nowPage !== postDetail.nowPage) {
 			dispatch(fetchPost(postDetail.nowPage));
 		}
