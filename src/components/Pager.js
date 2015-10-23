@@ -16,7 +16,7 @@ class Pager extends Component {
 		dispatch(prevPage(postDetail.nowPage));
 	}
 	render() {
-		const { postDetail, onClick } = this.props;
+		const { postDetail } = this.props;
 		return (
 			<div>
 				Page: {postDetail.nowPage}
