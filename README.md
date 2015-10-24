@@ -2,6 +2,7 @@
 
 > R^2GW Starter Kit is an boilerplate for web development built on top of React, Redux, Gulp and Webpack based on Node.js environment, also containing webpack loader such as sass, babel and react-hot-loader.
 
+Demo: [https://r2gw-starter-kit.herokuapp.com/](https://r2gw-starter-kit.herokuapp.com/)
 
 ### Directory Layout
 
@@ -24,13 +25,13 @@
 
 ### Get Started
 
+Clone this repo and make something awesome!
+
 ```
 $ git clone https://github.com/tpai/r2gw-starter-kit.git
 $ cd r2gw-starter-kit
 $ npm install
 ```
-
-Clone this repo and make something awesome!
 
 ### How to Run
 
