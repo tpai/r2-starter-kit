@@ -13,10 +13,10 @@ gulp.task("webpack", function(callback) {
 });
 
 gulp.task("webpack-watch", function(callback) {
-	// webpackcfg.entry = webpackcfg.entry.concat([
-	// 	"webpack-dev-server/client?http://localhost:8080",
-	// 	"webpack/hot/only-dev-server"
-	// ]);
+	webpackcfg.entry = webpackcfg.entry.concat([
+		"webpack-dev-server/client?http://localhost:8080",
+		"webpack/hot/only-dev-server"
+	]);
 	webpackcfg.plugins = [
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin()
