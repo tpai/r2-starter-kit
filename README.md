@@ -1,6 +1,6 @@
 # R^2GW Starter Kit
 
-> R^2GW Starter Kit is an boilerplate for web development built on top of React, Redux, Gulp and Webpack based on Node.js environment, also containing webpack loader such as sass, babel and react-hot-loader.
+> R^2GW Starter Kit is an boilerplate for web development built on top of React, Redux, Gulp and Webpack based on Node.js environment, also containing webpack loader such as sass and babel.
 
 Demo: [http://r2gw-starter-kit.herokuapp.com/](http://r2gw-starter-kit.herokuapp.com/)
 
@@ -20,7 +20,7 @@ $ npm install
 $ npm start
 ```
 
-This will start a development server with react-hot-loader.
+This will start a development server with react-transform-hmr.
 
 ### How to Build
 
