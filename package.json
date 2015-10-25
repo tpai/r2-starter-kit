@@ -1,14 +1,20 @@
 {
   "name": "r2gw-starter-kit",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "R^2GW Starter Kit is an boilerplate for web development built on top of React, Redux, Gulp and Webpack based on Node.js environment, also containing webpack loader such as sass and babel.",
   "scripts": {
     "start": "gulp watch",
     "build": "gulp build"
   },
-  "author": "tonypai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tpai/r2gw-starter-kit.git"
+  },
+  "author": "tonypai <tonypai@gmail.com> (http://github.com/tpai)",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tpai/r2gw-starter-kit/issues"
+  },
   "dependencies": {
     "autoprefixer-loader": "^3.1.0",
     "babel-loader": "^5.3.2",
