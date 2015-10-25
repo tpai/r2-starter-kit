@@ -4,25 +4,6 @@
 
 Demo: [http://r2gw-starter-kit.herokuapp.com/](http://r2gw-starter-kit.herokuapp.com/)
 
-### Directory Layout
-
-```
-.
-├── /dist/
-├── /src/
-│   ├── /actions/
-│   ├── /components/
-│   ├── /reducers/
-│   ├── /store/
-│   ├── react.jsx  
-│   └── jsconfig.json
-├── index.js
-├── index.html
-├── gulpfile.js
-├── package.json
-└── webpack.config.js
-```
-
 ### Get Started
 
 Clone this repo and make something awesome!
