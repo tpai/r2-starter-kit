@@ -20810,32 +20810,21 @@
 	var App = (function (_Component) {
 		_inherits(App, _Component);
 
-		function App(props) {
+		function App() {
 			_classCallCheck(this, App);
 
-			_get(Object.getPrototypeOf(App.prototype), "constructor", this).call(this, props);
-			this.handleClick = this.handleClick.bind(this);
+			_get(Object.getPrototypeOf(App.prototype), "constructor", this).apply(this, arguments);
 		}
 
 		_createClass(App, [{
-			key: "handleClick",
-			value: function handleClick(amt) {
-				var _props = this.props;
-				var dispatch = _props.dispatch;
-				var nowPage = _props.nowPage;
-
-				if (amt === 1) {
-					dispatch((0, _actionsPagerAction.nextPage)(nowPage));
-				}
-			}
-		}, {
 			key: "componentWillReceiveProps",
 			value: function componentWillReceiveProps(nextProps) {
-				if (nextProps.nowPage !== this.props.nowPage) {
-					var dispatch = nextProps.dispatch;
-					var nowPage = nextProps.nowPage;
+				var _props = this.props;
+				var dispatch = _props.dispatch;
+				var postDetail = _props.postDetail;
 
-					dispatch((0, _actionsPagerAction.fetchPost)(nowPage));
+				if (nextProps.postDetail.nowPage !== postDetail.nowPage) {
+					dispatch((0, _actionsPagerAction.fetchPost)(postDetail.nowPage));
 				}
 			}
 		}, {
@@ -20843,21 +20832,21 @@
 			value: function componentDidMount() {
 				var _props2 = this.props;
 				var dispatch = _props2.dispatch;
-				var nowPage = _props2.nowPage;
+				var postDetail = _props2.postDetail;
 
-				dispatch((0, _actionsPagerAction.fetchPost)(nowPage));
+				dispatch((0, _actionsPagerAction.fetchPost)(postDetail.nowPage));
 			}
 		}, {
 			key: "render",
 			value: function render() {
 				var _props3 = this.props;
-				var post = _props3.post;
-				var nowPage = _props3.nowPage;
+				var dispatch = _props3.dispatch;
+				var postDetail = _props3.postDetail;
 
 				return _react2["default"].createElement(
 					"div",
 					null,
-					_react2["default"].createElement(_Pager2["default"], { post: post, nowPage: nowPage, onClick: this.handleClick })
+					_react2["default"].createElement(_Pager2["default"], { postDetail: postDetail, dispatch: dispatch })
 				);
 			}
 		}]);
@@ -20867,8 +20856,10 @@
 
 	function mapStateToProps(state) {
 		return {
-			nowPage: state.nowPage,
-			post: state.post
+			postDetail: {
+				nowPage: state.nowPage,
+				post: state.post
+			}
 		};
 	}
 
@@ -20879,73 +20870,88 @@
 /* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _actionsPagerAction = __webpack_require__(179);
+
 	var Pager = (function (_Component) {
 		_inherits(Pager, _Component);
 
-		function Pager() {
+		function Pager(props) {
 			_classCallCheck(this, Pager);
 
-			_get(Object.getPrototypeOf(Pager.prototype), 'constructor', this).apply(this, arguments);
+			_get(Object.getPrototypeOf(Pager.prototype), "constructor", this).call(this, props);
+			this.handleNextPage = this.handleNextPage.bind(this);
+			this.handlePrevPage = this.handlePrevPage.bind(this);
 		}
 
 		_createClass(Pager, [{
-			key: 'render',
-			value: function render() {
+			key: "handleNextPage",
+			value: function handleNextPage() {
 				var _props = this.props;
-				var post = _props.post;
-				var nowPage = _props.nowPage;
-				var onClick = _props.onClick;
+				var dispatch = _props.dispatch;
+				var postDetail = _props.postDetail;
 
-				return _react2['default'].createElement(
-					'div',
+				dispatch((0, _actionsPagerAction.nextPage)(postDetail.nowPage));
+			}
+		}, {
+			key: "handlePrevPage",
+			value: function handlePrevPage() {
+				var _props2 = this.props;
+				var dispatch = _props2.dispatch;
+				var postDetail = _props2.postDetail;
+
+				dispatch((0, _actionsPagerAction.prevPage)(postDetail.nowPage));
+			}
+		}, {
+			key: "render",
+			value: function render() {
+				var postDetail = this.props.postDetail;
+
+				return _react2["default"].createElement(
+					"div",
 					null,
-					'Page: ',
-					nowPage,
+					"Page: ",
+					postDetail.nowPage,
 					' ',
-					_react2['default'].createElement(
-						'button',
-						{ onClick: function (e) {
-								return onClick(-1);
-							} },
-						'Prev'
+					_react2["default"].createElement(
+						"button",
+						{ onClick: this.handlePrevPage },
+						"Prev"
 					),
 					' ',
-					_react2['default'].createElement(
-						'button',
-						{ onClick: function (e) {
-								return onClick(1);
-							} },
-						'Next'
+					_react2["default"].createElement(
+						"button",
+						{ onClick: this.handleNextPage },
+						"Next"
 					),
-					_react2['default'].createElement(
-						'h1',
+					_react2["default"].createElement(
+						"h1",
 						null,
-						post.title
+						postDetail.post.title
 					),
-					_react2['default'].createElement(
-						'p',
+					_react2["default"].createElement(
+						"p",
 						null,
-						post.body
+						postDetail.post.body
 					)
 				);
 			}
@@ -20955,11 +20961,14 @@
 	})(_react.Component);
 
 	Pager.propTypes = {
-		nowPage: _react.PropTypes.number.isRequired
+		postDetail: _react.PropTypes.shape({
+			nowPage: _react.PropTypes.number.isRequired,
+			post: _react.PropTypes.object.isRequired
+		})
 	};
 
-	exports['default'] = Pager;
-	module.exports = exports['default'];
+	exports["default"] = Pager;
+	module.exports = exports["default"];
 
 /***/ },
 /* 179 */
@@ -21495,16 +21504,18 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 
 	var _redux = __webpack_require__(166);
 
 	var _PagerReducer = __webpack_require__(185);
 
-	var rootReducer = (0, _redux.combineReducers)({
-		nowPage: _PagerReducer.nowPage, post: _PagerReducer.post
-	});
+	var reducers = _interopRequireWildcard(_PagerReducer);
+
+	var rootReducer = (0, _redux.combineReducers)(reducers);
 
 	exports["default"] = rootReducer;
 	module.exports = exports["default"];
@@ -21530,7 +21541,7 @@
 			case _actionsPagerAction.NEXT_PAGE:
 				return action.nowPage + 1;
 			case _actionsPagerAction.PREV_PAGE:
-				return action.nowPage > 0 ? action.nowPage - 1 : 0;
+				return action.nowPage > 1 ? action.nowPage - 1 : 1;
 			default:
 				return state;
 		}
@@ -21572,8 +21583,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./../node_modules/autoprefixer-loader/index.js!!./header.scss", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./../node_modules/autoprefixer-loader/index.js!!./header.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./../../node_modules/autoprefixer-loader/index.js!!./header.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./../../node_modules/autoprefixer-loader/index.js!!./header.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
