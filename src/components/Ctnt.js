@@ -9,9 +9,10 @@ class Ctnt extends Component {
 		this.handlePrevPage = this.handlePrevPage.bind(this);
 	}
 	componentWillReceiveProps(nextProps) {
-		const { dispatch, detail } = this.props;
+		const { dispatch, detail, history } = this.props;
 		if (nextProps.detail.nowPage !== detail.nowPage) {
-			dispatch(fetchPost(detail.nowPage));
+			dispatch(fetchPost(nextProps.detail.nowPage));
+			history.pushState(null, `/content/${nextProps.detail.nowPage}`);
 		}
 	}
 	componentDidMount() {
