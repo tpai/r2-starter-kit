@@ -1,9 +1,17 @@
 import fetch from "isomorphic-fetch";
 
+export const SET_PAGE = "SET_PAGE";
 export const NEXT_PAGE = "NEXT_PAGE";
 export const PREV_PAGE = "PREV_PAGE";
-export const REQUEST_POST = "REQUEST_POST";
 export const RECEIVE_POST = "RECEIVE_POST";
+export const RECEIVE_LIST = "RECEIVE_LIST";
+
+export function setPage (nowPage) {
+	return {
+		type: SET_PAGE,
+		nowPage
+	}
+}
 
 export function nextPage (nowPage) {
 	return {
@@ -15,12 +23,6 @@ export function prevPage (nowPage) {
 	return {
 		type: PREV_PAGE,
 		nowPage
-	};
-}
-
-function requestPost () {
-	return {
-		type: REQUEST_POST
 	};
 }
 
@@ -36,9 +38,23 @@ function receivePost (json) {
 
 export function fetchPost (id) {
 	return dispatch => {
-		dispatch(requestPost ());
 		return fetch(`http://jsonplaceholder.typicode.com/posts/${id}`)
 			.then(response => response.json())
 			.then(json => dispatch(receivePost (json)));
 	}
+}
+
+function receiveList (json) {
+	return {
+		type: RECEIVE_LIST,
+		list: json
+	}
+}
+
+export function fetchList () {
+	return dispatch => {
+		return fetch(`http://jsonplaceholder.typicode.com/posts`)
+			.then(response => response.json())
+			.then(json => dispatch(receiveList (json)));
+	} 
 }

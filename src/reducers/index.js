@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import * as reducers from "./PagerReducer";
+import * as reducers from "./reducers";
 
 const rootReducer = combineReducers(reducers);
 

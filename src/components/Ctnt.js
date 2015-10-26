@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
-import { prevPage, nextPage, fetchPost } from "../actions/PagerAction";
+import { setPage, prevPage, nextPage, fetchPost } from "../actions/actions";
 
-class Pager extends Component {
+class Ctnt extends Component {
 	constructor(props) {
 		super(props);
 		this.handleNextPage = this.handleNextPage.bind(this);
@@ -15,8 +15,9 @@ class Pager extends Component {
 		}
 	}
 	componentDidMount() {
-		const { dispatch, detail } = this.props;
-		dispatch(fetchPost(detail.nowPage));
+		const { dispatch, params } = this.props;
+		dispatch(fetchPost(params.id));
+		dispatch(setPage(params.id));
 	}
 	handleNextPage() {
 		const { dispatch, detail } = this.props;
@@ -42,7 +43,7 @@ class Pager extends Component {
 	}
 }
 
-Pager.propTypes = {
+Ctnt.propTypes = {
 	detail: PropTypes.shape({
 		nowPage: PropTypes.number.isRequired,
 		post: PropTypes.object.isRequired
@@ -58,4 +59,4 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(mapStateToProps)(Pager);
+export default connect(mapStateToProps)(Ctnt);
