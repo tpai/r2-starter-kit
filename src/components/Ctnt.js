@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
+
 import { setPage, prevPage, nextPage, fetchPost } from "../actions/actions";
 
 class Ctnt extends Component {

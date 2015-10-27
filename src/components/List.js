@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
-import { fetchList } from "../actions/actions";
 import { Link } from "react-router";
+
+import { fetchList } from "../actions/actions";
 
 class List extends Component {
 	componentDidMount() {

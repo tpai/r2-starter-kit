@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import { Router, Route } from "react-router";
-import { History } from "react-router";
+import { Router, Route, History } from "react-router";
 
 import List from "./src/components/List";
 import Content from "./src/components/Ctnt";
