@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 module.exports = {
     entry: [
         "./index"
@@ -39,5 +40,13 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+          __CLIENT__: true,
+          __SERVER__: false,
+          __DEVELOPMENT__: true,
+          __DEVTOOLS__: true  // <-------- DISABLE redux-devtools HERE
+        })
+    ]
 }
