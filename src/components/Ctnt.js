@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 
-import { setPage, prevPage, nextPage, fetchPost } from "../actions/actions";
+import { prevPage, nextPage, fetchPost } from "../actions/actions";
 
 class Ctnt extends Component {
 	constructor(props) {
@@ -19,7 +19,6 @@ class Ctnt extends Component {
 	componentDidMount() {
 		const { dispatch, params } = this.props;
 		dispatch(fetchPost(params.id));
-		dispatch(setPage(params.id));
 	}
 	handleNextPage() {
 		const { dispatch, detail } = this.props;

@@ -38,6 +38,7 @@ function receivePost (json) {
 
 export function fetchPost (id) {
 	return dispatch => {
+		dispatch(setPage(id * 1));
 		return fetch(`http://jsonplaceholder.typicode.com/posts/${id}`)
 			.then(response => response.json())
 			.then(json => dispatch(receivePost (json)));
