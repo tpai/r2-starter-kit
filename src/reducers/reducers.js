@@ -1,4 +1,5 @@
 import { SET_PAGE, NEXT_PAGE, PREV_PAGE, RECEIVE_POST, RECEIVE_LIST } from "../actions/actions";
+import objectAssign from "object-assign";
 
 export function nowPage(state = 1, action) {
 	switch (action.type) {
@@ -16,9 +17,9 @@ export function nowPage(state = 1, action) {
 export function post(state = {}, action) {
 	switch (action.type) {
 		case RECEIVE_POST:
-			return Object.assign({}, state, action.post);
+			return objectAssign({}, state, action.post);
 		default:
-			return Object.assign({}, state, {
+			return objectAssign({}, state, {
 				title: "Now",
 				body: "Loading..."
 			});

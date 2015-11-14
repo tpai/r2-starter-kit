@@ -1,4 +1,4 @@
-import fetch from "isomorphic-fetch";
+import "fetch-polyfill";
 
 export const SET_PAGE = "SET_PAGE";
 export const NEXT_PAGE = "NEXT_PAGE";
