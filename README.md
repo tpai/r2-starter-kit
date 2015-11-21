@@ -42,5 +42,5 @@ It will bundle all files as bundle.js into dist/ directory.
 [dev-deps-badge]: https://david-dm.org/tpai/r2-starter-kit/dev-status.svg
 [dev-deps]: https://david-dm.org/tpai/r2-starter-kit#info=devDependencies
 
-[heroku-deployment-badge]: https://heroku-badge.herokuapp.com/?app=r2gw-starter-kit
+[heroku-deployment-badge]: https://heroku-badge.herokuapp.com/?app=r2-starter-kit
 [heroku-app]: http://r2-starter-kit.herokuapp.com
