@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { persistState } from 'redux-devtools';
-import reducer from "../reducers";
+import reducers from "../reducers";
 let createStoreWithMiddleware;
 
 if(__DEVELOPMENT__ && __CLIENT__ && __DEVTOOLS__) {
@@ -17,15 +17,17 @@ if(__DEVELOPMENT__ && __CLIENT__ && __DEVTOOLS__) {
 	)(createStore);
 }
 
-export default function theStore(initialState) {
-	const store = createStoreWithMiddleware(reducer, initialState);
+const Store = initialState => {
+	const storeWithMiddleware = createStoreWithMiddleware(reducers, initialState);
 
 	if (module.hot) {
 		module.hot.accept("../reducers", () => {
 			const nextReducer = require("../reducers");
-			store.replaceReducer(nextReducer);
+			storeWithMiddleware.replaceReducer(nextReducer);
 		});
 	}
 
-	return store;
+	return storeWithMiddleware;
 }
+
+export default Store;

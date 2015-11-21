@@ -3,6 +3,9 @@ module.exports = {
     entry: [
         "./index"
     ],
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
     output: {
         path: __dirname + "/dist",
         filename: "bundle.js",
@@ -15,7 +18,7 @@ module.exports = {
                 loader: "style!css!sass!autoprefixer!"
             },
             {
-                test: /\.js$|\.jsx$/,
+                test: /\.jsx?/,
                 exclude: /(node_modules|bower_components)/,
                 loader: "babel",
                 query: {

@@ -3,17 +3,15 @@ import { render } from "react-dom";
 import { Router, Route, History } from "react-router";
 
 import List from "./src/components/List";
-import Content from "./src/components/Ctnt";
+import Post from "./src/components/Post";
 
-class AppRouter extends Component {
+export default class AppRouter extends Component {
 	render() {
 		return (
 			<Router>
 				<Route path="/" component={List} />
-				<Route path="/content/:id" component={Content} history={History} />
+				<Route path="/post/:id" component={Post} history={History} />
 			</Router>
 		);
 	}
 }
-
-export default AppRouter;

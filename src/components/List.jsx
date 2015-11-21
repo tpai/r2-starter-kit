@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router";
 
-import { fetchList } from "../actions/actions";
+import { fetchList } from "../actions/list";
 
 class List extends Component {
 	componentDidMount() {
@@ -17,7 +17,7 @@ class List extends Component {
 				<ul>
 				{
 					list.map(item => 
-						<li key={item.id}><Link to={"/content/" + item.id}>{item.title}</Link></li>
+						<li key={item.id}><Link to={"/post/" + item.id}>{item.title}</Link></li>
 					)
 				}
 				</ul>

@@ -2,10 +2,11 @@ import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import AppRouter from "./appRouter";
-import theStore from "./src/store/theStore";
+import Store from "./src/store/Store";
 import "./src/styles/header.scss";
 
-const store = theStore ();
+const store = Store ();
+
 let tools;
 if((__DEVELOPMENT__ && __CLIENT__ && __DEVTOOLS__)) {
 	const DevTools = require('./src/store/DevTools');
@@ -13,7 +14,6 @@ if((__DEVELOPMENT__ && __CLIENT__ && __DEVTOOLS__)) {
 }
 
 render(
-
 	<Provider store={store}>
 		<div>
 			<AppRouter />
