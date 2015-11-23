@@ -1,3 +1,7 @@
+import promise from "es6-promise";
+import fetch from "isomorphic-fetch";
+promise.polyfill();
+
 import { RECEIVE_LIST } from "./types";
 
 export const fetchList = () => {
