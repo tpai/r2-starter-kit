@@ -10,7 +10,7 @@ import * as types from "src/actions/types";
 const mockStore = configureStore([ thunk ]);
 
 describe("Action::Post", () => {
-	it("#fetchPost()", done => {
+	it("#fetchPost(id)", done => {
 		nock(`http://jsonplaceholder.typicode.com`)
 			.get(`/posts/1`)
 			.reply(200, { userId: 1, id: 1, title: "yo", body: "man" })
