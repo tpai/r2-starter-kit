@@ -7,7 +7,7 @@ import { fetchPost } from "../actions/post";
 class Post extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { nowPost: 1 };
+		this.state = { nowPost: -1 };
 	}
 	componentDidMount() {
 		const { dispatch, params } = this.props;
@@ -26,7 +26,7 @@ class Post extends Component {
 		return true;
 	}
 	nextPost() {
-		const { dispatch, history } = this.props;
+		const { history } = this.props;
 		let { nowPost } = this.state;
 		nowPost = (nowPost < 100)?nowPost+1:nowPost;
 		
@@ -36,7 +36,7 @@ class Post extends Component {
 		history.replaceState(null, `/post/${nowPost}`);
 	}
 	prevPost() {
-		const { dispatch, history } = this.props;
+		const { history } = this.props;
 		let { nowPost } = this.state;
 		nowPost = (nowPost > 1)?nowPost-1:1;
 		
