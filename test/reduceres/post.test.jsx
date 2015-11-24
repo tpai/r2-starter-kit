@@ -9,7 +9,7 @@ describe("Reducer::Post", () => {
 			reducer.post(undefined, {})
 		).toEqual({ title: "Now", body: "Loading..." })
 	})
-	it("#post([], {type: RECEIVE_POST})",  () => {
+	it("#post({...}, {type: RECEIVE_POST})",  () => {
 		expect(
 			reducer.post({}, {
 				type: types.RECEIVE_POST,
