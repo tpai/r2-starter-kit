@@ -11,10 +11,7 @@ class Post extends Component {
 	}
 	componentDidMount() {
 		const { dispatch, params } = this.props;
-		let { nowPost } = this.state;
-		this.setState(update(this.state, 
-			{ nowPost: { $set: params.id*1 } }
-		));
+		this.setState(update(this.state, { nowPost: { $set: params.id*1 } }));
 	}
 	shouldComponentUpdate(newProps, newState) {
 		const { dispatch } = this.props;
@@ -25,33 +22,27 @@ class Post extends Component {
 		
 		return true;
 	}
-	nextPost() {
+	readPost(action) {
+		
 		const { history } = this.props;
 		let { nowPost } = this.state;
-		nowPost = (nowPost < 100)?nowPost+1:nowPost;
 		
-		this.setState(update(this.state, 
-			{ nowPost: { $set: nowPost } }
-		));
-		history.replaceState(null, `/post/${nowPost}`);
-	}
-	prevPost() {
-		const { history } = this.props;
-		let { nowPost } = this.state;
-		nowPost = (nowPost > 1)?nowPost-1:1;
+		switch(action) {
+			case "prev": nowPost = (nowPost > 1)?nowPost-1:1; break;
+			case "next": nowPost = (nowPost < 100)?nowPost+1:nowPost; break;
+		}
+	
+		this.setState(update(this.state, { nowPost: { $set: nowPost } }));
 		
-		this.setState(update(this.state, 
-			{ nowPost: { $set: nowPost } }
-		));
 		history.replaceState(null, `/post/${nowPost}`);
 	}
 	render() {
 		const { post } = this.props;
 		return (
 			<div>
-				<button onClick={this.prevPost.bind(this)}>Prev</button>
+				<button onClick={this.readPost("prev").bind(this)}>Prev</button>
 				{' '}
-				<button onClick={this.nextPost.bind(this)}>Next</button>
+				<button onClick={this.readPost("next").bind(this)}>Next</button>
 				<h1>{post.title}</h1>
 				<p>{post.body}</p>
 			</div>
