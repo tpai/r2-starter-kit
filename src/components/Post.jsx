@@ -17,21 +17,25 @@ export class Post extends Component {
 		dispatch(fetchPost(initPostIndex));
 	}
 	readPost(action) {
-		const { dispatch, history } = this.props;
 		let postIndex = this.state.postIndex;
 		
 		switch(action) {
 			case "prev": postIndex = (postIndex > 1) ? postIndex-1 : 1; break;
 			case "next": postIndex = (postIndex < 100) ? postIndex+1 : postIndex; break;
 		}
-	
+		
+		return postIndex;
+	}
+	fetchPost(postIndex) {
+		const { dispatch, history } = this.props;
+		
 		this.setState(update(this.state, { postIndex: { $set: postIndex } }));
 		dispatch(fetchPost(postIndex));
 		
 		history.replaceState(null, `/post/${postIndex}`);
 	}
-	clickPrev() { this.readPost("prev") }
-	clickNext() { this.readPost("next") }
+	clickPrev() { this.fetchPost( this.readPost("prev") ) }
+	clickNext() { this.fetchPost( this.readPost("next") ) }
 	render() {
 		const { post } = this.props;
 		return (
