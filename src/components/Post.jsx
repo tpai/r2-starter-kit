@@ -4,45 +4,41 @@ import update from "react-addons-update";
 
 import { fetchPost } from "../actions/post";
 
-class Post extends Component {
+export class Post extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { nowPost: -1 };
+		this.state = { postIndex: -1 };
 	}
 	componentDidMount() {
 		const { dispatch, params } = this.props;
-		this.setState(update(this.state, { nowPost: { $set: params.id*1 } }));
-	}
-	shouldComponentUpdate(newProps, newState) {
-		const { dispatch } = this.props;
-		let oldNowPost = this.state.nowPost;
-		let newNowPost = newState.nowPost;
+		let initPostIndex = params.id * 1;
 		
-		oldNowPost !== newNowPost && dispatch(fetchPost(newNowPost));
-		
-		return true;
+		this.setState(update(this.state, { postIndex: { $set: initPostIndex } }));
+		dispatch(fetchPost(initPostIndex));
 	}
 	readPost(action) {
-		
-		const { history } = this.props;
-		let { nowPost } = this.state;
+		const { dispatch, history } = this.props;
+		let postIndex = this.state.postIndex;
 		
 		switch(action) {
-			case "prev": nowPost = (nowPost > 1)?nowPost-1:1; break;
-			case "next": nowPost = (nowPost < 100)?nowPost+1:nowPost; break;
+			case "prev": postIndex = (postIndex > 1) ? postIndex-1 : 1; break;
+			case "next": postIndex = (postIndex < 100) ? postIndex+1 : postIndex; break;
 		}
 	
-		this.setState(update(this.state, { nowPost: { $set: nowPost } }));
+		this.setState(update(this.state, { postIndex: { $set: postIndex } }));
+		dispatch(fetchPost(postIndex));
 		
-		history.replaceState(null, `/post/${nowPost}`);
+		history.replaceState(null, `/post/${postIndex}`);
 	}
+	clickPrev() { this.readPost("prev") }
+	clickNext() { this.readPost("next") }
 	render() {
 		const { post } = this.props;
 		return (
 			<div>
-				<button onClick={this.readPost("prev").bind(this)}>Prev</button>
+				<button onClick={this.clickPrev.bind(this)}>Prev</button>
 				{' '}
-				<button onClick={this.readPost("next").bind(this)}>Next</button>
+				<button onClick={this.clickNext.bind(this)}>Next</button>
 				<h1>{post.title}</h1>
 				<p>{post.body}</p>
 			</div>
