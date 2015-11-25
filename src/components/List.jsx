@@ -1,10 +1,11 @@
+import _ from "lodash";
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router";
 
 import { fetchList } from "../actions/list";
 
-class List extends Component {
+export class List extends Component {
 	componentDidMount() {
 		const { dispatch } = this.props;
 		dispatch(fetchList());
@@ -16,7 +17,7 @@ class List extends Component {
 				<h1>Post List</h1>
 				<ul>
 				{
-					list.map(item => 
+					_.map(list, item => 
 						<li key={item.id}><Link to={"/post/" + item.id}>{item.title}</Link></li>
 					)
 				}
