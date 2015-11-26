@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
+import { updatePath } from "redux-simple-router";
 import update from "react-addons-update";
 
 import { fetchPost } from "../actions/post";
@@ -13,9 +14,9 @@ export class Post extends Component {
 	shouldComponentUpdate(nextProps, nextState) {
 		return nextProps.post.id !== this.props.post.id;
 	}
-	componentDidUpdate() {
-		const { history, post } = this.props;
-		history.replaceState(null, `/post/${post.id}`);
+	componentWillUpdate(nextProps, nextState) {
+		const { dispatch } = this.props;
+		dispatch(updatePath(`/post/${nextProps.post.id}`));
 	}
 	render() {
 		const { dispatch, post } = this.props;
