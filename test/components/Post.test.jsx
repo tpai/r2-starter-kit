@@ -23,21 +23,21 @@ const renderWithProps = (props = {}) => {
 
 describe("Components::Post", () => {
 	
-	let _spies, _props, _component, _rendered;
+	let _props, _component, _rendered;
 	
-	const setup = () => {
-		_spies = {};
-		_props = {
-			post: { title: "yo", body: "man" },
-			params: { id: "1" },
-			dispatch: _spies.dispatch = expect.createSpy()
-		};
+	const setup = (props) => {
+		_props = props;
 		_component = shallowRenderWithProps(_props);
 		_rendered = renderWithProps(_props);
 	}
-	setup ();
 	
 	it ("#render()", () => {
+		
+		setup ({
+			post: { id: 1, title: "yo", body: "man" },
+			params: { id: "1" },
+			dispatch: expect.createSpy()
+		});
 		
 		let [ prev, space, next, h1, p ] = _component.props.children;
 		
@@ -55,13 +55,25 @@ describe("Components::Post", () => {
 		expect(p.type).toBe("p");
 		expect(p.props.children).toBe("man");
 	})
-
-	// it ("#click()", () => {
+	
+	it ("<button disabled={} />", () => {
 		
-	// 	const btns = TestUtils.scryRenderedDOMComponentsWithTag(_rendered, "button");
+		setup ({
+			post: { id: 1, title: "yo", body: "man" },
+			params: { id: "1" },
+			dispatch: expect.createSpy()
+		});
 		
-	// 	expect(_spies.dispatch).toNotHaveBeenCalled();
-	// 	TestUtils.Simulate.click(btns[0]);
-	// 	expect(_spies.dispatch).toHaveBeenCalled();
-	// })
+		let btns = TestUtils.scryRenderedDOMComponentsWithTag(_rendered, "button");
+		expect(btns[0].disabled).toBe(true);
+		
+		setup ({
+			post: { id: 100, title: "hey", body: "dude" },
+			params: { id: "100" },
+			dispatch: expect.createSpy()
+		});
+		
+		btns = TestUtils.scryRenderedDOMComponentsWithTag(_rendered, "button");
+		expect(btns[1].disabled).toBe(true);
+	})
 })
