@@ -21,9 +21,9 @@ export class Post extends Component {
 		const { dispatch, post } = this.props;
 		return (
 			<div>
-				<button onClick={() => dispatch(fetchPost(post.id-1))}>Prev</button>
+				<button onClick={() => dispatch(fetchPost(post.id-1))} disabled={post.id-1 < 1}>Prev</button>
 				{' '}
-				<button onClick={() => dispatch(fetchPost(post.id+1))}>Next</button>
+				<button onClick={() => dispatch(fetchPost(post.id+1))} disabled={post.id+1 > 100}>Next</button>
 				<h1>{post.title}</h1>
 				<p>{post.body}</p>
 			</div>
