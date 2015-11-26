@@ -1,22 +1,22 @@
 import expect from "expect";
 
-import * as reducer from "src/reducers/post";
-import * as types from "src/actions/types";
+import * as reducers from "src/reducers/post";
+import * as actions from "src/actions/post";
 
 describe("Reducer::Post", () => {
 	it("#post(undefined, {})", () => {
 		expect(
-			reducer.post(undefined, {})
-		).toEqual({ title: "Now", body: "Loading..." })
+			reducers.post(undefined, {})
+		).toEqual({ id: -1, title: "Now", body: "Loading..." })
 	})
 	it("#post({...}, {type: RECEIVE_POST})",  () => {
 		expect(
-			reducer.post({}, {
-				type: types.RECEIVE_POST,
-				post: { title: "yo", body: "man" }
+			reducers.post({}, {
+				type: actions.RECEIVE_POST,
+				post: { id: 1, title: "yo", body: "man" }
 			})
 		).toEqual(
-			{ title: "yo", body: "man" }
+			{ id: 1, title: "yo", body: "man" }
 		)
 	})
 })

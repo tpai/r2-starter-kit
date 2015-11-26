@@ -5,7 +5,6 @@ import configureStore from "redux-mock-store";
 import { applyMiddleware } from "redux";
 
 import * as actions from "src/actions/post";
-import * as types from "src/actions/types";
 
 const mockStore = configureStore([ thunk ]);
 
@@ -17,8 +16,8 @@ describe("Action::Post", () => {
 		
 		const expectedActions = [
 			{
-				type: types.RECEIVE_POST,
-				post: { title: "yo", body: "man" }
+				type: actions.RECEIVE_POST,
+				post: { id: 1, title: "yo", body: "man" }
 			}
 		];
 		
