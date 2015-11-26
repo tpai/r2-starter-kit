@@ -2,7 +2,7 @@ import promise from "es6-promise";
 import fetch from "isomorphic-fetch";
 promise.polyfill();
 
-import { RECEIVE_POST } from "./types";
+export const RECEIVE_POST = "RECEIVE_POST";
 
 export const fetchPost = id => {
 	return dispatch => {
@@ -16,6 +16,7 @@ const receivePost = json => {
 	return {
 		type: RECEIVE_POST,
 		post: {
+			id: json.id,
 			title: json.title,
 			body: json.body
 		}

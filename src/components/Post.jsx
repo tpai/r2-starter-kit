@@ -5,44 +5,25 @@ import update from "react-addons-update";
 import { fetchPost } from "../actions/post";
 
 export class Post extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { postIndex: -1 };
-	}
 	componentDidMount() {
 		const { dispatch, params } = this.props;
 		let initPostIndex = params.id * 1;
-		
-		this.setState(update(this.state, { postIndex: { $set: initPostIndex } }));
 		dispatch(fetchPost(initPostIndex));
 	}
-	readPost(action) {
-		let postIndex = this.state.postIndex;
-		
-		switch(action) {
-			case "prev": postIndex = (postIndex > 1) ? postIndex-1 : 1; break;
-			case "next": postIndex = (postIndex < 100) ? postIndex+1 : postIndex; break;
-		}
-		
-		return postIndex;
+	shouldComponentUpdate(nextProps, nextState) {
+		return nextProps.post.id !== this.props.post.id;
 	}
-	fetchPost(postIndex) {
-		const { dispatch, history } = this.props;
-		
-		this.setState(update(this.state, { postIndex: { $set: postIndex } }));
-		dispatch(fetchPost(postIndex));
-		
-		history.replaceState(null, `/post/${postIndex}`);
+	componentDidUpdate() {
+		const { history, post } = this.props;
+		history.replaceState(null, `/post/${post.id}`);
 	}
-	clickPrev() { this.fetchPost( this.readPost("prev") ) }
-	clickNext() { this.fetchPost( this.readPost("next") ) }
 	render() {
-		const { post } = this.props;
+		const { dispatch, post } = this.props;
 		return (
 			<div>
-				<button onClick={this.clickPrev.bind(this)}>Prev</button>
+				<button onClick={() => dispatch(fetchPost(post.id-1))}>Prev</button>
 				{' '}
-				<button onClick={this.clickNext.bind(this)}>Next</button>
+				<button onClick={() => dispatch(fetchPost(post.id+1))}>Next</button>
 				<h1>{post.title}</h1>
 				<p>{post.body}</p>
 			</div>

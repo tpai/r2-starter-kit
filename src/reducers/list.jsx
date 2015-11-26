@@ -1,4 +1,4 @@
-import { RECEIVE_LIST } from "../actions/types";
+import { RECEIVE_LIST } from "../actions/list";
 
 export const list = (state = [], action) => {
 	switch (action.type) {
