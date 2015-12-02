@@ -4,7 +4,7 @@
   "description": "R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack based on Node.js environment, also containing webpack loader such as sass and babel.",
   "scripts": {
     "start": "webpack-dev-server --host localhost --port 8080 --colors --hot --inline --config webpack.config.dev.js",
-    "build": "webpack --colors --optimize-minimize --config webpack.config.prod.js",
+    "build": "webpack --colors --optimize-minimize --config webpack.config.dist.js",
     "test": "NODE_ENV=test NODE_PATH=. mocha --reporter nyan --compilers js:babel-core/register --recursive 'test/**/*.test.jsx' --require test/setup.jsx",
     "kill": "taskkill /f /im node.exe",
     "server": "node server.js"

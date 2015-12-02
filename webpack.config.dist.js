@@ -1,3 +1,4 @@
+/* global __dirname */
 var webpack = require('webpack');
 module.exports = {
     entry: [
