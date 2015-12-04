@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { updatePath } from "redux-simple-router";
-import update from "react-addons-update";
 
 import { fetchPost } from "../actions/post";
+import PrevNextButtons from "../components/PrevNextButtons";
 
-export class Post extends Component {
+export class PostContent extends Component {
 	componentDidMount() {
 		const { dispatch, params } = this.props;
 		let initPostIndex = params.id * 1;
@@ -22,9 +22,7 @@ export class Post extends Component {
 		const { dispatch, post } = this.props;
 		return (
 			<div>
-				<button onClick={() => dispatch(fetchPost(post.id-1))} disabled={post.id-1 < 1}>Prev</button>
-				{' '}
-				<button onClick={() => dispatch(fetchPost(post.id+1))} disabled={post.id+1 > 100}>Next</button>
+				<PrevNextButtons postId={post.id} />
 				<h1>{post.title}</h1>
 				<p>{post.body}</p>
 			</div>
@@ -32,14 +30,14 @@ export class Post extends Component {
 	}
 }
 
-Post.propTypes = {
+PostContent.propTypes = {
 	post: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
 	return {
 		post: state.post
 	};
-}
+};
 
-export default connect(mapStateToProps)(Post);
+export default connect(mapStateToProps)(PostContent);

@@ -1,11 +1,11 @@
-import _ from "lodash";
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router";
+import _ from "lodash";
 
 import { fetchList } from "../actions/list";
+import TitleList from "../components/TitleList";
 
-export class List extends Component {
+export class PostList extends Component {
 	componentDidMount() {
 		const { dispatch } = this.props;
 		dispatch(fetchList());
@@ -15,22 +15,20 @@ export class List extends Component {
 		return (
 			<div>
 				<h1>Post List</h1>
-				<ul>
-				{
-					_.map(list, item => 
-						<li key={item.id}><Link to={"/post/" + item.id}>{item.title}</Link></li>
-					)
-				}
-				</ul>
+				<TitleList list={this.props.list} />
 			</div>
 		);
 	}
 }
 
-function mapStateToProps(state) {
+PostList.propTypes = {
+	list: PropTypes.array.isRequired
+};
+
+const mapStateToProps = state => {
 	return {
 		list: state.list
 	};
-}
+};
 
-export default connect(mapStateToProps)(List);
+export default connect(mapStateToProps)(PostList);
