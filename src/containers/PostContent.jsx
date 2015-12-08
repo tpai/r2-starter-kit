@@ -17,14 +17,20 @@ export class PostContent extends Component {
 	componentWillUpdate(nextProps, nextState) {
 		const { dispatch } = this.props;
 		dispatch(updatePath(`/post/${nextProps.post.id}`));
-	}
+    }
+    getTitle() {
+        return this.refs.title;
+    }
+    getContent() {
+        return this.refs.content;
+    }
 	render() {
 		const { dispatch, post } = this.props;
 		return (
 			<div>
 				<PrevNextButtons postId={post.id} />
-				<h1>{post.title}</h1>
-				<p>{post.body}</p>
+                <h1 ref="title">{post.title}</h1>
+				<p ref="content">{post.body}</p>
 			</div>
 		);
 	}

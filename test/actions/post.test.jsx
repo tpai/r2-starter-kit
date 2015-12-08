@@ -2,7 +2,6 @@ import nock from "nock";
 import expect from "expect";
 import thunk from "redux-thunk";
 import configureStore from "redux-mock-store";
-import { applyMiddleware } from "redux";
 
 import * as actions from "src/actions/post";
 

@@ -2,7 +2,6 @@ import nock from "nock";
 import expect from "expect";
 import thunk from "redux-thunk";
 import configureStore from "redux-mock-store";
-import { applyMiddleware } from "redux";
 
 import * as actions from "src/actions/list";
 
@@ -23,10 +22,10 @@ describe("Action::List", () => {
 					{ userId: 1, id: 1, title: "yo", body: "man" }
 				]
 			}
-		];
-		
-		const store = mockStore({}, expectedActions, done);
-		
+        ];
+
+        const store = mockStore({}, expectedActions, done);
+
 		store.dispatch(actions.fetchList());
 	})
 })

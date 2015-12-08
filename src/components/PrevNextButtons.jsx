@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { fetchPost } from "../actions/post";
 
-const PrevNextButtons = ({
+export const PrevNextButtons = ({
 	postId,
 	dispatch
 }) => (

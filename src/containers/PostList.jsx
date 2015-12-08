@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
-import _ from "lodash";
 
 import { fetchList } from "../actions/list";
 import TitleList from "../components/TitleList";
