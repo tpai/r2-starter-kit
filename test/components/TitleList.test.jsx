@@ -10,13 +10,13 @@ import _ from "lodash";
 import TitleList from "src/components/TitleList";
 
 const shallowRender = component => {
-	const renderer = TestUtils.createRenderer();
-	renderer.render(component);
-	return renderer.getRenderOutput();
+    const renderer = TestUtils.createRenderer();
+    renderer.render(component);
+    return renderer.getRenderOutput();
 }
 
 const shallowRenderWithProps = (props = {}) => {
-	return shallowRender(<TitleList {...props} />);
+    return shallowRender(<TitleList {...props} />);
 }
 
 describe("Components::TitleList", () => {

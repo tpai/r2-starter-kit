@@ -14,16 +14,16 @@ syncReduxAndRouter(history, store);
 
 let tools;
 if((__DEVELOPMENT__ && __CLIENT__ && __DEVTOOLS__)) {
-	const DevTools = require('./src/store/DevTools');
-	tools = (<DevTools />);
+    const DevTools = require('./src/store/DevTools');
+    tools = (<DevTools />);
 }
 
 render(
-	<Provider store={store}>
-		<div>
-			<AppRouter history={history} />
-			{tools}
-		</div>
-	</Provider>,
-	document.getElementById("react")
+    <Provider store={store}>
+        <div>
+            <AppRouter history={history} />
+            {tools}
+        </div>
+    </Provider>,
+    document.getElementById("react")
 );

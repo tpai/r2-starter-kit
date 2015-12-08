@@ -8,13 +8,13 @@ import React from "react";
 import { PrevNextButtons } from "src/components/PrevNextButtons";
 
 const shallowRender = component => {
-	const renderer = TestUtils.createRenderer();
-	renderer.render(component);
-	return renderer.getRenderOutput();
+    const renderer = TestUtils.createRenderer();
+    renderer.render(component);
+    return renderer.getRenderOutput();
 }
 
 const shallowRenderWithProps = (props = {}) => {
-	return shallowRender(<PrevNextButtons {...props} />);
+    return shallowRender(<PrevNextButtons {...props} />);
 }
 
 describe("Components::PrevNextButtons", () => {
