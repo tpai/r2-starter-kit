@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import { Router, Route } from "react-router";
+import { Router, Route, History } from "react-router";
 
 import PostList from "./src/containers/PostList";
 import PostContent from "./src/containers/PostContent";
@@ -8,9 +8,9 @@ import PostContent from "./src/containers/PostContent";
 export default class AppRouter extends Component {
     render() {
         return (
-            <Router history={this.props.history}>
+            <Router>
                 <Route path="/" component={PostList} />
-                <Route path="/post/:id" component={PostContent} />
+                <Route path="/post/:id" component={PostContent} history={History} />
             </Router>
         );
     }

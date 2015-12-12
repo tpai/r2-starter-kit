@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
-import { updatePath } from "redux-simple-router";
 
 import { fetchPost } from "../actions/post";
 import PrevNextButtons from "../components/PrevNextButtons";
@@ -15,8 +14,8 @@ export class PostContent extends Component {
         return nextProps.post.id !== this.props.post.id;
     }
     componentWillUpdate(nextProps, nextState) {
-        const { dispatch } = this.props;
-        dispatch(updatePath(`/post/${nextProps.post.id}`));
+        const { history } = this.props;
+        history.replaceState(null, `/post/${nextProps.post.id}`);
     }
     getTitle() {
         return this.refs.title;
