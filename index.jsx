@@ -7,17 +7,10 @@ import "./src/styles/header.scss";
 
 const store = Store ();
 
-let tools;
-if((__DEVELOPMENT__ && __CLIENT__ && __DEVTOOLS__)) {
-    const DevTools = require('./src/store/DevTools');
-    tools = (<DevTools />);
-}
-
 render(
     <Provider store={store}>
         <div>
             <AppRouter />
-            {tools}
         </div>
     </Provider>,
     document.getElementById("react")

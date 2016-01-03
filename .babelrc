@@ -1,10 +1,19 @@
 {
-  "stage": 0,
   "env": {
     "test": {
       "plugins": [
         "babel-plugin-rewire"
       ]
+    },
+    "development": {
+      "presets": ["react-hmre"],
+      "plugins": [["react-transform", {
+        "transforms": [{
+          "transform": "react-transform-hmr",
+          "imports": ["react"],
+          "locals": ["module"]
+        }]
+      }]]
     }
   }
 }

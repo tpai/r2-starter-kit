@@ -1,11 +1,14 @@
 /* global __dirname */
-var webpack = require('webpack');
+var webpack = require("webpack");
+var autoprefixer = require("autoprefixer");
+var precss = require("precss");
+
 module.exports = {
     entry: [
         "./index"
     ],
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ["", ".js", ".jsx"]
     },
     output: {
         path: __dirname + "/dist",
@@ -16,21 +19,19 @@ module.exports = {
         loaders: [
             {
                 test: /\.scss$/,
-                loader: "style!css!sass!autoprefixer!"
+                loader: "style!css!postcss-loader"
             },
             {
                 test: /\.jsx?/,
                 exclude: /(node_modules|bower_components)/,
-                loader: "babel"
+                loader: "babel",
+                query: {
+                    presets: ["react", "es2015"]
+                }
             }
         ]
     },
-    plugins: [
-        new webpack.DefinePlugin({
-          __CLIENT__: true,
-          __SERVER__: false,
-          __DEVELOPMENT__: false,
-          __DEVTOOLS__: false  // <-------- DISABLE redux-devtools HERE
-        })
-    ]
+    postcss: function () {
+        return [autoprefixer, precss];
+    }
 }
