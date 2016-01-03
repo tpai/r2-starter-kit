@@ -1,6 +1,6 @@
 # R^2 Starter Kit
 
-> R^2 Starter Kit is an isomorphic boilerplate for web development built on top of React, Redux and Webpack based on Node.js environment, also containing webpack loader such as sass and babel.
+> R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack based on Node.js environment, also containing webpack loader such as react-hmre and babel 6..
 
 [![Travis Build Status][build-badge]][build]
 [![Dependency Status][deps-badge]][deps]
