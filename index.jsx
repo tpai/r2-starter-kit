@@ -1,17 +1,16 @@
 import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
-import AppRouter from "./AppRouter";
-import Store from "./src/store/Store";
-import "./src/styles/header.scss";
 
-const store = Store ();
+import AppRouter from "./src/AppRouter";
+
+import store from "store/Store";
+
+import "styles/header.scss";
 
 render(
     <Provider store={store}>
-        <div>
-            <AppRouter />
-        </div>
+        <AppRouter />
     </Provider>,
     document.getElementById("react")
 );

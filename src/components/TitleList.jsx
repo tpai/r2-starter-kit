@@ -7,7 +7,7 @@ const TitleList = ({
 }) => (
     <ul>
     {
-        _.map(list, item => 
+        _.map(list, item =>
             <li key={item.id}><Link to={"/post/" + item.id}>{item.title}</Link></li>
         )
     }

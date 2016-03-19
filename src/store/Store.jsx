@@ -1,19 +1,17 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import promise from "redux-promise";
 import createLogger from "redux-logger";
 
-import reducers from "../reducers";
+import reducers from "reducers/";
 
-const logger = createLogger({
-    predicate: (getState, action) => process.env.NODE_ENV === `development`
-});
+let middleware = __DEVELOPMENT__ ? [thunk, promise, logger] : [thunk, promise];
+const logger = createLogger();
 
-const createStoreWithMiddleware = applyMiddleware(thunk, promise, logger)(createStore);
+const createStoreWithMiddleware = createStore(
+    combineReducers(reducers),
+    {},
+    applyMiddleware(...middleware)
+);
 
-const Store = initialState => {
-    const storeWithMiddleware = createStoreWithMiddleware(reducers, initialState);
-    return storeWithMiddleware;
-}
-
-export default Store;
+export default createStoreWithMiddleware;

@@ -1,14 +1,18 @@
 /* global __dirname */
 var webpack = require("webpack");
-var autoprefixer = require("autoprefixer");
+var path = require('path');
 var precss = require("precss");
+var autoprefixer = require('autoprefixer');
+var postcssImport = require('postcss-import');
 
 module.exports = {
-    entry: [
-        "./index"
-    ],
+    entry: {
+        app: "./index",
+        vendor: ["lodash", "react", "redux", "react-redux"]
+    },
     resolve: {
-        extensions: ["", ".js", ".jsx"]
+        root: [ path.resolve("./src") ],
+        extensions: ["", ".js", ".jsx", ".css", ".scss"]
     },
     output: {
         path: __dirname + "/dist",
@@ -18,20 +22,36 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.scss$/,
-                loader: "style!css!postcss-loader"
+                test: /\.scss|\.css$/,
+                loader: "style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!postcss?pack=cleaner"
             },
             {
                 test: /\.jsx?/,
                 exclude: /(node_modules|bower_components)/,
-                loader: "babel",
+                loader: "babel-loader",
                 query: {
-                    presets: ["react", "es2015"]
+                    presets: ["react", "es2015", "stage-0"]
                 }
             }
         ]
     },
-    postcss: function () {
-        return [autoprefixer, precss];
-    }
+    postcss: function(webpack) {
+        return {
+            defaults: [postcssImport, precss, autoprefixer],
+            cleaner: [
+                postcssImport({
+                    addDependencyTo: webpack,
+                    path: [ path.resolve(__dirname + "/src") ]
+                }),
+                precss,
+                autoprefixer({browsers:["> 5%"]})
+            ]
+        }
+    },
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js"),
+        new webpack.DefinePlugin({
+            __DEVELOPMENT__: JSON.stringify(JSON.parse(process.env.DEVELOPMENT || "false"))
+        })
+    ]
 }

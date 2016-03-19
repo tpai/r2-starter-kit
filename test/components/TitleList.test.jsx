@@ -7,7 +7,7 @@ import React from "react";
 import { Link } from "react-router";
 import _ from "lodash";
 
-import TitleList from "src/components/TitleList";
+import TitleList from "components/TitleList";
 
 const shallowRender = component => {
     const renderer = TestUtils.createRenderer();

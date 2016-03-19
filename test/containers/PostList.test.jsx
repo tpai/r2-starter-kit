@@ -3,7 +3,7 @@ import TestUtils from "react-addons-test-utils";
 
 import React from "react";
 
-import Container, { PostList } from "src/containers/PostList";
+import Container, { PostList } from "containers/PostList";
 
 const renderWithProps = (props = {}) => {
     return TestUtils.renderIntoDocument(<PostList {...props} />);

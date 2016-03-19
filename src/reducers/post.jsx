@@ -1,4 +1,4 @@
-import { RECEIVE_POST } from "../actions/post";
+import { RECEIVE_POST } from "actions/post";
 
 export const post = (state = {}, action) => {
     switch (action.type) {

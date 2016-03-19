@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 
-import { fetchList } from "../actions/list";
-import TitleList from "../components/TitleList";
+import { fetchList } from "actions/list";
+import TitleList from "components/TitleList";
 
 export class PostList extends Component {
     componentDidMount() {
@@ -18,11 +18,10 @@ export class PostList extends Component {
             </div>
         );
     }
+    static propTypes = {
+        list: PropTypes.array.isRequired
+    };
 }
-
-PostList.propTypes = {
-    list: PropTypes.array.isRequired
-};
 
 const mapStateToProps = state => {
     return {

@@ -1,43 +1,61 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 
-import { fetchPost } from "../actions/post";
-import PrevNextButtons from "../components/PrevNextButtons";
+import { fetchPost } from "actions/post";
 
 export class PostContent extends Component {
+    constructor(props, context) {
+        super(props);
+        this.context = context;
+        this.onListButtonClick = this.onListButtonClick.bind(this);
+        this.onPrevButtonClick = this.onPrevButtonClick.bind(this);
+        this.onNextButtonClick = this.onNextButtonClick.bind(this);
+    }
+    onListButtonClick() {
+        const { router } = this.context;
+        router.push({ pathname: `/` });
+    }
+    onPrevButtonClick() {
+        const { dispatch, post } = this.props;
+        dispatch(fetchPost(post.id - 1));
+    }
+    onNextButtonClick() {
+        const { dispatch, post } = this.props;
+        dispatch(fetchPost(post.id + 1));
+    }
     componentDidMount() {
-        const { dispatch, params } = this.props;
-        let initPostIndex = params.id * 1;
+        const { dispatch, routeParams } = this.props;
+        let initPostIndex = routeParams.id * 1;
         dispatch(fetchPost(initPostIndex));
     }
     shouldComponentUpdate(nextProps, nextState) {
         return nextProps.post.id !== this.props.post.id;
     }
     componentWillUpdate(nextProps, nextState) {
-        const { history } = this.props;
-        history.replaceState(null, `/post/${nextProps.post.id}`);
-    }
-    getTitle() {
-        return this.refs.title;
-    }
-    getContent() {
-        return this.refs.content;
+        const { router } = this.context;
+        router.push({ pathname: `/post/${nextProps.post.id}` });
     }
     render() {
         const { dispatch, post } = this.props;
         return (
             <div>
-                <PrevNextButtons postId={post.id} />
-                <h1 ref="title">{post.title}</h1>
-                <p ref="content">{post.body}</p>
+                <button onClick={this.onListButtonClick}>Back</button>
+                {' '}
+                <button onClick={this.onPrevButtonClick} disabled={post.id - 1 < 1}>Prev</button>
+                {' '}
+                <button onClick={this.onNextButtonClick} disabled={post.id + 1 > 100}>Next</button>
+                <h1>{post.title}</h1>
+                <p>{post.body}</p>
             </div>
         );
     }
+    static propTypes = {
+        post: PropTypes.object.isRequired
+    };
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired
+    };
 }
-
-PostContent.propTypes = {
-    post: PropTypes.object.isRequired
-};
 
 const mapStateToProps = state => {
     return {

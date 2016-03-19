@@ -1,8 +1,8 @@
 import expect from "expect";
 import deepFreeze from "deep-freeze";
 
-import * as reducers from "src/reducers/post";
-import * as actions from "src/actions/post";
+import * as reducers from "reducers/post";
+import * as actions from "actions/post";
 
 describe("Reducer::Post", () => {
     it("#post(undefined, {})", () => {

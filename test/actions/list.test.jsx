@@ -1,31 +1,19 @@
-import nock from "nock";
 import expect from "expect";
 import thunk from "redux-thunk";
 import configureStore from "redux-mock-store";
 
-import * as actions from "src/actions/list";
+import { RECEIVE_LIST, fetchList } from "actions/list";
 
-const mockStore = configureStore([ thunk ]);
+const mockStore = configureStore([thunk]);
 
 describe("Action::List", () => {
     it("#fetchList()", done => {
-        nock(`http://jsonplaceholder.typicode.com`)
-            .get(`/posts`)
-            .reply(200, [
-                { userId: 1, id: 1, title: "yo", body: "man" }
-            ])
-
-        const expectedActions = [
-            {
-                type: actions.RECEIVE_LIST,
-                list: [
-                    { userId: 1, id: 1, title: "yo", body: "man" }
-                ]
-            }
-        ];
-
-        const store = mockStore({}, expectedActions, done);
-
-        store.dispatch(actions.fetchList());
+        const store = mockStore({});
+        store.dispatch(fetchList())
+        .then(() => {
+                const action = store.getActions()[0];
+                expect(action.type).toEqual(RECEIVE_LIST);
+                expect(action.list.length).toBeGreaterThan(0);
+            }).then(done).catch(done);
     })
 })

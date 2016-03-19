@@ -1,8 +1,8 @@
 import expect from "expect";
 import deepFreeze from "deep-freeze";
 
-import * as reducers from "src/reducers/list";
-import * as actions from "src/actions/list";
+import * as reducers from "reducers/list";
+import * as actions from "actions/list";
 
 describe("Reducer::List", () => {
     it("#list(undefined, {})", () => {
