@@ -1,6 +1,6 @@
 {
   "name": "r2-starter-kit",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack based on Node.js environment, also containing webpack loader such as react-hmre and babel 6.",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --host localhost --port 8080 --colors --hot --inline --config webpack.config.js  --history-api-fallback true",
