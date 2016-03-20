@@ -6,7 +6,7 @@
     "start": "NODE_ENV=development webpack-dev-server --host localhost --port 8080 --colors --hot --inline --config webpack.config.js  --history-api-fallback true",
     "build": "NODE_ENV=production webpack --colors --optimize-minimize --config webpack.config.js",
     "test": "NODE_ENV=test NODE_PATH=./src mocha --compilers js:babel-core/register 'test/*/*.test.jsx' --recursive --require 'test/setup.jsx'",
-    "test:cov": "NODE_ENV=test NODE_PATH=./src babel-node -- ./node_modules/.bin/isparta cover -x 'dist/*.js' --include-all-sources _mocha -- 'test/*/*.test.jsx' --recursive --require 'test/setup.jsx'",
+    "test:cov": "NODE_ENV=test NODE_PATH=./src babel-node -- ./node_modules/.bin/isparta cover -x 'dist/*.js' --include '**/*.js' --include '**/*.jsx' _mocha -- 'test/*/*.test.jsx' --recursive --require 'test/setup.jsx'",
     "server": "node server.js"
   },
   "repository": {
