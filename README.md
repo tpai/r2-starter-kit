@@ -3,6 +3,7 @@
 > R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack based on Node.js environment, also containing webpack loader such as react-hmre and babel 6..
 
 [![Travis Build Status][build-badge]][build]
+[![Coverage Status][coveralls-badge]][coveralls]
 [![Dependency Status][deps-badge]][deps]
 [![devDependency Status][dev-deps-badge]][dev-deps]
 [![Heroku][heroku-deployment-badge]][heroku-app]
@@ -35,6 +36,9 @@ It will bundle all files as bundle.js into dist/ directory.
 
 [build-badge]: https://travis-ci.org/tpai/r2-starter-kit.svg?branch=master
 [build]: https://travis-ci.org/tpai/r2-starter-kit
+
+[coveralls-badge]: https://coveralls.io/repos/github/tpai/r2-starter-kit/badge.svg?branch=master
+[coveralls]: https://coveralls.io/github/tpai/r2-starter-kit?branch=master
 
 [deps-badge]: https://david-dm.org/tpai/r2-starter-kit.svg
 [deps]: https://david-dm.org/tpai/r2-starter-kit
