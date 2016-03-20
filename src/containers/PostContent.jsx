@@ -53,7 +53,7 @@ export class PostContent extends Component {
         post: PropTypes.object.isRequired
     };
     static contextTypes = {
-        router: React.PropTypes.object.isRequired
+        router: PropTypes.object.isRequired
     };
 }
 
