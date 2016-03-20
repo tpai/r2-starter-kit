@@ -5,7 +5,8 @@
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --host localhost --port 8080 --colors --hot --inline --config webpack.config.js  --history-api-fallback true",
     "build": "NODE_ENV=production webpack --colors --optimize-minimize --config webpack.config.js",
-    "test": "NODE_ENV=test NODE_PATH=./src mocha --compilers js:babel-core/register --recursive 'test/*/*.test.jsx' --require test/setup.jsx",
+    "test": "NODE_ENV=test NODE_PATH=./src mocha --compilers js:babel-core/register 'test/*/*.test.jsx' --recursive --require 'test/setup.jsx'",
+    "test:cov": "NODE_ENV=test NODE_PATH=./src babel-node -- ./node_modules/.bin/isparta cover -x 'dist/*.js' --include-all-sources _mocha -- 'test/*/*.test.jsx' --recursive --require 'test/setup.jsx'",
     "server": "node server.js"
   },
   "repository": {
@@ -44,6 +45,7 @@
     "webpack": "^1.12.14"
   },
   "devDependencies": {
+    "babel-cli": "^6.6.5",
     "babel-plugin-react-transform": "^2.0.2",
     "babel-plugin-rewire": "^1.0.0-rc-1",
     "babel-polyfill": "^6.7.2",
@@ -51,6 +53,7 @@
     "deep-freeze": "0.0.1",
     "expect": "^1.15.2",
     "expect-jsx": "^2.4.0",
+    "isparta": "^4.0.0",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "nock": "^7.2.2",
