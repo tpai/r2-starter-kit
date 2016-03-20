@@ -51,7 +51,7 @@ module.exports = {
     plugins: [
         new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js"),
         new webpack.DefinePlugin({
-            __DEVELOPMENT__: JSON.stringify(JSON.parse(process.env.DEVELOPMENT || "false"))
+            __DEVELOPMENT__: JSON.stringify(JSON.parse(process.env.NODE_ENV === 'development'))
         })
     ]
 }
