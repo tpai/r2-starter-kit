@@ -11,9 +11,9 @@ describe("Action::List", () => {
         const store = mockStore({});
         store.dispatch(fetchList())
         .then(() => {
-                const action = store.getActions()[0];
-                expect(action.type).toEqual(RECEIVE_LIST);
-                expect(action.list.length).toBeGreaterThan(0);
-            }).then(done).catch(done);
+            const action = store.getActions()[0];
+            expect(action.type).toEqual(RECEIVE_LIST);
+            expect(action.list.length).toBeGreaterThan(0);
+        }).then(done).catch(done);
     })
 })

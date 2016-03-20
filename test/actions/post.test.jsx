@@ -11,11 +11,11 @@ describe("Action::Post", () => {
         const store = mockStore({});
         store.dispatch(fetchPost(1))
         .then(() => {
-                const action = store.getActions()[0];
-                expect(action.type).toEqual(RECEIVE_POST);
-                expect(action.post.id).toBeA("number");
-                expect(action.post.title).toBeA("string");
-                expect(action.post.body).toBeA("string");
-            }).then(done).catch(done);
+            const action = store.getActions()[0];
+            expect(action.type).toEqual(RECEIVE_POST);
+            expect(action.post.id).toBeA("number");
+            expect(action.post.title).toBeA("string");
+            expect(action.post.body).toBeA("string");
+        }).then(done).catch(done);
     })
 })
