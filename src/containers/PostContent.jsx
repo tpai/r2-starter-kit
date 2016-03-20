@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 
-import { fetchPost } from "actions/post";
+import { getPost } from "redux/modules/post";
 
 export class PostContent extends Component {
     constructor(props, context) {
@@ -17,16 +17,16 @@ export class PostContent extends Component {
     }
     onPrevButtonClick() {
         const { dispatch, post } = this.props;
-        dispatch(fetchPost(post.id - 1));
+        dispatch(getPost(post.id - 1));
     }
     onNextButtonClick() {
         const { dispatch, post } = this.props;
-        dispatch(fetchPost(post.id + 1));
+        dispatch(getPost(post.id + 1));
     }
     componentDidMount() {
         const { dispatch, routeParams } = this.props;
         let initPostIndex = routeParams.id * 1;
-        dispatch(fetchPost(initPostIndex));
+        dispatch(getPost(initPostIndex));
     }
     shouldComponentUpdate(nextProps, nextState) {
         return nextProps.post.id !== this.props.post.id;

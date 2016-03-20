@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 
-import { fetchList } from "actions/list";
+import { getList } from "redux/modules/list";
+
 import TitleList from "components/TitleList";
 
 export class PostList extends Component {
     componentDidMount() {
         const { dispatch } = this.props;
-        dispatch(fetchList());
+        dispatch(getList());
     }
     render() {
         const { list } = this.props;
