@@ -2,7 +2,7 @@ import promise from "es6-promise";
 import fetch from "isomorphic-fetch";
 promise.polyfill();
 
-const GET = "app/list/GET";
+export const GET = "app/list/GET";
 
 const reducer = (state = [], action) => {
     switch (action.type) {

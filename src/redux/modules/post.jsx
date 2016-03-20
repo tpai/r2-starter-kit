@@ -4,7 +4,7 @@ promise.polyfill();
 
 import _ from "lodash";
 
-const GET = "app/post/GET";
+export const GET = "app/post/GET";
 
 const reducer = (state = {}, action) => {
     switch (action.type) {
