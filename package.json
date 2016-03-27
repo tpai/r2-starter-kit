@@ -1,7 +1,7 @@
 {
   "name": "r2-starter-kit",
   "version": "2.0.0",
-  "description": "R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack based on Node.js environment, also containing webpack loader such as react-hmre and babel 6.",
+  "description": "R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack based on Node.js environment, also containing webpack loader such as react-hmr and babel 6.",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --host localhost --port 8080 --colors --hot --inline --config webpack.config.js  --history-api-fallback true",
     "build": "cross-env NODE_ENV=production webpack --colors --optimize-minimize --config webpack.config.js",
@@ -51,7 +51,6 @@
     "babel-plugin-react-transform": "^2.0.2",
     "babel-plugin-rewire": "^1.0.0-rc-1",
     "babel-polyfill": "^6.7.2",
-    "babel-preset-react-hmre": "^1.1.1",
     "deep-freeze": "0.0.1",
     "expect": "^1.15.2",
     "expect-jsx": "^2.4.0",
@@ -60,6 +59,7 @@
     "mocha": "^2.4.5",
     "nock": "^7.2.2",
     "react-addons-test-utils": "^0.14.7",
+    "react-transform-hmr": "^1.0.4",
     "redux-logger": "^2.6.1",
     "redux-mock-store": "^1.0.2",
     "webpack-dev-server": "^1.14.1"
