@@ -1,12 +1,25 @@
 # R^2 Starter Kit
 
-> R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack based on Node.js environment, also containing webpack loader such as react-hmre and babel 6..
+> R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack based on Node.js environment.
 
 [![Travis Build Status][build-badge]][build]
 [![Coverage Status][coveralls-badge]][coveralls]
 [![Dependency Status][deps-badge]][deps]
 [![devDependency Status][dev-deps-badge]][dev-deps]
 [![Heroku][heroku-deployment-badge]][heroku-app]
+
+### Presets And Loaders
+
+* babel-preset-es2015
+* babel-preset-react
+* babel-preset-stage-0
+* style-loader
+* css-loader
+* postcss-loader
+* postcss-import
+* precss
+* autoprefixer
+* react-transform-hmr
 
 ### Get Started
 
@@ -18,7 +31,7 @@ $ cd r2-starter-kit
 $ npm install
 ```
 
-### How to Run
+### How To Run
 
 ```
 $ npm start
@@ -26,7 +39,7 @@ $ npm start
 
 This will start a development server with react-transform-hmr.
 
-### How to Build
+### How To Build
 
 ```
 $ npm run build
