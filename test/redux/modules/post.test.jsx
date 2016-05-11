@@ -1,3 +1,4 @@
+import nock from "nock";
 import expect from "expect";
 import deepFreeze from "deep-freeze";
 import thunk from "redux-thunk";
@@ -25,6 +26,9 @@ describe("Modules::Post", () => {
         expect(reducer(stateBefore, action)).toEqual(stateAfter);
     })
     it("should get a post after action", done => {
+        nock(`http://jsonplaceholder.typicode.com`)
+            .get(`/posts/1`)
+            .reply(200, { userId: 1, id: 1, title: "yo", body: "man" })
         const store = mockStore({});
         store.dispatch(getPost(1))
         .then(() => {
