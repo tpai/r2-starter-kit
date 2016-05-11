@@ -3,7 +3,7 @@ import TestUtils from "react-addons-test-utils";
 
 import React from "react";
 
-import Container, { PostList } from "containers/PostList";
+import Container, { PostList, mapStateToProps } from "containers/PostList";
 
 const renderWithProps = (props = {}) => {
     return TestUtils.renderIntoDocument(<PostList {...props} />);
@@ -39,5 +39,13 @@ describe("Containers::PostList", () => {
 
         let titleList = TestUtils.findRenderedComponentWithType(_rendered, TitleList);
         expect(titleList.props.list.length).toBe(1);
+    })
+
+    it ("should return correct props when pass state into", () => {
+        const state = { list: [{ id: 1, title: "yo", body: "man" }] };
+        const props = mapStateToProps(state);
+        expect(props.list).toExist();
+        expect(props.list).toBeA("array");
+        expect(props.list.length).toBe(1);
     })
 })
