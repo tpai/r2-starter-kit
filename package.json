@@ -50,6 +50,7 @@
     "babel-plugin-rewire": "^1.0.0-rc-1",
     "babel-polyfill": "^6.8.0",
     "deep-freeze": "0.0.1",
+    "enzyme": "^2.3.0",
     "expect": "^1.20.1",
     "expect-jsx": "^2.5.1",
     "isparta": "^4.0.0",
