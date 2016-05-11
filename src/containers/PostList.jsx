@@ -24,10 +24,6 @@ export class PostList extends Component {
     };
 }
 
-export const mapStateToProps = state => {
-    return {
-        list: state.list
-    };
-};
+export const mapStateToProps = state => { return { list: state.list } };
 
 export default connect(mapStateToProps)(PostList);
