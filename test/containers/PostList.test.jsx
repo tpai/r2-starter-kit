@@ -1,47 +1,47 @@
-import expect from "expect";
-import TestUtils from "react-addons-test-utils";
-
 import React from "react";
+import expect from "expect";
+import { mount } from "enzyme";
 
+import TitleList from "components/TitleList";
 import Container, { PostList, mapStateToProps } from "containers/PostList";
 
-const renderWithProps = (props = {}) => {
-    return TestUtils.renderIntoDocument(<PostList {...props} />);
-}
-
 describe("Containers::PostList", () => {
-    let _rendered;
-    const setup = props => {
-        _rendered = renderWithProps(props);
-    }
 
-    let TitleList;
-    beforeEach(() => {
-        TitleList = React.createClass({
-            render() {
-                return (<div>MOCK COMPONENT</div>)
-            }
-        });
-        Container.__Rewire__("TitleList", TitleList);
-    })
+    const fakeDispatch = expect.createSpy();
+    const defaultProps = {
+        list: [],
+        dispatch: fakeDispatch
+    };
+    let wrapper = mount(<PostList {...defaultProps} />);
 
-    it ("#render()", () => {
-        let fakeDispatch;
-        setup ({
-            list: [{ id: 1, title: "yo", body: "man" }],
-            dispatch: fakeDispatch = expect.createSpy()
-        });
+    // let TitleList;
+    // beforeEach(() => {
+    //     TitleList = React.createClass({
+    //         render() {
+    //             return (<div>MOCK COMPONENT</div>)
+    //         }
+    //     });
+    //     Container.__Rewire__("TitleList", TitleList);
+    // })
 
+    it ("should render correctly when props pass in", () => {
+        // componentDidMount dispatch
         expect(fakeDispatch).toHaveBeenCalled();
 
-        let header = TestUtils.findRenderedDOMComponentWithTag(_rendered, "h1");
-        expect(header.textContent).toBe("Post List");
+        let header = wrapper.find("h1");
+        expect(header.text()).toBe("Post List");
 
-        let titleList = TestUtils.findRenderedComponentWithType(_rendered, TitleList);
-        expect(titleList.props.list.length).toBe(1);
+        expect(wrapper.find(TitleList).prop("list").length).toBe(0);
+
+        wrapper.setProps({
+            list: [{ id: 1, title: "yo", body: "man" }],
+            dispatch: fakeDispatch
+        });
+
+        expect(wrapper.find(TitleList).prop("list").length).toBe(1);
     })
 
-    it ("should return correct props when pass state into", () => {
+    it ("should return correct props when pass state in", () => {
         const state = { list: [{ id: 1, title: "yo", body: "man" }] };
         const props = mapStateToProps(state);
         expect(props.list).toExist();

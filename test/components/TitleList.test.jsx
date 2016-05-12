@@ -26,7 +26,7 @@ describe("Components::TitleList", () => {
         _component = shallowRenderWithProps(_props);
     }
 
-    it("#render()", () => {
+    it("should render correctly when props pass in", () => {
 
         setup({ list: [] });
 
