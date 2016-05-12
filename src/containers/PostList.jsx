@@ -15,7 +15,7 @@ export class PostList extends Component {
         return (
             <div>
                 <h1>Post List</h1>
-                <TitleList list={this.props.list} />
+                <TitleList list={list} />
             </div>
         );
     }
