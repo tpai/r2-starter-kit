@@ -19,7 +19,7 @@
 * postcss-import
 * precss
 * autoprefixer
-* react-transform-hmr
+* react-hot-loader
 
 ### Get Started
 
@@ -31,21 +31,21 @@ $ cd r2-starter-kit
 $ npm install
 ```
 
-### How To Run
+### Run Developing Server
 
 ```
 $ npm start
 ```
 
-This will start a development server with react-transform-hmr.
+It will start a development server which listen to 8080 port.
 
-### How To Build
+### Compile And Distribute
 
 ```
 $ npm run build
 ```
 
-It will bundle all files as bundle.js into dist/ directory.
+It will distribute bundle.js and vendor.js into `dist/` directory.
 
 [build-badge]: https://travis-ci.org/tpai/r2-starter-kit.svg?branch=master
 [build]: https://travis-ci.org/tpai/r2-starter-kit
