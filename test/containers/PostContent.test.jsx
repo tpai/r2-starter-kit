@@ -72,8 +72,9 @@ describe("Containers::PostContent", () => {
     })
 
     it ("should call onListButtonClick function when back button click", () => {
-        const spy = expect.spyOn(PostContent.prototype, "onListButtonClick");
-        wrapper = mount(<PostContent {...defaultProps} />);
+        const spy = expect.createSpy();
+        const props = Object.assign(defaultProps, { router: { push: spy } });
+        wrapper = mount(<PostContent {...props} />);
         const btn = wrapper.ref("back");
         expect(spy).toNotHaveBeenCalled();
         btn.simulate("click");
@@ -81,13 +82,14 @@ describe("Containers::PostContent", () => {
     })
 
     it ("should call onPrevButtonClick function when prev button click", () => {
-        const spy = expect.spyOn(PostContent.prototype, "onPrevButtonClick");
+        const spy = expect.createSpy();
         const props = {
             post: { id: 100, title: "no", body: "dude" },
             routeParams: { id: 100 },
-            dispatch: fakeDispatch
+            dispatch: spy
         };
         wrapper = mount(<PostContent {...props} />);
+        spy.reset();
         const btn = wrapper.ref("prev");
         expect(spy).toNotHaveBeenCalled();
         btn.simulate("click");
@@ -95,8 +97,10 @@ describe("Containers::PostContent", () => {
     })
 
     it ("should call onNextButtonClick function when next button click", () => {
-        const spy = expect.spyOn(PostContent.prototype, "onNextButtonClick");
-        wrapper = mount(<PostContent {...defaultProps} />);
+        const spy = expect.createSpy();
+        const props = Object.assign(defaultProps, { dispatch: spy });
+        wrapper = mount(<PostContent {...props} />);
+        spy.reset();
         const btn = wrapper.ref("next");
         expect(spy).toNotHaveBeenCalled();
         btn.simulate("click");
