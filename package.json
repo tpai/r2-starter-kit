@@ -5,8 +5,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --host localhost --port 8080 --colors --hot --inline --config webpack.config.js  --history-api-fallback true",
     "build": "cross-env NODE_ENV=production webpack --colors --optimize-minimize --config webpack.config.js",
-    "test": "cross-env NODE_ENV=test NODE_PATH=./src mocha $(find test -name *.test.jsx) --compilers js:babel-core/register --require 'test/setup.jsx'",
-    "test:cov": "cross-env NODE_ENV=test NODE_PATH=./src babel-node -- ./node_modules/.bin/isparta cover -x 'dist/*.js' --include '**/*.js' --include '**/*.jsx' _mocha -- 'test/**/*.test.jsx' --recursive --require 'test/setup.jsx'",
+    "test": "cross-env NODE_ENV=test NODE_PATH=./src mocha $(find test -name *.test.jsx) --compilers js:babel-core/register --require 'test/setup.jsx' --require ignore-styles",
+    "test:cov": "cross-env NODE_ENV=test NODE_PATH=./src babel-node -- ./node_modules/.bin/isparta cover -x 'dist/*.js' --include '**/*.js' --include '**/*.jsx' _mocha -- 'test/**/*.test.jsx' --recursive --require 'test/setup.jsx' --require ignore-styles",
     "server": "node server.js"
   },
   "repository": {
@@ -49,10 +49,12 @@
     "babel-plugin-react-transform": "^2.0.2",
     "babel-plugin-rewire": "^1.0.0-rc-1",
     "babel-polyfill": "^6.8.0",
+    "css-modules-require-hook": "^4.0.1",
     "deep-freeze": "0.0.1",
     "enzyme": "^2.3.0",
     "expect": "^1.20.1",
     "expect-jsx": "^2.5.1",
+    "ignore-styles": "^2.0.0",
     "isparta": "^4.0.0",
     "jsdom": "^9.0.0",
     "mocha": "^2.4.5",
