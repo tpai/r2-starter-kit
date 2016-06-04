@@ -39,8 +39,10 @@ describe("Containers::PostContent", () => {
 
         let btns = wrapper.find("a");
         expect(btns.length).toBe(3);
+    })
 
-        // componentWillUpdate router.push()
+    it ("should call router.push while componentWillUpdate is being triggered", () => {
+        wrapper = mount(<PostContent {...defaultProps} />);
         expect(fakeRouter).toNotHaveBeenCalled();
         wrapper.setProps({
             post: { id: 1, title: "yo", body: "man" },
@@ -48,10 +50,10 @@ describe("Containers::PostContent", () => {
         });
         expect(fakeRouter).toHaveBeenCalled();
 
-        title = wrapper.find("h1");
+        let title = wrapper.find("h1");
         expect(title.text()).toBe("yo");
 
-        content = wrapper.find("p");
+        let content = wrapper.find("p");
         expect(content.text()).toBe("man");
     })
 
@@ -64,6 +66,7 @@ describe("Containers::PostContent", () => {
     })
 
     it ("should add disabled class to next button when id equals 100", () => {
+        wrapper = mount(<PostContent {...defaultProps} />);
         wrapper.setProps({
             post: { id: 100, title: "no", body: "dude" },
             routeParams: { id: 100 }
