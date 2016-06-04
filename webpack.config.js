@@ -28,7 +28,7 @@ module.exports = {
             {
                 test: /\.jsx?/,
                 exclude: /(node_modules|bower_components)/,
-                loaders: ["react-hot", "babel"]
+                loaders: process.env.NODE_ENV === "development" ? ["react-hot", "babel"] : ["babel"]
             }
         ]
     },
