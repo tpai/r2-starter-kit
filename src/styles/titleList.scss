@@ -1,0 +1,44 @@
+@import "common.scss";
+
+.parent {
+    width: 660px;
+    margin: 150px auto;
+}
+
+.container {
+    margin-bottom: 20px;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.peek {
+    width: 450px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    color: black;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: -0.072px;
+}
+
+.title {
+    color: black;
+    font-size: 31px;
+    font-weight: bold;
+    font-family: -webkit-pictograph;
+    line-height: 34.72px;
+    letter-spacing: -0.682px;
+}
+
+.readmore {
+    color: rgba(0, 0, 0, .3);
+    font-size: 12px;
+    line-height: 16.8px;
+    &:hover {
+        color: rgba(0, 0, 0, .8);
+    }
+}

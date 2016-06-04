@@ -1,10 +1,4 @@
-.fullsize {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    bottom: 0px;
-}
+@import "common.scss";
 
 .btn {
     width: 30%;
@@ -53,14 +47,6 @@
     }
 }
 
-.parent {
-    @extend .fullsize;
-    z-index: -1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .buttons {
     display: block;
     width: 300px;
@@ -68,14 +54,6 @@
 }
 
 .container {
-    align-self: flex-start;
     margin-top: 150px;
-    width: 900px;
-    padding: 20px;
-    border: 1px solid #BEC1C5;
     box-shadow: 5px 5px 10px gray;
-    p {
-        font-size: 1em;
-        line-height: 1.286em;
-    }
 }
