@@ -1,7 +1,8 @@
 @import "common.scss";
 
 .parent {
-    width: 660px;
+    width: 100%;
+    max-width: 660px;
     margin: 150px auto;
 }
 
@@ -14,15 +15,16 @@
 }
 
 .peek {
-    width: 450px;
+    width: auto;
+    max-width: 600px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 
     color: black;
-    font-size: 18px;
-    line-height: 27px;
-    letter-spacing: -0.072px;
+    font-size: 1.286em;
+    line-height: 1.989em;
+    letter-spacing: 0.005em;
 }
 
 .title {
@@ -42,3 +44,11 @@
         color: rgba(0, 0, 0, .8);
     }
 }
+
+@media only screen and (max-width: 40em) {
+    .peek {
+        max-width: 270px;
+    }
+}
+
+

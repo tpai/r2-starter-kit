@@ -15,11 +15,21 @@
     flex-wrap: wrap;
 }
 
+
+@media only screen and (max-width: 40em) {
+    .parent {
+        justify-content: flex-start;
+    }
+}
+
 .container {
     align-self: flex-start;
     width: 900px;
-    padding: 20px;
+    padding: 15px;
     border: 1px solid #BEC1C5;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: left;
     p {
         font-size: 1em;
         line-height: 1.286em;

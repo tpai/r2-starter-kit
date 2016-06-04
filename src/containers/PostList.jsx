@@ -16,7 +16,7 @@ export class PostList extends Component {
         const { title } = style;
         const { list } = this.props;
         return (
-            <div>
+            <div style={{ textAlign: "center" }}>
                 <h1 className={title}>Post List</h1>
                 <TitleList list={list} />
             </div>
