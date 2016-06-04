@@ -23,7 +23,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.scss|\.css$/,
-                loader: "style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!postcss?pack=cleaner"
+                loader: "style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!sass!postcss?pack=cleaner"
             },
             {
                 test: /\.jsx?/,
@@ -34,13 +34,12 @@ module.exports = {
     },
     postcss: function(webpack) {
         return {
-            defaults: [postcssImport, precss, autoprefixer],
+            defaults: [postcssImport, autoprefixer],
             cleaner: [
                 postcssImport({
                     addDependencyTo: webpack,
                     path: [ path.resolve(__dirname + "/src") ]
                 }),
-                precss,
                 autoprefixer({browsers:["> 5%"]})
             ]
         }
