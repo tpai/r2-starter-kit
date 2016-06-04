@@ -2,10 +2,15 @@ import React from "react";
 import expect from "expect";
 import { mount } from "enzyme";
 
+import * as style from "styles/postContent";
+
 import { PostContent, mapStateToProps } from "containers/PostContent";
 
 describe("Containers::PostContent", () => {
 
+    const {
+        disabled
+    } = style;
     const fakeRouter = expect.createSpy();
     const fakeDispatch = expect.createSpy();
     const defaultProps = {
@@ -32,7 +37,7 @@ describe("Containers::PostContent", () => {
         let content = wrapper.find("p");
         expect(content.text()).toBe("Loading...");
 
-        let btns = wrapper.find("button");
+        let btns = wrapper.find("a");
         expect(btns.length).toBe(3);
 
         // componentWillUpdate router.push()
@@ -50,15 +55,15 @@ describe("Containers::PostContent", () => {
         expect(content.text()).toBe("man");
     })
 
-    it ("should disable prev button when id equals 1", () => {
+    it ("should add disabled class to prev button when id equals 1", () => {
         const prevBtn = wrapper.ref("prev");
         const nextBtn = wrapper.ref("next");
 
-        expect(prevBtn.prop("disabled")).toBe(true);
-        expect(nextBtn.prop("disabled")).toBe(false);
+        expect(prevBtn.parent().hasClass(disabled)).toBe(true);
+        expect(nextBtn.parent().hasClass(disabled)).toBe(false);
     })
 
-    it ("should disable next button when id equals 100", () => {
+    it ("should add disabled class to next button when id equals 100", () => {
         wrapper.setProps({
             post: { id: 100, title: "no", body: "dude" },
             routeParams: { id: 100 }
@@ -67,8 +72,8 @@ describe("Containers::PostContent", () => {
         const prevBtn = wrapper.ref("prev");
         const nextBtn = wrapper.ref("next");
 
-        expect(prevBtn.prop("disabled")).toBe(false);
-        expect(nextBtn.prop("disabled")).toBe(true);
+        expect(prevBtn.parent().hasClass(disabled)).toBe(false);
+        expect(nextBtn.parent().hasClass(disabled)).toBe(true);
     })
 
     it ("should call onListButtonClick function when back button click", () => {
