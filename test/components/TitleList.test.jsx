@@ -1,45 +1,24 @@
-import expect from "expect";
-import expectJSX from 'expect-jsx';
-expect.extend(expectJSX);
-import TestUtils from "react-addons-test-utils";
-
 import React from "react";
+import expect from "expect";
+import { shallow } from "enzyme";
 import { Link } from "react-router";
 import _ from "lodash";
+import classNames from "classnames";
+
+import * as style from "styles/titleList";
 
 import TitleList from "components/TitleList";
 
-const shallowRender = component => {
-    const renderer = TestUtils.createRenderer();
-    renderer.render(component);
-    return renderer.getRenderOutput();
-}
-
-const shallowRenderWithProps = (props = {}) => {
-    return shallowRender(<TitleList {...props} />);
-}
-
 describe("Components::TitleList", () => {
-    let _props, _component;
-    const setup = props => {
-        _props = props;
-        _component = shallowRenderWithProps(_props);
-    }
+    let wrapper;
+    const setup = props => shallow(<TitleList {...props} />);
 
     it("should render correctly when props pass in", () => {
 
-        setup({ list: [] });
+        wrapper = setup({ list: [] });
+        expect(wrapper.children().length).toEqual(0);
 
-        expect(_component).toEqualJSX(<ul />);
-
-        setup({ list: [{ id: 1, title: "yo" }] });
-
-        expect(_component).toEqualJSX(
-            <ul>
-                <li>
-                    <Link to="/post/1">yo</Link>
-                </li>
-            </ul>
-        );
+        wrapper = setup({ list: [{ id: 1, title: "yo", content: "man" }] });
+        expect(wrapper.children().length).toEqual(1);
     })
 })
