@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
+import classNames from "classnames";
+
+import * as style from "styles/postContent";
 
 import { getPost } from "redux/modules/post";
 
@@ -36,16 +39,41 @@ export class PostContent extends Component {
         router.push({ pathname: `/post/${nextProps.post.id}` });
     }
     render() {
+        const {
+            parent,
+            buttons,
+            disabled,
+            btn,
+            container
+        } = style;
         const { dispatch, post } = this.props;
+        const isMin = post.id - 1 < 1;
+        const isMax = post.id + 1 > 100;
         return (
             <div>
-                <button ref="back" onClick={this.onListButtonClick}>Back</button>
-                {' '}
-                <button ref="prev" onClick={this.onPrevButtonClick} disabled={post.id - 1 < 1}>Prev</button>
-                {' '}
-                <button ref="next" onClick={this.onNextButtonClick} disabled={post.id + 1 > 100}>Next</button>
-                <h1 ref="title">{post.title}</h1>
-                <p ref="body">{post.body}</p>
+                <div className={buttons}>
+                    <div className={classNames(btn, {[disabled]: isMin})}>
+                        <a ref="prev" onClick={isMin ? null : this.onPrevButtonClick}>
+                            <i className="fa fa-chevron-left" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div className={btn}>
+                        <a ref="back" onClick={this.onListButtonClick}>
+                            <i className="fa fa-home" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div className={classNames(btn, {[disabled]: isMax})}>
+                        <a ref="next" onClick={isMax ? null : this.onNextButtonClick}>
+                            <i className="fa fa-chevron-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div className={parent}>
+                    <div className={container}>
+                        <h1 ref="title">{post.title}</h1>
+                        <p ref="body">{post.body}</p>
+                    </div>
+                </div>
             </div>
         );
     }

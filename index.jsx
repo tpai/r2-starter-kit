@@ -7,8 +7,6 @@ import AppRouter from "./src/AppRouter";
 
 import store from "redux/store";
 
-import "styles/header.scss";
-
 render(
     <Provider store={store}>
         <AppRouter />
