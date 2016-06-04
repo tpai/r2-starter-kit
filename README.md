@@ -8,6 +8,8 @@
 [![devDependency Status][dev-deps-badge]][dev-deps]
 [![Heroku][heroku-deployment-badge]][heroku-app]
 
+![](http://i.giphy.com/3o72EYuV3tCHSgtreo.gif)
+
 ### Presets And Loaders
 
 * babel-preset-es2015
@@ -15,9 +17,9 @@
 * babel-preset-stage-0
 * style-loader
 * css-loader
+* sass-loader
 * postcss-loader
 * postcss-import
-* precss
 * autoprefixer
 * react-hot-loader
 
