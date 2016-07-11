@@ -1,7 +1,6 @@
 /* global __dirname */
 var webpack = require("webpack");
 var path = require('path');
-var precss = require("precss");
 var autoprefixer = require('autoprefixer');
 var postcssImport = require('postcss-import');
 
