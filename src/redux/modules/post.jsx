@@ -17,18 +17,12 @@ export default reducer;
 
 export const getPost = (id, cb = () => {}) => {
     return async dispatch => {
-        const res = await fetch(`http://jsonplaceholder.typicode.com/posts/${id}`);
-        const json = await res.json();
-        dispatch(getAuthor(json, cb));
-    }
-}
-
-export const getAuthor = (post, cb = () => {}) => {
-    return async dispatch => {
-        const res = await fetch(`http://jsonplaceholder.typicode.com/users/${post.userId}`);
-        const json = await res.json();
+        const postRes = await fetch(`http://jsonplaceholder.typicode.com/posts/${id}`);
+        const post = await postRes.json();
+        const userRes = await fetch(`http://jsonplaceholder.typicode.com/users/${post.userId}`);
+        const user = await userRes.json();
         cb();
-        dispatch(gotPost(_.assign({}, post, { author: json })));
+        dispatch(gotPost(_.assign({}, post, { author: user })));
     }
 }
 
