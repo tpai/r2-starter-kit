@@ -1,6 +1,6 @@
-# R^2 Starter Kit
+# R^2 Starter Kit with AmazeUI
 
-> R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack based on Node.js environment.
+> R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack.
 
 [![Travis Build Status][build-badge]][build]
 [![Coverage Status][coveralls-badge]][coveralls]
@@ -8,7 +8,7 @@
 [![devDependency Status][dev-deps-badge]][dev-deps]
 [![Heroku][heroku-deployment-badge]][heroku-app]
 
-![](http://i.giphy.com/3o72EYuV3tCHSgtreo.gif)
+![](http://i.giphy.com/3o6ZsUEJ7BzOoFhZ04.gif)
 
 ### Presets And Loaders
 
