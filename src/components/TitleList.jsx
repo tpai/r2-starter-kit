@@ -1,9 +1,11 @@
-import React, { Component, PropTypes } from "react";
-import { Link } from "react-router";
+import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import { List, ListItem } from 'amazeui-react';
-import _ from "lodash";
 
 export default class TitleList extends Component {
+    static propTypes = {
+        list: PropTypes.array.isRequired
+    }
     render() {
         const { list } = this.props;
         return (

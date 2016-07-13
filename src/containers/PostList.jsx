@@ -1,10 +1,10 @@
-import React, { Component, PropTypes } from "react";
-import { connect } from "react-redux";
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { Grid, Col } from 'amazeui-react';
 
-import { getList } from "redux/modules/list";
+import { getList } from 'redux/modules/list';
 
-import TitleList from "components/TitleList";
+import TitleList from 'components/TitleList';
 
 export class PostList extends Component {
     static propTypes = {

@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
-import { withRouter } from "react-router";
-import { connect } from "react-redux";
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 import { Grid, Col } from 'amazeui-react';
 
 import Buttons from 'components/Buttons';

@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { render } from "react-dom";
-import { Router, Route, browserHistory } from "react-router";
+import { render } from 'react-dom';
+import { Router, Route, browserHistory } from 'react-router';
 
-import PostList from "containers/PostList";
-import PostContent from "containers/PostContent";
+import PostList from 'containers/PostList';
+import PostContent from 'containers/PostContent';
 
 import * as listActions from 'redux/modules/list';
 import * as postActions from 'redux/modules/post';

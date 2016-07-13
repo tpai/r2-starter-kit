@@ -1,15 +1,16 @@
-import "babel-polyfill";
-import React from "react";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
+import 'babel-polyfill';
+import _ from 'lodash';
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 
-import AppRouter from "./src/AppRouter";
+import AppRouter from './src/AppRouter';
 
-import store from "redux/store";
+import store from 'redux/store';
 
 render(
     <Provider store={store}>
         <AppRouter />
     </Provider>,
-    document.getElementById("react")
+    document.getElementById('react')
 );

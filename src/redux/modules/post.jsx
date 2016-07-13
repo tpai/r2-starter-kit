@@ -1,10 +1,4 @@
-import promise from "es6-promise";
-import fetch from "isomorphic-fetch";
-promise.polyfill();
-
-import _ from "lodash";
-
-export const GET = "app/post/GET";
+export const GET = 'app/post/GET';
 
 const reducer = (state = {
     title: '',
@@ -34,7 +28,7 @@ export const getAuthor = (post, cb = () => {}) => {
         const res = await fetch(`http://jsonplaceholder.typicode.com/users/${post.userId}`);
         const json = await res.json();
         cb();
-        dispatch(gotPost(Object.assign({}, post, { author: json })));
+        dispatch(gotPost(_.assign({}, post, { author: json })));
     }
 }
 
