@@ -5,6 +5,7 @@ var autoprefixer = require('autoprefixer');
 var postcssImport = require('postcss-import');
 
 module.exports = {
+    devtool: 'cheap-module-source-map',
     entry: {
         app: "./index",
         vendor: ["lodash", "react", "redux", "react-redux"]
