@@ -15,10 +15,11 @@ const reducer = (state = [], action) => {
 
 export default reducer;
 
-export const getList = () => {
+export const getList = cb => {
     return async dispatch => {
         const res = await fetch(`http://jsonplaceholder.typicode.com/posts`);
         const json = await res.json();
+        cb();
         dispatch(gotList(json));
     }
 }

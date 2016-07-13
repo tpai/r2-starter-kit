@@ -1,30 +1,26 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
+import { Grid, Col } from 'amazeui-react';
 
 import { getList } from "redux/modules/list";
-
-import * as style from "styles/postList";
 
 import TitleList from "components/TitleList";
 
 export class PostList extends Component {
-    componentDidMount() {
-        const { dispatch } = this.props;
-        dispatch(getList());
-    }
-    render() {
-        const { title } = style;
-        const { list } = this.props;
-        return (
-            <div style={{ textAlign: "center" }}>
-                <h1 className={title}>Post List</h1>
-                <TitleList list={list} />
-            </div>
-        );
-    }
     static propTypes = {
         list: PropTypes.array.isRequired
     };
+    render() {
+        const { list } = this.props;
+        return (
+            <Grid className="doc-g">
+                <Col lg={6} lgCentered>
+                    <h1>Post List</h1>
+                    <TitleList list={list} />
+                </Col>
+            </Grid>
+        );
+    }
 }
 
 export const mapStateToProps = state => { return { list: state.list } };
