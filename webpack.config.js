@@ -1,21 +1,15 @@
 /* global __dirname */
-var webpack = require('webpack');
 var path = require('path');
 var autoprefixer = require('autoprefixer');
 var postcssImport = require('postcss-import');
 
 module.exports = {
-    devtool: 'cheap-module-source-map',
-    entry: {
-        app: './index',
-        vendor: ['lodash', 'react', 'redux', 'react-redux']
-    },
     resolve: {
         root: [ path.resolve('./src') ],
         extensions: ['', '.js', '.jsx', '.css', '.scss']
     },
     output: {
-        path: __dirname + '/dist',
+        path: path.resolve(__dirname, 'www/dist/'),
         filename: 'bundle.js',
         publicPath: '/dist/'
     },
@@ -28,7 +22,7 @@ module.exports = {
             {
                 test: /\.jsx?/,
                 exclude: /(node_modules|bower_components)/,
-                loaders: process.env.NODE_ENV === 'development' ? ['react-hot', 'babel'] : ['babel']
+                loaders: ['react-hot', 'babel']
             }
         ]
     },
@@ -43,12 +37,5 @@ module.exports = {
                 autoprefixer({browsers:['> 5%']})
             ]
         }
-    },
-    plugins: [
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': '"production"',
-            __DEVELOPMENT__: JSON.stringify(JSON.parse(process.env.NODE_ENV === 'development'))
-        })
-    ]
+    }
 }
