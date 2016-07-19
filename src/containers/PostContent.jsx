@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { Grid, Col } from 'amazeui-react';
 
 import PaginationButtons from 'components/PaginationButtons';
 import Content from 'components/Content';
@@ -34,28 +33,20 @@ export class PostContent extends Component {
         } = post;
         return (
             <div>
-                <Col
-                    md={10} mdCentered
-                    lg={8} lgCentered>
-                    <Content
-                        post={{
-                            title,
-                            author: `${author.name} (${author.email})`,
-                            body
-                        }}/>
-                </Col>
-                <Col
-                    md={8} mdCentered
-                    lg={6} lgCentered>
-                    <PaginationButtons
-                        data={list}
-                        currentPage={pagination.now}
-                        isPrevDisabled={pagination.now <= 1}
-                        isNextDisabled={pagination.now >= pagination.max}
-                        onPrevButtonClick={() => { getPost(pagination.now - 1) }}
-                        onHomeButtonClick={() => { router.push({ pathname: `/` }) }}
-                        onNextButtonClick={() => { getPost(pagination.now + 1) }} />
-                </Col>
+                <Content
+                    post={{
+                        title,
+                        author: `${author.name} (${author.email})`,
+                        body
+                    }}/>
+                <PaginationButtons
+                    data={list}
+                    currentPage={pagination.now}
+                    isPrevDisabled={pagination.now <= 1}
+                    isNextDisabled={pagination.now >= pagination.max}
+                    onPrevButtonClick={() => { getPost(pagination.now - 1) }}
+                    onHomeButtonClick={() => { router.push({ pathname: `/` }) }}
+                    onNextButtonClick={() => { getPost(pagination.now + 1) }} />
             </div>
         );
     }

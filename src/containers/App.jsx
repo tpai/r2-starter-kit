@@ -1,21 +1,30 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Col } from 'amazeui-react';
+import { Link } from 'react-router';
+import { Grid, Col, Breadcrumb } from 'amazeui-react';
 
 class App extends Component {
     static propTypes = {
-        title: PropTypes.string.isRequired,
         children: PropTypes.object.isRequired
     };
     render() {
         const {
-            title,
+            location,
             children
         } = this.props;
         return (
             <Grid className="doc-g">
-                <Col lg={12} lgCentered>
-                    <h1 style={{ textAlign: 'center' }}>{title}</h1>
+                <Col
+                    md={8} mdCentered
+                    lg={6} lgCentered>
+                    <Breadcrumb>
+                        <Breadcrumb.Item
+                            active
+                            linkComponent={Link}
+                            linkProps={{ to: '/' }}>Home</Breadcrumb.Item>
+                        { location.pathname.match(/posts\/[0-9]{1,}/) != null &&
+                        <Breadcrumb.Item active>Article</Breadcrumb.Item> }
+                    </Breadcrumb>
                     {children}
                 </Col>
             </Grid>
@@ -25,7 +34,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
     return {
-        title: state.navTitle
+        pagination: state.pagination
     }
 }
 

@@ -23,7 +23,7 @@ export default class TitleList extends Component {
             })
         };
         return (
-            <ListNews data={data} thumbPosition="top" />
+            <ListNews data={data} thumbPosition="left" />
         );
     }
 }
