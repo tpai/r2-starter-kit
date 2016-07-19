@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
-import { List, ListItem } from 'amazeui-react';
+import { ListNews, Image } from 'amazeui-react';
 
 export default class TitleList extends Component {
     static propTypes = {
@@ -8,18 +8,22 @@ export default class TitleList extends Component {
     }
     render() {
         const { list } = this.props;
+        const data = {
+            header: {
+                title: '',
+                link: '#'
+            },
+            main: _.map(list, item => {
+                return {
+                    title: item.title,
+                    link: `/posts/${item.id}`,
+                    desc: item.body,
+                    img: `http://lorempixel.com/320/180?t=${item.id}`
+                };
+            })
+        };
         return (
-            <List border>
-            {
-                _.map(list, item =>
-                    <ListItem key={item.id} truncate>
-                        <Link to={"/posts/" + item.id}>
-                            {item.title}
-                        </Link>
-                    </ListItem>
-                )
-            }
-            </List>
+            <ListNews data={data} thumbPosition="top" />
         );
     }
 }

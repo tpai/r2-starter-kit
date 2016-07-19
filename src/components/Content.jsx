@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Panel, Article } from 'amazeui-react';
+import { Panel, Article, Image } from 'amazeui-react';
 
 export default class Content extends Component {
     static propTypes = {
@@ -16,6 +16,9 @@ export default class Content extends Component {
                 <Article
                     title={post.title}
                     meta={post.author}>
+                    <img
+                        src={`http://lorempixel.com/900/450?t=${post.title}`}
+                        width="100%" />
                     {post.body}
                 </Article>
             </Panel>

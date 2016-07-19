@@ -4,7 +4,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import AppRouter from './src/AppRouter';
+import AppRouter from 'AppRouter';
 
 import store from 'redux/store';
 

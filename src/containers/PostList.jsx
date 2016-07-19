@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Col } from 'amazeui-react';
+import { Col } from 'amazeui-react';
 
 import { getList } from 'redux/modules/list';
 
@@ -13,12 +13,11 @@ export class PostList extends Component {
     render() {
         const { list } = this.props;
         return (
-            <Grid className="doc-g">
-                <Col lg={6} lgCentered>
-                    <h1>Post List</h1>
-                    <TitleList list={list} />
-                </Col>
-            </Grid>
+            <Col
+                md={8} mdCentered
+                lg={6} lgCentered>
+                <TitleList list={list} />
+            </Col>
         );
     }
 }

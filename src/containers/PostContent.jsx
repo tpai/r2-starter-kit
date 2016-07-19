@@ -31,11 +31,10 @@ export class PostContent extends Component {
             body
         } = post;
         return (
-            <Grid className="doc-g">
-                <br />
+            <div>
                 <Col
-                    md={8} mdCentered
-                    lg={6} lgCentered>
+                    md={10} mdCentered
+                    lg={8} lgCentered>
                     <Content
                         post={{
                             title,
@@ -43,7 +42,9 @@ export class PostContent extends Component {
                             body
                         }}/>
                 </Col>
-                <Col md={4} mdCentered>
+                <Col
+                    md={5} mdCentered
+                    lg={3} lgCentered>
                     <Buttons
                         isPrevDisabled={pagination.now <= 1}
                         isNextDisabled={pagination.now >= pagination.max}
@@ -51,7 +52,7 @@ export class PostContent extends Component {
                         onHomeButtonClick={() => { router.push({ pathname: `/` }) }}
                         onNextButtonClick={() => { getPost(pagination.now + 1) }} />
                 </Col>
-            </Grid>
+            </div>
         );
     }
 }
