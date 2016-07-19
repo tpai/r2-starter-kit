@@ -13,7 +13,7 @@ export default class TitleList extends Component {
                 title: '',
                 link: '#'
             },
-            main: _.map(list, item => {
+            main: _.map(_.slice(list, 0, 20), item => {
                 return {
                     title: item.title,
                     link: `/posts/${item.id}`,
