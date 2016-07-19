@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Grid, Col } from 'amazeui-react';
 
-import Buttons from 'components/Buttons';
+import PaginationButtons from 'components/PaginationButtons';
 import Content from 'components/Content';
 
 import * as actions from 'redux/modules/post';
@@ -12,6 +12,7 @@ import * as actions from 'redux/modules/post';
 export class PostContent extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
+        list: PropTypes.array.isRequired,
         post: PropTypes.object.isRequired,
         pagination: PropTypes.object.isRequired
     };
@@ -19,6 +20,7 @@ export class PostContent extends Component {
         const {
             router,
             actions,
+            list,
             post,
             pagination
         } = this.props;
@@ -43,9 +45,11 @@ export class PostContent extends Component {
                         }}/>
                 </Col>
                 <Col
-                    md={5} mdCentered
-                    lg={3} lgCentered>
-                    <Buttons
+                    md={8} mdCentered
+                    lg={6} lgCentered>
+                    <PaginationButtons
+                        data={list}
+                        currentPage={pagination.now}
                         isPrevDisabled={pagination.now <= 1}
                         isNextDisabled={pagination.now >= pagination.max}
                         onPrevButtonClick={() => { getPost(pagination.now - 1) }}
@@ -59,6 +63,7 @@ export class PostContent extends Component {
 
 export const mapStateToProps = state => {
     return {
+        list: state.list,
         post: state.post,
         pagination: state.pagination
     }
