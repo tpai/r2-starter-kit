@@ -19,7 +19,7 @@
   "author": "tonypai <tony77794@gmail.com> (http://github.com/tpai)",
   "license": "ISC",
   "dependencies": {
-    "amazeui-react": "^1.2.0",
+    "amazeui-react": "^1.2.1",
     "autoprefixer": "^6.3.7",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
