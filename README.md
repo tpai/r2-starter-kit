@@ -8,7 +8,7 @@
 [![devDependency Status][dev-deps-badge]][dev-deps]
 [![Heroku][heroku-deployment-badge]][heroku-app]
 
-![](http://i.giphy.com/3o6ZsUEJ7BzOoFhZ04.gif)
+![](http://i.giphy.com/l41Ye4NTTyZciqVgI.gif)
 
 ### Presets And Loaders
 
