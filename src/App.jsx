@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { Grid, Col, Breadcrumb } from 'amazeui-react';
 
@@ -32,10 +31,4 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        pagination: state.pagination
-    }
-}
-
-export default connect(mapStateToProps)(App);
+export default App;

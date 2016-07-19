@@ -9,7 +9,7 @@ import {
     browserHistory
 } from 'react-router';
 
-import App from 'containers/App';
+import App from 'App';
 import PostList from 'containers/PostList';
 import PostContent from 'containers/PostContent';
 import store from 'redux/store';
