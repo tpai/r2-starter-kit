@@ -4,6 +4,9 @@ import { Link } from 'react-router';
 
 export default class PaginationButtons extends Component {
     static propTypes = {
+        data: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.number.isRequired
+        })).isRequired,
         isPrevDisabled: PropTypes.bool.isRequired,
         isNextDisabled: PropTypes.bool.isRequired,
         onPrevButtonClick: PropTypes.func.isRequired,
@@ -11,8 +14,6 @@ export default class PaginationButtons extends Component {
         onNextButtonClick: PropTypes.func.isRequired
     }
     onSelect = (link, e) => {
-        const {
-             } = this.props;
         switch(link) {
             case '#prev':
                 onPrevButtonClick();
