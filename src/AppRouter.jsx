@@ -10,8 +10,8 @@ import {
 } from 'react-router';
 
 import App from 'App';
-import PostList from 'containers/PostList';
-import PostContent from 'containers/PostContent';
+import ArticleList from 'containers/ArticleList';
+import ArticleContent from 'containers/ArticleContent';
 import store from 'redux/store';
 
 import * as listActions from 'redux/modules/list';
@@ -35,11 +35,11 @@ const routes = (
         path="/"
         component={App}>
         <IndexRoute
-            component={PostList}
+            component={ArticleList}
             onEnter={init.list} />
         <Route
             path="/posts/:id"
-            component={PostContent}
+            component={ArticleContent}
             onEnter={init.content} />
     </Route>
 );

@@ -9,9 +9,6 @@ export default class Content extends Component {
             body: PropTypes.string.isRequired
         })
     }
-    componentDidUpdate() {
-        this.refs.placeholder.src = `http://placehold.it/800x450`;
-    }
     render() {
         const { post } = this.props;
         return (
@@ -19,16 +16,7 @@ export default class Content extends Component {
                 <Article
                     title={post.title}
                     meta={post.author}>
-                    <img
-                        ref="placeholder"
-                        src="#" />
-                    <img
-                        style={{ display: 'none' }}
-                        src={`http://placehold.it/800x450?t=${post.title}`}
-                        onLoad={() => {
-                            this.refs.placeholder.src = `http://lorempixel.com/800/450?t=${post.title}`;
-                        }} />
-                    {post.body}
+                    <div dangerouslySetInnerHTML={{__html: post.body}} />
                 </Article>
             </Panel>
         )

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { getList } from 'redux/modules/list';
 
-import TitleList from 'components/TitleList';
+import List from 'components/List';
 
 export class PostList extends Component {
     static propTypes = {
@@ -12,7 +12,7 @@ export class PostList extends Component {
     render() {
         const { list } = this.props;
         return (
-            <TitleList
+            <List
                 title='Article List'
                 list={list}
             />
