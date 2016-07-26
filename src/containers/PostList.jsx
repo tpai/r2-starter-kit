@@ -12,7 +12,10 @@ export class PostList extends Component {
     render() {
         const { list } = this.props;
         return (
-            <TitleList list={list} />
+            <TitleList
+                title='Article List'
+                list={list}
+            />
         );
     }
 }

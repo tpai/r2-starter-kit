@@ -4,23 +4,20 @@ import { ListNews, Image } from 'amazeui-react';
 
 export default class TitleList extends Component {
     static propTypes = {
+        title: PropTypes.string,
         list: PropTypes.array.isRequired
     }
     render() {
-        const { list } = this.props;
+        const {
+            title,
+            list
+        } = this.props;
         const data = {
             header: {
-                title: '',
+                title,
                 link: '#'
             },
-            main: _.map(_.slice(list, 0, 20), item => {
-                return {
-                    title: item.title,
-                    link: `/posts/${item.id}`,
-                    desc: item.body,
-                    img: `http://lorempixel.com/320/180?t=${item.id}`
-                };
-            })
+            main: list
         };
         return (
             <ListNews data={data} thumbPosition="left" />

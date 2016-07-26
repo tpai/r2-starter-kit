@@ -13,7 +13,7 @@ const reducer = (state = {
             });
         case GET_LIST:
             return _.assign({}, state, {
-                max: action.list.length
+                max: action.data.length
             });
         default:
             return state;
