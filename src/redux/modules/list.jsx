@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export const GET = 'app/list/GET';
 export const FAILED = 'app/list/FAILED';
 
@@ -34,10 +36,11 @@ export const getList = cb => {
             const res = await fetch(`http://jsonplaceholder.typicode.com/posts`);
             const json = await res.json();
             dispatch(gotList(json));
+            cb();
         } catch(err) {
             dispatch(getListFailed());
+            cb();
         }
-        cb();
     }
 }
 
