@@ -5,8 +5,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
     "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.prod.js",
-    "test": "cross-env NODE_ENV=test NODE_PATH=./src mocha $(find test -name *.test.jsx) --compilers js:babel-core/register --require 'test/setup.jsx' --require ignore-styles",
-    "test:cov": "cross-env NODE_ENV=test NODE_PATH=./src babel-node -- ./node_modules/.bin/isparta cover -x 'dist/*.js' --include '**/*.js' --include '**/*.jsx' _mocha -- 'test/**/*.test.jsx' --recursive --require 'test/setup.jsx' --require ignore-styles",
+    "test": "cross-env NODE_ENV=test NODE_PATH=./src mocha $(find test -name *.jsx)",
+    "test:cov": "cross-env NODE_ENV=test NODE_PATH=./src babel-node -- ./node_modules/.bin/isparta cover _mocha $(find test -name *.jsx)",
     "server": "node server.js"
   },
   "repository": {
