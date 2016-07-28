@@ -37,7 +37,7 @@ export class PostContent extends Component {
                     post={{
                         title,
                         author: `${author.name} (${author.email})`,
-                        body: `<img src='http://lorempixel.com/800/450?t=${title}' />${body}`
+                        body
                     }}/>
                 <PaginationButtons
                     data={list}
