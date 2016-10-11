@@ -1,55 +1,53 @@
-import React, { Component, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { render } from 'react-dom';
+import React from "react";
 import {
     Router,
     Route,
     IndexRoute,
-    browserHistory
-} from 'react-router';
+    browserHistory,
+} from "react-router";
 
-import App from 'App';
-import ArticleList from 'containers/ArticleList';
-import ArticleContent from 'containers/ArticleContent';
-import store from 'redux/store';
+import App from "App";
+import ArticleList from "containers/ArticleList";
+import ArticleContent from "containers/ArticleContent";
+import store from "redux/store";
 
-import * as listActions from 'redux/modules/list';
-import * as postActions from 'redux/modules/post';
+import * as listActions from "redux/modules/list";
+import * as postActions from "redux/modules/post";
 
 const init = {
-    list: function(nextState, replace, cb) {
+    list: ( nextState, replace, cb ) => {
         const { dispatch } = store;
-        dispatch(listActions.getList(cb));
+        dispatch( listActions.getList( cb ) );
     },
-    content: function(nextState, replace, cb) {
+    content: ( nextState, replace, cb ) => {
         const { dispatch } = store;
-        dispatch(listActions.getList(() => {
-            store.dispatch(postActions.getPost(nextState.params.id, cb));
-        }));
-    }
+        dispatch( listActions.getList( () => {
+            store.dispatch( postActions.getPost( nextState.params.id, cb ) );
+        } ) );
+    },
 };
 
 const routes = (
     <Route
-        path="/"
-        component={App}>
+      path="/"
+      component={ App }
+    >
         <IndexRoute
-            component={ArticleList}
-            onEnter={init.list} />
+          component={ ArticleList }
+          onEnter={ init.list }
+        />
         <Route
-            path="/posts/:id"
-            component={ArticleContent}
-            onEnter={init.content} />
+          path="/posts/:id"
+          component={ ArticleContent }
+          onEnter={ init.content }
+        />
     </Route>
 );
 
-class AppRouter extends Component {
-    render() {
-        return (
-            <Router history={browserHistory} routes={routes} />
-        );
-    }
+function AppRouter() {
+    return (
+        <Router history={ browserHistory } routes={ routes } />
+    );
 }
 
 export default AppRouter;

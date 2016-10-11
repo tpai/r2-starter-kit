@@ -1,18 +1,20 @@
-import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
-import createLogger from 'redux-logger';
+/* global window, __DEVELOPMENT__ */
 
-import reducers from 'redux/reducer';
+import { compose, createStore, applyMiddleware, combineReducers } from "redux";
+import thunk from "redux-thunk";
+import createLogger from "redux-logger";
+
+import reducers from "redux/reducer";
 
 const logger = createLogger();
 
-let middleware = __DEVELOPMENT__ ? [thunk, logger] : [thunk];
+const middleware = __DEVELOPMENT__ ? [ thunk, logger ] : [ thunk ];
 
 const createStoreWithMiddleware = createStore(
-    combineReducers(reducers),
+    combineReducers( reducers ),
     {},
     compose(
-        applyMiddleware(...middleware),
+        applyMiddleware( ...middleware ),
         window.devToolsExtension ? window.devToolsExtension() : f => f
     )
 );
