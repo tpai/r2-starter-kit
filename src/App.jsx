@@ -1,8 +1,8 @@
 /* global location */
 
-import React, { PropTypes } from "react";
-import { Link } from "react-router";
-import { Grid, Col, Breadcrumb } from "amazeui-react";
+import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
+import { Grid, Col, Breadcrumb } from 'amazeui-react';
 
 function App({ children }) {
     return (
@@ -15,7 +15,7 @@ function App({ children }) {
                     <Breadcrumb.Item
                       active
                       linkComponent={Link}
-                      linkProps={{ to: "/" }}
+                      linkProps={{ to: '/' }}
                     >Home
                     </Breadcrumb.Item>
                     { location.pathname.match(/posts\/[0-9]{1,}/) != null &&

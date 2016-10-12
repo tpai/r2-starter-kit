@@ -1,9 +1,9 @@
-import React, { PropTypes } from "react";
-import { ListNews } from "amazeui-react";
+import React, { PropTypes } from 'react';
+import { ListNews } from 'amazeui-react';
 
 function List({ title, list }) {
     const data = {
-        header: { title, link: "#" },
+        header: { title, link: '#' },
         main: list,
     };
     return <ListNews data={data} thumbPosition="left" />;

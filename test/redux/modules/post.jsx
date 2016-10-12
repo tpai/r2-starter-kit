@@ -1,20 +1,18 @@
 import nock from 'nock';
 import expect, { createSpy } from 'expect';
-import deepFreeze from 'deep-freeze';
+import { describe, it } from 'mocha';
 
 import reducer, {
     GET,
-    FAILED,
     getPost,
     gotPost,
-    getPostFailed
+    getPostFailed,
 } from 'redux/modules/post';
 
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
 describe('Modules::Post', () => {
-
     const mockStore = configureStore([thunk]);
 
     it('should return default state if did not match any action type', () => {
@@ -22,10 +20,10 @@ describe('Modules::Post', () => {
         const action = {};
         const resultState = reducer(stateBefore, action);
         expect(resultState).toIncludeKeys([
-            'title', 'author', 'body'
+            'title', 'author', 'body',
         ]);
         expect(resultState.author).toIncludeKeys(['name', 'email']);
-    })
+    });
     it('should return correct state if match GET type', () => {
         const stateBefore = undefined;
         const action = {
@@ -33,16 +31,16 @@ describe('Modules::Post', () => {
             post: {
                 title: 'Title A',
                 author: { name: 'Adam', email: 'adam@blogg.er' },
-                body: 'Body A'
-            }
+                body: 'Body A',
+            },
         };
         const stateAfter = {
             title: 'Title A',
             author: { name: 'Adam', email: 'adam@blogg.er' },
-            body: 'Body A'
+            body: 'Body A',
         };
         expect(reducer(stateBefore, action)).toEqual(stateAfter);
-    })
+    });
     it('should dispatch GET type if fetch data success', () => {
         nock(`http://jsonplaceholder.typicode.com`)
             .get(`/posts/1`)
@@ -57,7 +55,7 @@ describe('Modules::Post', () => {
                 const action = store.getActions()[0];
                 expect(action).toEqual(gotPost());
             });
-    })
+    });
     it('should dispatch FAILED type if fetch data fail', () => {
         nock(`http://jsonplaceholder.typicode.com`)
             .get(`/posts/1`)
@@ -72,7 +70,7 @@ describe('Modules::Post', () => {
                 const action = store.getActions()[0];
                 expect(action).toEqual(getPostFailed());
             });
-    })
+    });
     it('should call cb() after async request', () => {
         nock(`http://jsonplaceholder.typicode.com`)
             .get(`/posts/1`)
@@ -89,5 +87,5 @@ describe('Modules::Post', () => {
             .then(() => {
                 expect(spy).toHaveBeenCalled();
             });
-    })
-})
+    });
+});

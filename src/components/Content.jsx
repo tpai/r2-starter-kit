@@ -1,5 +1,5 @@
-import React, { PropTypes } from "react";
-import { Panel, Article } from "amazeui-react";
+import React, { PropTypes } from 'react';
+import { Panel, Article } from 'amazeui-react';
 
 export default function Content({ post }) {
     const { title, author, body } = post;

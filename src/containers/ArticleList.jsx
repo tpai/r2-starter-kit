@@ -1,7 +1,7 @@
-import React, { PropTypes } from "react";
-import { connect } from "react-redux";
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 
-import List from "components/List";
+import List from 'components/List';
 
 export function PostList({ list }) {
     return (

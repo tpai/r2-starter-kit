@@ -1,6 +1,6 @@
-import React, { PropTypes } from "react";
-import { Pagination } from "amazeui-react";
-import { Link } from "react-router";
+import React, { PropTypes } from 'react';
+import { Pagination } from 'amazeui-react';
+import { Link } from 'react-router';
 
 export default function PaginationButtons({
     data,
@@ -27,7 +27,7 @@ export default function PaginationButtons({
                 <Pagination.Item
                   linkComponent={Link}
                   linkProps={{
-                      to: "/posts/1",
+                      to: '/posts/1',
                   }}
                   disabled={currentPage === 1}
                 >1...

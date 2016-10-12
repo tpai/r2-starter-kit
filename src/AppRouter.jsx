@@ -1,18 +1,18 @@
-import React from "react";
+import React from 'react';
 import {
     Router,
     Route,
     IndexRoute,
     browserHistory,
-} from "react-router";
+} from 'react-router';
 
-import App from "App";
-import ArticleList from "containers/ArticleList";
-import ArticleContent from "containers/ArticleContent";
-import store from "redux/store";
+import App from 'App';
+import ArticleList from 'containers/ArticleList';
+import ArticleContent from 'containers/ArticleContent';
+import store from 'redux/store';
 
-import * as listActions from "redux/modules/list";
-import * as postActions from "redux/modules/post";
+import * as listActions from 'redux/modules/list';
+import * as postActions from 'redux/modules/post';
 
 const init = {
     list: (nextState, replace, cb) => {

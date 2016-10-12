@@ -1,5 +1,5 @@
-import { GET as GET_POST } from "redux/modules/post";
-import { GET as GET_LIST } from "redux/modules/list";
+import { GET as GET_POST } from 'redux/modules/post';
+import { GET as GET_LIST } from 'redux/modules/list';
 
 const reducer = (state = {
     min: 1,
