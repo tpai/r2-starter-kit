@@ -15,38 +15,38 @@ import * as listActions from "redux/modules/list";
 import * as postActions from "redux/modules/post";
 
 const init = {
-    list: ( nextState, replace, cb ) => {
+    list: (nextState, replace, cb) => {
         const { dispatch } = store;
-        dispatch( listActions.getList( cb ) );
+        dispatch(listActions.getList(cb));
     },
-    content: ( nextState, replace, cb ) => {
+    content: (nextState, replace, cb) => {
         const { dispatch } = store;
-        dispatch( listActions.getList( () => {
-            store.dispatch( postActions.getPost( nextState.params.id, cb ) );
-        } ) );
+        dispatch(listActions.getList(() => {
+            store.dispatch(postActions.getPost(nextState.params.id, cb));
+        }));
     },
 };
 
 const routes = (
     <Route
       path="/"
-      component={ App }
+      component={App}
     >
         <IndexRoute
-          component={ ArticleList }
-          onEnter={ init.list }
+          component={ArticleList}
+          onEnter={init.list}
         />
         <Route
           path="/posts/:id"
-          component={ ArticleContent }
-          onEnter={ init.content }
+          component={ArticleContent}
+          onEnter={init.content}
         />
     </Route>
 );
 
 function AppRouter() {
     return (
-        <Router history={ browserHistory } routes={ routes } />
+        <Router history={browserHistory} routes={routes} />
     );
 }
 

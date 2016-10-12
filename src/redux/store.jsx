@@ -11,10 +11,10 @@ const logger = createLogger();
 const middleware = __DEVELOPMENT__ ? [ thunk, logger ] : [ thunk ];
 
 const createStoreWithMiddleware = createStore(
-    combineReducers( reducers ),
+    combineReducers(reducers),
     {},
     compose(
-        applyMiddleware( ...middleware ),
+        applyMiddleware(...middleware),
         window.devToolsExtension ? window.devToolsExtension() : f => f
     )
 );

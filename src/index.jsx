@@ -10,8 +10,8 @@ import AppRouter from "AppRouter";
 import store from "redux/store";
 
 render(
-    <Provider store={ store }>
+    <Provider store={store}>
         <AppRouter />
     </Provider>,
-    document.getElementById( "react" )
+    document.getElementById("react")
 );

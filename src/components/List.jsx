@@ -1,15 +1,15 @@
 import React, { PropTypes } from "react";
 import { ListNews } from "amazeui-react";
 
-function List( { title, list } ) {
+function List({ title, list }) {
     const data = {
         header: { title, link: "#" },
         main: list,
     };
-    return <ListNews data={ data } thumbPosition="left" />;
+    return <ListNews data={data} thumbPosition="left" />;
 }
 
 List.propTypes = {
     title: PropTypes.string,
-    list: PropTypes.arrayOf( PropTypes.object ).isRequired,
+    list: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

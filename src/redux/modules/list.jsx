@@ -3,16 +3,16 @@
 export const GET = "app/list/GET";
 export const FAILED = "app/list/FAILED";
 
-const reducer = ( state = [], action ) => {
-    switch ( action.type ) {
+const reducer = (state = [], action) => {
+    switch (action.type) {
     case GET:
-        return action.data.map( item => ( {
+        return action.data.map(item => ({
             id: item.id,
             title: item.title,
-            link: `/posts/${ item.id }`,
+            link: `/posts/${item.id}`,
             desc: item.body,
-            img: `http://lorempixel.com/320/180?t=${ item.id }`,
-        } ) );
+            img: `http://lorempixel.com/320/180?t=${item.id}`,
+        }));
     case FAILED:
         return [ {
             id: 0,
@@ -28,21 +28,21 @@ const reducer = ( state = [], action ) => {
 
 export default reducer;
 
-export function getList( cb ) {
-    return async ( dispatch ) => {
+export function getList(cb) {
+    return async (dispatch) => {
         try {
-            const res = await fetch( "http://jsonplaceholder.typicode.com/posts" );
+            const res = await fetch("http://jsonplaceholder.typicode.com/posts");
             const json = await res.json();
-            dispatch( gotList( json ) );
+            dispatch(gotList(json));
             cb();
-        } catch ( err ) {
-            dispatch( getListFailed() );
+        } catch (err) {
+            dispatch(getListFailed());
             cb();
         }
     };
 }
 
-export function gotList( json ) {
+export function gotList(json) {
     return {
         type: GET,
         data: json,
