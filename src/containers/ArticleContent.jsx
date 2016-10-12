@@ -47,7 +47,7 @@ export function PostContent({
 PostContent.propTypes = {
     router: PropTypes.shape().isRequired,
     actions: PropTypes.shape().isRequired,
-    list: PropTypes.arrayOf().isRequired,
+    list: PropTypes.arrayOf(PropTypes.object).isRequired,
     post: PropTypes.shape({
         title: PropTypes.string,
         author: PropTypes.shape({

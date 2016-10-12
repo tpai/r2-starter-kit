@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { ListNews } from 'amazeui-react';
 
-function List({ title, list }) {
+export default function List({ title, list }) {
     const data = {
         header: { title, link: '#' },
         main: list,
