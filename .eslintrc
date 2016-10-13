@@ -5,6 +5,9 @@
         "react"
     ],
     "rules": {
+        // parentheses
+        "arrow-parens": [ 2, "as-needed" ],
+
         // module import
         "import/no-extraneous-dependencies": 0,
         "import/no-unresolved": 0,
