@@ -25,7 +25,7 @@ const reducer = (state = {
 export default reducer;
 
 export function getPost(id, cb = () => {}) {
-    return async (dispatch) => {
+    return async dispatch => {
         try {
             const postRes = await fetch(`http://jsonplaceholder.typicode.com/posts/${id}`);
             const post = await postRes.json();

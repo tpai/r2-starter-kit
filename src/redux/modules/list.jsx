@@ -29,7 +29,7 @@ const reducer = (state = [], action) => {
 export default reducer;
 
 export function getList(cb) {
-    return async (dispatch) => {
+    return async dispatch => {
         try {
             const res = await fetch('http://jsonplaceholder.typicode.com/posts');
             const json = await res.json();
