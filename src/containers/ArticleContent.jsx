@@ -8,7 +8,7 @@ import Content from 'components/Content';
 
 import * as actions from 'redux/modules/post';
 
-export function PostContent({
+function PostContent({
     router,
     list,
     post,
@@ -58,14 +58,14 @@ PostContent.propTypes = {
     pagination: PropTypes.shape().isRequired,
 };
 
-export function mapStateToProps(state) {
+function mapStateToProps(state) {
     return {
         list: state.list,
         post: state.post,
         pagination: state.pagination,
     };
 }
-export function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators(actions, dispatch),
     };
