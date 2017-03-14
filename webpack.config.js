@@ -1,12 +1,10 @@
 /* global __dirname */
 var path = require('path');
-var autoprefixer = require('autoprefixer');
-var postcssImport = require('postcss-import');
 
 module.exports = {
     resolve: {
-        root: [ path.resolve('./src') ],
-        extensions: ['', '.js', '.jsx', '.css', '.scss']
+        modules: [ path.resolve('./src'), 'node_modules' ],
+        extensions: ['.js', '.jsx', '.css', '.scss']
     },
     output: {
         path: path.resolve(__dirname, 'www/dist/'),
@@ -14,35 +12,40 @@ module.exports = {
         publicPath: '/dist/'
     },
     module: {
-        preLoaders: [
-            {
-                test: /\.jsx$/,
-                exclude: /node_modules/,
-                loader: 'eslint-loader'
-            },
-        ],
-        loaders: [
+        rules: [
             {
                 test: /\.scss|\.css$/,
-                loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!sass!postcss?pack=cleaner'
+                use: [
+                    'style-loader',
+                    'css-loader?importLoaders=1',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                          plugins: function () {
+                              return [
+                                  require('postcss-import')({
+                                      addDependencyTo: webpack,
+                                      path: [ path.resolve(__dirname + '/src') ]
+                                  }),
+                                  require('autoprefixer')({browsers:['> 5%']})
+                              ];
+                          }
+                        }
+                    }
+                ]
             },
             {
-                test: /\.jsx?/,
-                exclude: /(node_modules|bower_components)/,
-                loaders: ['react-hot', 'babel']
+                test: /\.jsx$/,
+                use:  [
+                   { loader: 'babel-loader' }
+                ],
+                exclude: /node_modules/, 
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "eslint-loader"
             }
         ]
-    },
-    postcss: function(webpack) {
-        return {
-            defaults: [postcssImport, autoprefixer],
-            cleaner: [
-                postcssImport({
-                    addDependencyTo: webpack,
-                    path: [ path.resolve(__dirname + '/src') ]
-                }),
-                autoprefixer({browsers:['> 5%']})
-            ]
-        }
     }
 }

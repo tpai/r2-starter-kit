@@ -12,7 +12,6 @@ module.exports = objectAssign({}, defaultConfig, {
         inline: true,
         historyApiFallback: true
     },
-    debug: true,
     entry: [
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
