@@ -1,7 +1,7 @@
 /* global location */
 
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Grid, Col, Breadcrumb } from 'amazeui-react';
 
 function App({ children }) {

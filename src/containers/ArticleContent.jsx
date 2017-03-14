@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
@@ -8,44 +8,53 @@ import Content from 'components/Content';
 
 import * as actions from 'redux/modules/post';
 
-function PostContent({
-    router,
-    list,
-    post,
-    pagination,
-}) {
-    const {
-        getPost,
-    } = actions;
-    const {
-        title,
-        author,
-        body,
-    } = post;
-    return (
-        <div>
-            <Content
-              post={{
-                  title,
-                  author: `${author.name} (${author.email})`,
-                  body,
-              }}
-            />
-            <PaginationButtons
-              data={list}
-              currentPage={pagination.now}
-              isPrevDisabled={pagination.now <= 1}
-              isNextDisabled={pagination.now >= pagination.max}
-              onPrevButtonClick={() => { getPost(pagination.now - 1); }}
-              onHomeButtonClick={() => { router.push({ pathname: '/' }); }}
-              onNextButtonClick={() => { getPost(pagination.now + 1); }}
-            />
-        </div>
-    );
+class PostContent extends Component {
+    componentDidMount() {
+        const { actions, match } = this.props;
+        const { getPost } = actions;
+        getPost(match.params.id);
+    }
+    render() {
+        const {
+            actions,
+            history,
+            list,
+            post,
+            pagination,
+        } = this.props;
+        const {
+            getPost,
+        } = actions;
+        const {
+            title,
+            author,
+            body,
+        } = post;
+        return (
+            <div>
+                <Content
+                  post={{
+                      title,
+                      author: `${author.name} (${author.email})`,
+                      body,
+                  }}
+                />
+                <PaginationButtons
+                  data={list}
+                  currentPage={pagination.now}
+                  isPrevDisabled={pagination.now <= 1}
+                  isNextDisabled={pagination.now >= pagination.max}
+                  onPrevButtonClick={() => { getPost(pagination.now - 1); }}
+                  onHomeButtonClick={() => { history.push({ pathname: '/' }); }}
+                  onNextButtonClick={() => { getPost(pagination.now + 1); }}
+                />
+            </div>
+        );
+    }
 }
 
 PostContent.propTypes = {
-    router: PropTypes.shape().isRequired,
+    history: PropTypes.shape().isRequired,
     actions: PropTypes.shape().isRequired,
     list: PropTypes.arrayOf(PropTypes.object).isRequired,
     post: PropTypes.shape({
@@ -67,7 +76,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(actions, dispatch),
+        actions: bindActionCreators(actions, dispatch)
     };
 }
 

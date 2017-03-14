@@ -1,18 +1,36 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import * as actions from 'redux/modules/list';
 import List from 'components/List';
 
-function PostList({ list }) {
-    return <List title="Article List" list={list} />;
+class ArticleList extends Component {
+    static propTypes = {
+        list: PropTypes.arrayOf(PropTypes.object).isRequired
+    }
+    componentDidMount() {
+        const { actions } = this.props;
+        const { getList } = actions;
+        getList();
+    }
+    render() {
+        const { list } = this.props;
+        return <List title="Article List" list={list} />;
+    }
 }
-
-PostList.propTypes = {
-    list: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 function mapStateToProps(state) {
     return { list: state.list };
 }
 
-export default connect(mapStateToProps)(PostList);
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(
+            actions,
+            dispatch
+        )
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);

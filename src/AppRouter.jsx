@@ -1,52 +1,30 @@
 import React from 'react';
 import {
-    Router,
+    BrowserRouter as Router,
     Route,
-    IndexRoute,
-    browserHistory,
-} from 'react-router';
+    IndexRoute
+} from 'react-router-dom';
 
 import App from 'App';
 import ArticleList from 'containers/ArticleList';
 import ArticleContent from 'containers/ArticleContent';
 import store from 'redux/store';
 
-import * as listActions from 'redux/modules/list';
-import * as postActions from 'redux/modules/post';
-
-const init = {
-    list: (nextState, replace, cb) => {
-        const { dispatch } = store;
-        dispatch(listActions.getList(cb));
-    },
-    content: (nextState, replace, cb) => {
-        const { dispatch } = store;
-        dispatch(listActions.getList(() => {
-            store.dispatch(postActions.getPost(nextState.params.id, cb));
-        }));
-    },
-};
-
-const routes = (
-    <Route
-      path="/"
-      component={App}
-    >
-        <IndexRoute
-          component={ArticleList}
-          onEnter={init.list}
-        />
-        <Route
-          path="/posts/:id"
-          component={ArticleContent}
-          onEnter={init.content}
-        />
-    </Route>
-);
-
 function AppRouter() {
     return (
-        <Router history={browserHistory} routes={routes} />
+        <Router>
+            <div>
+                <Route
+                  exact
+                  path="/"
+                  component={ArticleList}
+                />
+                <Route
+                  path="/posts/:id"
+                  component={ArticleContent}
+                />
+            </div>
+        </Router>
     );
 }
 
