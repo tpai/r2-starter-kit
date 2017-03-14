@@ -1,5 +1,7 @@
 # R^2 Starter Kit with AmazeUI
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tpai/r2-starter-kit.svg)](https://greenkeeper.io/)
+
 > R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack.
 
 [![Travis Build Status][build-badge]][build]
