@@ -1,9 +1,8 @@
 # R^2 Starter Kit with AmazeUI
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/tpai/r2-starter-kit.svg)](https://greenkeeper.io/)
-
 > R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack.
 
+[![Greenkeeper badge][greenkeeper-badge]][greenkeeper]
 [![Travis Build Status][build-badge]][build]
 [![Coverage Status][coveralls-badge]][coveralls]
 [![Dependency Status][deps-badge]][deps]
@@ -65,3 +64,6 @@ It will distribute bundle.js and vendor.js into `dist/` directory.
 
 [heroku-deployment-badge]: https://heroku-badge.herokuapp.com/?app=r2-starter-kit
 [heroku-app]: http://r2-starter-kit.herokuapp.com
+
+[greenkeeper-badge]: https://badges.greenkeeper.io/tpai/r2-starter-kit.svg
+[greenkeeper]: https://greenkeeper.io/
