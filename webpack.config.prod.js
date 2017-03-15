@@ -1,9 +1,8 @@
 /* global __dirname */
 var webpack = require('webpack');
-var objectAssign = require('object-assign');
 var defaultConfig = require('./webpack.config.js');
 
-module.exports = objectAssign({}, defaultConfig, {
+module.exports = Object.assign({}, defaultConfig, {
     entry: './src/index',
     plugins: [
         new webpack.DefinePlugin({
