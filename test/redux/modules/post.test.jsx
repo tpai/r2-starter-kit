@@ -1,3 +1,5 @@
+/* global describe it */
+
 import expect from 'expect';
 
 import reducer, { GET } from 'redux/modules/post';
