@@ -6,7 +6,7 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
     "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.prod.js",
     "test": "cross-env NODE_ENV=test NODE_PATH=./src jest",
-    "test:cov": "cross-env NODE_ENV=test jest --coverage",
+    "test:cov": "cross-env NODE_ENV=test NODE_PATH=./src jest --coverage",
     "server": "node server.js",
     "lint": "eslint $(find src test -name \\*.jsx)",
     "precommit": "npm run lint",
@@ -81,7 +81,12 @@
     "webpack-dev-server": "^2.4.2"
   },
   "jest": {
-    "collectCoverageFrom" : ["**/*.{js,jsx}", "!**/node_modules/**", "!**/vendor/**"]
+    "collectCoverageFrom" : [
+      "src/components/**/*.{js,jsx}",
+      "src/redux/modules/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ]
   },
   "config": {
     "commitizen": {
