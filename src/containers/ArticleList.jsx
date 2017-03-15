@@ -16,20 +16,21 @@ class ArticleList extends Component {
     }
     render() {
         const { list } = this.props;
-        return <List title="Article List" list={list} />;
+        return (
+            <List data={list} />
+        );
     }
 }
 
 function mapStateToProps(state) {
-    return { list: state.list };
+    return {
+        list: state.list
+    };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(
-            actions,
-            dispatch
-        )
+        actions: bindActionCreators(actions, dispatch)
     };
 }
 

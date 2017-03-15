@@ -7,7 +7,11 @@ import Content from 'components/Content';
 
 import * as actions from 'redux/modules/post';
 
-class PostContent extends Component {
+class ArticleContent extends Component {
+    static propTypes = {
+        history: PropTypes.shape().isRequired,
+        post: PropTypes.shape()
+    }
     componentDidMount() {
         const { actions, match } = this.props;
         const { getPost } = actions;
@@ -15,43 +19,18 @@ class PostContent extends Component {
     }
     render() {
         const {
-            actions,
             history,
-            list,
-            post,
-            pagination,
+            post
         } = this.props;
-        const {
-            getPost,
-        } = actions;
-        const {
-            title,
-            author,
-            body,
-        } = post;
         return (
+            <Content {...post} />
         );
     }
 }
 
-PostContent.propTypes = {
-    history: PropTypes.shape().isRequired,
-    actions: PropTypes.shape().isRequired,
-    list: PropTypes.arrayOf(PropTypes.object).isRequired,
-    post: PropTypes.shape({
-        title: PropTypes.string,
-        author: PropTypes.shape({
-            name: PropTypes.string,
-            email: PropTypes.string,
-        }),
-    }).isRequired,
-    pagination: PropTypes.shape().isRequired,
-};
-
 function mapStateToProps(state) {
     return {
-        list: state.list,
-        post: state.post,
+        post: state.post
     };
 }
 function mapDispatchToProps(dispatch) {
@@ -60,4 +39,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PostContent));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ArticleContent));

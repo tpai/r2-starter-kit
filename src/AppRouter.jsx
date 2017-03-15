@@ -13,14 +13,14 @@ import store from 'redux/store';
 function AppRouter() {
     return (
         <Router>
-            <div>
+            <div style={{ margin: '1rem' }}>
                 <Route
                   exact
                   path="/"
                   component={ArticleList}
                 />
                 <Route
-                  path="/posts/:id"
+                  path="/article/:id"
                   component={ArticleContent}
                 />
             </div>
