@@ -1,4 +1,4 @@
-# R^2 Starter Kit with AmazeUI
+# R^2 Starter Kit with [TocasUI](https://github.com/TeaMeow/TocasUI/)
 
 > R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack.
 
