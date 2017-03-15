@@ -9,7 +9,12 @@ import * as actions from 'redux/modules/post';
 
 class ArticleContent extends Component {
     static propTypes = {
-        history: PropTypes.shape().isRequired,
+        actions: PropTypes.shape(),
+        match: PropTypes.shape({
+            params: PropTypes.shape({
+                id: PropTypes.string
+            })
+        }),
         post: PropTypes.shape()
     }
     componentDidMount() {
@@ -18,12 +23,8 @@ class ArticleContent extends Component {
         getPost(match.params.id);
     }
     render() {
-        const {
-            history,
-            post
-        } = this.props;
         return (
-            <Content {...post} />
+            <Content {...this.props.post} />
         );
     }
 }

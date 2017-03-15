@@ -7,7 +7,8 @@ import List from 'components/List';
 
 class ArticleList extends Component {
     static propTypes = {
-        list: PropTypes.arrayOf(PropTypes.object).isRequired
+        actions: PropTypes.shape(),
+        list: PropTypes.arrayOf(PropTypes.object)
     }
     componentDidMount() {
         const { actions } = this.props;

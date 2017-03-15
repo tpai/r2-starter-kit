@@ -24,4 +24,10 @@ export default function List({ data }) {
 }
 
 List.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+        img: PropTypes.string,
+        link: PropTypes.string,
+        title: PropTypes.string,
+        desc: PropTypes.string
+    }))
 };

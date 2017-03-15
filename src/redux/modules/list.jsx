@@ -9,7 +9,7 @@ const reducer = (state = [], action) => {
         return action.data.map(item => ({
             id: item.id,
             title: item.title,
-            link: `/posts/${item.id}`,
+            link: `/article/${item.id}`,
             desc: item.body,
             img: `http://lorempixel.com/320/180?t=${item.id}`,
         }));
