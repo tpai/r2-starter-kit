@@ -3,20 +3,12 @@
 export const GET = 'app/post/GET';
 export const FAILED = 'app/post/FAILED';
 
-const reducer = (state = {
-    title: '',
-    author: { name: '', email: '' },
-    body: '',
-}, action) => {
+const reducer = (state = {}, action) => {
     switch (action.type) {
     case GET:
         return Object.assign({}, state, action.post);
     case FAILED:
-        return {
-            title: 'Fetch failed...',
-            author: { name: 'null', email: 'null' },
-            body: 'null',
-        };
+        return {};
     default:
         return state;
     }

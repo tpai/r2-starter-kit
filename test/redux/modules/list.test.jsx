@@ -25,17 +25,21 @@ describe('Modules::List', () => {
                 body: 'Body A',
             }],
         };
-        expect(reducer(stateBefore, action)[0]).toIncludeKeys([
-            'id', 'title', 'link', 'desc', 'img',
-        ]);
+        const stateAfter = {
+            id: 1,
+            title: 'Title A',
+            link: '/article/1',
+            desc: 'Body A',
+            img: 'http://lorempixel.com/320/180?t=1'
+        };
+        expect(reducer(stateBefore, action)).toInclude(stateAfter);
     });
     it('should return correct state if match FAILED type', () => {
         const stateBefore = [];
         const action = {
             type: FAILED,
         };
-        expect(reducer(stateBefore, action)[0]).toIncludeKeys([
-            'id', 'title', 'link', 'desc', 'img',
-        ]);
+        const stateAfter = {};
+        expect(reducer(stateBefore, action)).toInclude(stateAfter);
     });
 });

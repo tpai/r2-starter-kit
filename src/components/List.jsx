@@ -23,6 +23,16 @@ export default function List({ data }) {
     );
 }
 
+List.defaultProps = {
+    data: [{
+        id: 0,
+        title: 'Title',
+        link: '#',
+        desc: 'Content',
+        img: 'http://placehold.it/320x180',
+    }]
+};
+
 List.propTypes = {
     data: PropTypes.arrayOf(PropTypes.shape({
         img: PropTypes.string,

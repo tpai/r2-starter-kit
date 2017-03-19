@@ -23,6 +23,12 @@ export default function Content({ title, author, body }) {
     );
 }
 
+Content.defaultProps = {
+    title: 'Title',
+    author: { name: 'Author', email: 'Email' },
+    body: 'Content'
+};
+
 Content.propTypes = {
     title: PropTypes.string,
     author: PropTypes.shape({
