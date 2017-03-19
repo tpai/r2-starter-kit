@@ -33,11 +33,7 @@ describe('Modules::Post', () => {
         const action = {
             type: FAILED
         };
-        const stateAfter = {
-            title: 'Title',
-            author: { name: 'Author', email: 'Email' },
-            body: 'Content'
-        };
+        const stateAfter = {};
         expect(reducer(stateBefore, action)).toEqual(stateAfter);
     });
 });

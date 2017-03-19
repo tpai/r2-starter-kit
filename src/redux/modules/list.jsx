@@ -14,13 +14,7 @@ const reducer = (state = [], action) => {
             img: `http://lorempixel.com/320/180?t=${item.id}`,
         }));
     case FAILED:
-        return [{
-            id: 0,
-            title: 'Fetch Failed...',
-            link: '#',
-            desc: 'Fetch Failed...',
-            img: 'http://placehold.it/320x180',
-        }];
+        return [];
     default:
         return state;
     }

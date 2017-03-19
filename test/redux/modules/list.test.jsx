@@ -39,7 +39,7 @@ describe('Modules::List', () => {
         const action = {
             type: FAILED,
         };
-        const stateAfter = {};
-        expect(reducer(stateBefore, action)).toInclude(stateAfter);
+        const stateAfter = 0;
+        expect(reducer(stateBefore, action).length).toBe(stateAfter);
     });
 });
