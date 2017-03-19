@@ -10,7 +10,7 @@ import ArticleContent from 'containers/ArticleContent';
 function AppRouter() {
     return (
         <Router>
-            <div style={{ margin: '1rem' }}>
+            <div className="ts text container" style={{ margin: '1rem' }}>
                 <Route
                   exact
                   path="/"

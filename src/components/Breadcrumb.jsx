@@ -7,13 +7,13 @@ function Breadcrumb({ data }) {
             {data.map((val, key) => {
                 const lastOne = key === data.length - 1;
                 return (
-                    <a key={`crumb${key}`} className={`${lastOne ? 'active' : ''} section`}>
+                    <div key={`crumb${key}`} className={`${lastOne ? 'active' : ''} section`}>
                         {val.link
                             ? <Link to={val.link}>{val.text}</Link>
                             : val.text
                         }
                         {!lastOne && <i className="right angle icon divider"></i>}
-                    </a>
+                    </div>
                 );
             })}
         </div>

@@ -9,6 +9,9 @@ export default function Content({ title, author, body }) {
                 { text: 'Content' }
             ]} />
             <div className="ts card text container">
+                <div className="image">
+                    <img src={`http://lorempixel.com/1200/720`} />
+                </div>
                 <div className="content">
                     <div className="header">
                         {title}
