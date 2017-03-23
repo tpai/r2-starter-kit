@@ -35,16 +35,11 @@ module.exports = {
                 ]
             },
             {
-                test: /\.jsx$/,
+                test: /\.jsx?$/,
                 use:  [
                    { loader: 'babel-loader' }
                 ],
-                exclude: /node_modules/, 
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: "eslint-loader"
+                exclude: /node_modules/
             }
         ]
     }
