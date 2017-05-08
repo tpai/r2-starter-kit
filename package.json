@@ -22,7 +22,7 @@
   "author": "tonypai <tony77794@gmail.com> (http://github.com/tpai)",
   "license": "ISC",
   "dependencies": {
-    "autoprefixer": "^6.5.1",
+    "autoprefixer": "^7.0.0",
     "babel-core": "^6.10.4",
     "babel-jest": "^20.0.0",
     "babel-loader": "^7.0.0",
