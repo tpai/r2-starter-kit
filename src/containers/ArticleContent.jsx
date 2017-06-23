@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import reduce from 'object.reduce';
 
 import Content from 'components/Content';
 
@@ -37,8 +38,18 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(actions, dispatch)
+        actions: bindActionCreators(filterActions(actions), dispatch)
     };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ArticleContent));
+
+export function filterActions(actions) {
+    const acts = reduce(actions, (result, val, key) => {
+        if (typeof val === 'function') {
+            return Object.assign({}, result, { [key]: val });
+        }
+        return result;
+    }, {});
+    return acts;
+}
