@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Breadcrumb from 'components/Breadcrumb';
 
 export default function Content({ title, author, body }) {
