@@ -51,8 +51,8 @@
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
     "sass-loader": "^6.0.3",
-    "style-loader": "^0.18.0",
-    "webpack": "^2.2.1"
+    "webpack": "^3.0.0",
+    "style-loader": "^0.18.0"
   },
   "devDependencies": {
     "babel-cli": "^6.8.0",
