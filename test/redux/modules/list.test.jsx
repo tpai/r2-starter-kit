@@ -32,7 +32,7 @@ describe('Modules::List', () => {
             desc: 'Body A',
             img: 'http://lorempixel.com/320/180?t=1'
         };
-        expect(reducer(stateBefore, action)).toInclude(stateAfter);
+        expect(reducer(stateBefore, action).shift()).toEqual(stateAfter);
     });
     it('should return correct state if match FAILED type', () => {
         const stateBefore = [];
