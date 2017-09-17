@@ -42,7 +42,7 @@
     "lodash": "^4.12.0",
     "node-sass": "^4.5.0",
     "object.reduce": "^1.0.1",
-    "postcss-import": "^10.0.0",
+    "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
