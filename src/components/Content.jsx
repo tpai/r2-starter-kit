@@ -11,7 +11,7 @@ export default function Content({ title, author, body }) {
             ]} />
             <div className="ts card text container">
                 <div className="image">
-                    <img src={`http://lorempixel.com/1200/720`} />
+                    <img src={`https://lorempixel.com/1200/720`} />
                 </div>
                 <div className="content">
                     <div className="header">

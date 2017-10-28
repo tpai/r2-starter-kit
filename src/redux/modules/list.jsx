@@ -11,7 +11,7 @@ const reducer = (state = [], action) => {
             title: item.title,
             link: `/article/${item.id}`,
             desc: item.body,
-            img: `http://lorempixel.com/320/180?t=${item.id}`,
+            img: `https://lorempixel.com/320/180?t=${item.id}`,
         }));
     case FAILED:
         return [];
@@ -25,7 +25,7 @@ export default reducer;
 export function getList(cb = () => {}) {
     return async dispatch => {
         try {
-            const res = await fetch('http://jsonplaceholder.typicode.com/posts');
+            const res = await fetch('https://jsonplaceholder.typicode.com/posts');
             const json = await res.json();
             dispatch(gotList(json));
             cb();

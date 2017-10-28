@@ -19,9 +19,9 @@ export default reducer;
 export function getPost(id, cb = () => {}) {
     return async dispatch => {
         try {
-            const postRes = await fetch(`http://jsonplaceholder.typicode.com/posts/${id}`);
+            const postRes = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
             const post = await postRes.json();
-            const userRes = await fetch(`http://jsonplaceholder.typicode.com/users/${post.userId}`);
+            const userRes = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`);
             const user = await userRes.json();
             dispatch(gotPost(Object.assign({}, post, { author: user })));
             cb();

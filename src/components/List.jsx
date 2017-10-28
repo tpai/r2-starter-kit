@@ -30,7 +30,7 @@ List.defaultProps = {
         title: 'Title',
         link: '#',
         desc: 'Content',
-        img: 'http://placehold.it/320x180',
+        img: 'https://placehold.it/320x180',
     }]
 };
 
