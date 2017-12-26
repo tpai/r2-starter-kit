@@ -7,9 +7,8 @@ module.exports = {
         extensions: ['.js', '.jsx', '.css', '.scss']
     },
     output: {
-        path: path.resolve(__dirname, 'www/dist/'),
-        filename: 'bundle.js',
-        publicPath: '/dist/'
+        path: path.resolve(__dirname, 'www/'),
+        filename: 'dist/[name].[hash].js',
     },
     module: {
         rules: [
