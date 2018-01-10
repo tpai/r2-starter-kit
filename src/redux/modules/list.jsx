@@ -11,7 +11,7 @@ const reducer = (state = [], action) => {
             title: item.title,
             link: `/article/${item.id}`,
             desc: item.body,
-            img: `https://lorempixel.com/320/180?t=${item.id}`,
+            img: `https://picsum.photos/320/180?image=${item.id}`,
         }));
     case FAILED:
         return [];
@@ -27,7 +27,7 @@ export function getList(cb = () => {}) {
         try {
             const res = await fetch('https://jsonplaceholder.typicode.com/posts');
             const json = await res.json();
-            dispatch(gotList(json));
+            dispatch(gotList(json.slice(0, 20)));
             cb();
         } catch (err) {
             dispatch(getListFailed());

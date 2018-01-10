@@ -30,7 +30,7 @@ describe('Modules::List', () => {
             title: 'Title A',
             link: '/article/1',
             desc: 'Body A',
-            img: 'https://lorempixel.com/320/180?t=1'
+            img: 'https://picsum.photos/320/180?image=1'
         };
         expect(reducer(stateBefore, action).shift()).toEqual(stateAfter);
     });
