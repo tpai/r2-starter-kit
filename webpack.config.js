@@ -19,20 +19,7 @@ module.exports = {
                 use: [
                     'style-loader',
                     'css-loader?importLoaders=1',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                          plugins: function () {
-                              return [
-                                  require('postcss-import')({
-                                      addDependencyTo: webpack,
-                                      path: [ path.resolve(__dirname + '/src') ]
-                                  }),
-                                  require('autoprefixer')({browsers:['> 5%']})
-                              ];
-                          }
-                        }
-                    }
+                    'postcss-loader'
                 ]
             },
             {
