@@ -6,8 +6,8 @@ export default function Content({ id, title, author, body }) {
     return (
         <div>
             <Breadcrumb data={[
-                { text: 'List', link: '/' },
-                { text: 'Content' }
+                { text: 'Post List', link: '/' },
+                { text: title }
             ]} />
             <div className="ts card text container">
                 <div className="image">
