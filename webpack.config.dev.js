@@ -1,4 +1,7 @@
+var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 var defaultConfig = require('./webpack.config.js');
 
 module.exports = Object.assign({}, defaultConfig, {
@@ -6,7 +9,8 @@ module.exports = Object.assign({}, defaultConfig, {
     devServer: {
         host: 'localhost',
         port: '8080',
-        contentBase: 'www/',
+        contentBase: 'www',
+        publicPath: '/',
         hot: true,
         inline: true,
         historyApiFallback: true
@@ -18,6 +22,10 @@ module.exports = Object.assign({}, defaultConfig, {
     ],
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
+        new HtmlWebpackPlugin({
+            filename: path.resolve(__dirname, 'www/index.html'),
+            template: path.resolve(__dirname, 'www/index.tpl.html')
+        }),
         new webpack.DefinePlugin({
             __DEVELOPMENT__: JSON.stringify(true)
         })

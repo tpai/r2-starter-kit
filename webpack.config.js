@@ -7,8 +7,10 @@ module.exports = {
         extensions: ['.js', '.jsx', '.css', '.scss']
     },
     output: {
-        path: path.resolve(__dirname, 'www/'),
-        filename: 'dist/[name].[hash].js',
+        path: path.resolve(__dirname, 'www'),
+        publicPath: '/',
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].[hash].js'
     },
     module: {
         rules: [
