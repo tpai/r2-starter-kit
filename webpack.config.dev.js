@@ -16,11 +16,12 @@ module.exports = Object.assign({}, defaultConfig, {
         historyApiFallback: true
     },
     entry: [
-        'webpack-dev-server/client?http://localhost:8080',
-        'webpack/hot/only-dev-server',
+        'babel-polyfill',
+        'react-hot-loader/patch',
         './src/index'
     ],
     plugins: [
+        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             filename: path.resolve(__dirname, 'www/index.html'),
