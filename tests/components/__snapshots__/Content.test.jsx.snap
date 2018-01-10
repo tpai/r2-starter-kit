@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Content /> should render initial component 1`] = `
+<div>
+  <Breadcrumb
+    data={
+      Array [
+        Object {
+          "link": "/",
+          "text": "Post List",
+        },
+        Object {
+          "text": "Title",
+        },
+      ]
+    }
+  />
+  <div
+    className="ts card text container"
+  >
+    <div
+      className="image"
+    >
+      <img
+        src="https://picsum.photos/1200/720?image=-1"
+      />
+    </div>
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        Title
+      </div>
+      <div
+        className="bulleted meta"
+      >
+        Author (Email)
+      </div>
+      <div
+        className="description"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "Content",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
