@@ -13,7 +13,7 @@ function asyncComponent(importComponent) {
     async componentDidMount() {
       const { default: component } = await importComponent();
       this.setState({
-        component: component
+        component
       });
     }
     render() {
@@ -27,16 +27,16 @@ function asyncComponent(importComponent) {
 class Routes extends Component {
   constructor() {
     super();
-    this.routes= [{
-      name: 'List',
+    this.routes = [{
+      name: 'ArticleList',
       path: '/',
       exact: true
     }, {
-      name: 'Content',
+      name: 'ArticleContent',
       path: '/article/:id'
     }].map(route => ({
       ...route,
-      component: () => asyncComponent(() => import(`./containers/${route.name}`))
+      component: asyncComponent(() => import(`./containers/${route.name}`))
     }));
   }
   static contextName = '__routes__';
