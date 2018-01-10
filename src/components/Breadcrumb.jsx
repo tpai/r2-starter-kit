@@ -21,6 +21,13 @@ function Breadcrumb({ data }) {
     );
 }
 
+Breadcrumb.defaultProps = {
+    data: [
+        { text: 'Post List', link: '/' },
+        { text: 'Content' }
+    ]
+};
+
 Breadcrumb.propTypes = {
     data: PropTypes.arrayOf(PropTypes.shape({
         link: PropTypes.string,
