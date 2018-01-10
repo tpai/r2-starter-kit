@@ -31,13 +31,13 @@ Clone this repo and make something awesome!
 ```
 $ git clone https://github.com/tpai/r2-starter-kit.git
 $ cd r2-starter-kit
-$ npm install
+$ yarn
 ```
 
 ### Run Developing Server
 
 ```
-$ npm start
+$ yarn start
 ```
 
 It will start a development server which listen to 8080 port.
@@ -45,10 +45,10 @@ It will start a development server which listen to 8080 port.
 ### Compile And Distribute
 
 ```
-$ npm run build
+$ yarn build
 ```
 
-It will distribute bundle.js and vendor.js into `dist/` directory.
+It will distribute bundled JS files into `www/` directory.
 
 [build-badge]: https://travis-ci.org/tpai/r2-starter-kit.svg?branch=master
 [build]: https://travis-ci.org/tpai/r2-starter-kit
