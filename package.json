@@ -8,7 +8,7 @@
     "test": "cross-env NODE_ENV=test NODE_PATH=./src jest",
     "test:cov": "cross-env NODE_ENV=test NODE_PATH=./src jest --coverage",
     "server": "node server.js",
-    "lint": "eslint $(find src test -name \\*.jsx)",
+    "lint": "eslint $(find src tests -name \\*.jsx)",
     "precommit": "npm run lint",
     "prepush": "npm test"
   },

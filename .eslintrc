@@ -1,8 +1,11 @@
 {
-    "parser": "babel-eslint",
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
-    "plugins": [
-        "react"
-    ],
-    "rules": {}
+  "parser": "babel-eslint",
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "plugins": [
+    "react"
+  ],
+  "rules": {},
+  "env": {
+    "jest": true
+  }
 }
