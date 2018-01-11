@@ -1,4 +1,4 @@
-/* global fetch */
+import fetch from 'isomorphic-fetch';
 
 export const GET = 'app/list/GET';
 export const FAILED = 'app/list/FAILED';

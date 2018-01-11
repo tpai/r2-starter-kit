@@ -1,4 +1,4 @@
-/* global fetch */
+import fetch from 'isomorphic-fetch';
 
 export const GET = 'app/post/GET';
 export const FAILED = 'app/post/FAILED';
@@ -26,7 +26,7 @@ export function getPost(id, cb = () => {}) {
             dispatch(gotPost(Object.assign({}, post, { author: user })));
             cb();
         } catch (err) {
-            dispatch(failGetPost());
+            dispatch(getPostFailed());
             cb();
         }
     };
@@ -39,7 +39,7 @@ export function gotPost(json) {
     };
 }
 
-export function failGetPost() {
+export function getPostFailed() {
     return {
         type: FAILED,
     };
