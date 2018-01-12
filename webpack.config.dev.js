@@ -15,18 +15,14 @@ module.exports = Object.assign({}, defaultConfig, {
         inline: true,
         historyApiFallback: true
     },
-    entry: [
-        'babel-polyfill',
-        'react-hot-loader/patch',
-        './src/index'
-    ],
+    entry: './src/index',
     plugins: [
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             filename: path.resolve(__dirname, 'www/index.html'),
             template: path.resolve(__dirname, 'www/index.tpl.html')
         }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
             __DEVELOPMENT__: JSON.stringify(true)
         })

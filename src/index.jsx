@@ -1,16 +1,26 @@
-/* global document */
+/* global document, module */
 
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import AppRouter from 'AppRouter';
+import App from './AppRouter';
 import store from 'redux/store';
 import 'index.css';
 
-render(
+const render = Component => {
+  ReactDOM.render(
     <Provider store={store}>
-        <AppRouter />
+      <Component />
     </Provider>,
     document.getElementById('react')
-);
+  );
+};
+
+render(App);
+
+if (module.hot) {
+  module.hot.accept('./AppRouter', () => {
+    render(App);
+  });
+}

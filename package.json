@@ -63,7 +63,6 @@
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.0",
     "raf": "^3.4.0",
-    "react-hot-loader": "^3.0.0",
     "redux-logger": "^3.0.0",
     "redux-mock-store": "^1.4.0",
     "sass-loader": "^6.0.3",

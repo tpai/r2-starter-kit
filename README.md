@@ -22,7 +22,6 @@
 * postcss-loader
 * postcss-import
 * autoprefixer
-* react-hot-loader
 
 ### Get Started
 
