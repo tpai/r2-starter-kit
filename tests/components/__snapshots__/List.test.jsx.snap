@@ -10,9 +10,22 @@ exports[`<List /> should render initial component 1`] = `
   >
     <div
       className="image"
+      style={
+        Object {
+          "width": "30%",
+        }
+      }
     >
-      <img
-        src="https://placehold.it/320x180"
+      <div
+        style={
+          Object {
+            "background": "url('https://placehold.it/320x180') no-repeat center center",
+            "backgroundSize": "cover",
+            "display": "block",
+            "paddingBottom": "56.25%",
+            "width": "100%",
+          }
+        }
       />
     </div>
     <div
