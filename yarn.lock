@@ -7465,6 +7465,12 @@ wrap-ansi@^2.0.0:
     string-width "^1.0.1"
     strip-ansi "^3.0.1"
 
+wrap-pwa-html-webpack-plugin@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/wrap-pwa-html-webpack-plugin/-/wrap-pwa-html-webpack-plugin-1.0.0.tgz#19c06a8a216be0fdd66f86cc9e84772a320975b3"
+  dependencies:
+    jsdom "^11.5.1"
+
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
