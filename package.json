@@ -4,7 +4,7 @@
   "description": "R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack based on Node.js environment, also containing webpack loader such as react-hmr and babel 6.",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
-    "build": "rm -rf www/*.js && cross-env NODE_ENV=production webpack -p --config webpack.config.prod.js",
+    "build": "rm -rf www/*.*.js && cross-env NODE_ENV=production webpack -p --config webpack.config.prod.js",
     "test": "cross-env NODE_ENV=test NODE_PATH=./src jest",
     "test:cov": "cross-env NODE_ENV=test NODE_PATH=./src jest --coverage",
     "test:upd": "cross-env NODE_ENV=test NODE_PATH=./src jest --updateSnapshot",
@@ -30,8 +30,7 @@
     "react-redux": "^5.0.3",
     "react-router-dom": "^4.0.0",
     "redux": "^3.5.2",
-    "redux-thunk": "^2.1.0",
-    "wrap-pwa-html-webpack-plugin": "^1.0.0"
+    "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.0.0",
@@ -70,7 +69,8 @@
     "sass-loader": "^6.0.3",
     "style-loader": "^0.19.0",
     "webpack": "^3.0.0",
-    "webpack-dev-server": "^2.4.2"
+    "webpack-dev-server": "^2.4.2",
+    "wrap-pwa-html-webpack-plugin": "^1.0.0"
   },
   "jest": {
     "collectCoverageFrom": [
