@@ -1,9 +1,18 @@
 sudo: false
 language: node_js
+env:
+  global:
+    - CC_TEST_REPORTER_ID=3d7add1a41c0c9f35a97bc607b4161fe7b0d5b550b8004f4d5c96d5a277de470
 node_js:
-- "8"
+  - 8
 before_install:
-- "npm install -g npm@'>=3.5.1'"
+  - npm install -g npm@'>=3.5.1'
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+script:
+  - npm run test:cov
 after_script:
-- "npm run test:cov"
-- "npm install coveralls && cat ./coverage/lcov.info | coveralls"
+  - npm install coveralls && cat ./coverage/lcov.info | coveralls
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
