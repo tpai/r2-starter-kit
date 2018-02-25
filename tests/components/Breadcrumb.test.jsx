@@ -3,16 +3,18 @@ import { shallow } from 'enzyme';
 import Breadcrumb from 'components/Breadcrumb';
 
 describe('<Breadcrumb />', () => {
+  let wrapper;
+  beforeAll(() => {
+    wrapper = shallow(<Breadcrumb />);
+  });
+
   it('should render initial component', () => {
-    const mockProps = {
+    wrapper.setProps({
       data: [
         { text: 'Post List', link: '/' },
         { text: 'Content' }
       ]
-    };
-    const wrapper = shallow(
-      <Breadcrumb {...mockProps} />
-    );
+    });
     expect(wrapper).toMatchSnapshot();
   });
 });

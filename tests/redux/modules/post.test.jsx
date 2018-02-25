@@ -17,7 +17,7 @@ const mockStore = configureStore([thunk]);
 describe('Modules::Post', () => {
   afterEach(() => {
     nock.cleanAll()
-  })
+  });
   it('should return default state if did not match any action type', () => {
     const stateBefore = undefined;
     const action = {};
@@ -78,8 +78,8 @@ describe('Modules::Post', () => {
     return store.dispatch(getPost(1))
       .then(() => {
         const actions = store.getActions();
-        const action = actions[0];
-        const expectedResult = gotPost({
+        expect(actions[0]).toEqual({ type: 'app/state/LOADING' });
+        expect(actions[1]).toEqual(gotPost({
           "userId": 1,
           "id": 1,
           "title": "title",
@@ -90,8 +90,8 @@ describe('Modules::Post', () => {
             "username": "Bret",
             "email": "Sincere@april.biz"
           }
-        });
-        expect(action).toEqual(expectedResult);
+        }));
+        expect(actions[2]).toEqual({ type: 'app/state/IDLE' });
       });
   });
   it('Action::getPost() failed', () => {
@@ -107,9 +107,9 @@ describe('Modules::Post', () => {
     return store.dispatch(getPost(1))
       .then(() => {
         const actions = store.getActions();
-        const action = actions[0];
-        const expectedResult = getPostFailed();
-        expect(action).toEqual(expectedResult);
+        expect(actions[0]).toEqual({ type: 'app/state/LOADING' });
+        expect(actions[1]).toEqual(getPostFailed());
+        expect(actions[2]).toEqual({ type: 'app/state/FAILURE' });
       });
   });
 });

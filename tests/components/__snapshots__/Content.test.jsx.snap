@@ -1,28 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Content /> should render initial component 1`] = `
+exports[`<Content /> should render component when receive next props 1`] = `
 <div>
-  <Breadcrumb
-    data={
-      Array [
-        Object {
-          "link": "/",
-          "text": "Post List",
-        },
-        Object {
-          "text": "Title",
-        },
-      ]
-    }
-  />
   <div
     className="ts card text container"
   >
     <div
       className="image"
     >
-      <img
-        src="https://picsum.photos/1200/720?image=-1"
+      <FadeOutImage
+        placeholderUrl="https://picsum.photos/60/36?image=1"
+        url="https://picsum.photos/1200/720?image=1"
       />
     </div>
     <div
@@ -50,3 +38,5 @@ exports[`<Content /> should render initial component 1`] = `
   </div>
 </div>
 `;
+
+exports[`<Content /> should render initial component 1`] = `<div />`;
