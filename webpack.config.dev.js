@@ -1,7 +1,7 @@
+/* global __dirname */
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var WrapPwaHTMLWebpackPlugin = require('wrap-pwa-html-webpack-plugin');
 
 var defaultConfig = require('./webpack.config.js');
 
@@ -22,7 +22,6 @@ module.exports = Object.assign({}, defaultConfig, {
             filename: path.resolve(__dirname, 'www/index.html'),
             template: path.resolve(__dirname, 'www/index.tpl.html')
         }),
-        new WrapPwaHTMLWebpackPlugin(),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({

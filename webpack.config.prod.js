@@ -1,8 +1,6 @@
-/* global __dirname */
 var webpack = require('webpack');
 var defaultConfig = require('./webpack.config.js');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var WrapPwaHTMLWebpackPlugin = require('wrap-pwa-html-webpack-plugin');
 
 module.exports = Object.assign({}, defaultConfig, {
     entry: {
@@ -23,9 +21,7 @@ module.exports = Object.assign({}, defaultConfig, {
             filename: 'index.html',
             template: 'www/index.tpl.html'
         }),
-        new WrapPwaHTMLWebpackPlugin(),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': '"production"',
             __DEVELOPMENT__: JSON.stringify(false)
         })
     ]
