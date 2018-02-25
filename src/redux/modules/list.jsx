@@ -1,5 +1,11 @@
 import fetch from 'isomorphic-fetch';
 
+import {
+    stateLoading,
+    stateIdle,
+    stateFailure
+} from 'redux/modules/state';
+
 export const GET = 'app/list/GET';
 export const FAILED = 'app/list/FAILED';
 
@@ -24,13 +30,16 @@ export default reducer;
 
 export function getList(cb = () => {}) {
     return async dispatch => {
+        dispatch(stateLoading());
         try {
             const res = await fetch('https://jsonplaceholder.typicode.com/posts');
             const json = await res.json();
             dispatch(gotList(json.slice(0, 20)));
+            dispatch(stateIdle());
             cb();
         } catch (err) {
             dispatch(getListFailed());
+            dispatch(stateFailure());
             cb();
         }
     };

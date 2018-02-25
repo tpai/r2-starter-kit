@@ -5,6 +5,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import reduce from 'object.reduce';
 
+import Breadcrumb from 'components/Breadcrumb';
 import Content from 'components/Content';
 
 import * as actions from 'redux/modules/post';
@@ -17,7 +18,8 @@ class ArticleContent extends Component {
                 id: PropTypes.string
             })
         }),
-        post: PropTypes.shape()
+        post: PropTypes.shape(),
+        state: PropTypes.string
     }
     componentDidMount() {
         const { actions, match } = this.props;
@@ -25,15 +27,29 @@ class ArticleContent extends Component {
         getPost(match.params.id);
     }
     render() {
+        const { post, state } = this.props;
         return (
-            <Content {...this.props.post} />
+            <div className="ts" style={{ height: 720 }}>
+                {state === 'loading' &&
+                    <div className="ts active inverted dimmer">
+                        <div className={`ts text loader`}>Loading...</div>
+                    </div>
+                }
+                <Breadcrumb data={[
+                    { text: 'Post List', link: '/' },
+                    { text: post.title }
+                ]} />
+                <div className="ts divider" />
+                {state === 'idle' && <Content {...post} />}
+            </div>
         );
     }
 }
 
 function mapStateToProps(state) {
     return {
-        post: state.post
+        post: state.post,
+        state: state.state
     };
 }
 function mapDispatchToProps(dispatch) {
