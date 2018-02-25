@@ -1,6 +1,6 @@
-export const LOADING = 'app/post/LOADING';
-export const IDLE = 'app/post/IDLE';
-export const FAILURE = 'app/post/FAILURE';
+export const LOADING = 'app/state/LOADING';
+export const IDLE = 'app/state/IDLE';
+export const FAILURE = 'app/state/FAILURE';
 
 const reducer = (state = 'idle', action) => {
     switch (action.type) {
