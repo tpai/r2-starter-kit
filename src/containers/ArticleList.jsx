@@ -10,7 +10,8 @@ import { filterActions } from './ArticleContent';
 class ArticleList extends Component {
     static propTypes = {
         actions: PropTypes.shape(),
-        list: PropTypes.arrayOf(PropTypes.object)
+        list: PropTypes.arrayOf(PropTypes.object),
+        state: PropTypes.string
     }
     componentDidMount() {
         const { actions } = this.props;
@@ -18,16 +19,24 @@ class ArticleList extends Component {
         getList();
     }
     render() {
-        const { list } = this.props;
+        const { list, state } = this.props;
         return (
-            <List data={list} />
+            <div className="ts" style={{ height: 720 }}>
+                {state === 'loading' &&
+                    <div className="ts active inverted dimmer">
+                        <div className={`ts text loader`}>Loading...</div>
+                    </div>
+                }
+                {state === 'idle' && <List data={list} />}
+            </div>
         );
     }
 }
 
 function mapStateToProps(state) {
     return {
-        list: state.list
+        list: state.list,
+        state: state.state
     };
 }
 
