@@ -15,6 +15,10 @@ export default class FadeOutImage extends Component {
     componentWillReceiveProps(nextProps) {
         this.setState({ url: nextProps.placeholderUrl });
     }
+    handleImageOnload = (url) => {
+        this.setState({ url });
+        this.component.style.filter = 'blur(0)';
+    }
     render() {
         const { url } = this.state;
         const { url: selfUrl } = this.props;
@@ -26,11 +30,12 @@ export default class FadeOutImage extends Component {
                   style={{ filter: 'blur(5px)' }}
                 />
                 <img
+                  id="preload_image"
                   src={selfUrl}
-                  onLoad={() => setTimeout(() => {
-                      this.setState({ url: selfUrl });
-                      this.component.style.filter = 'blur(0)';
-                  }, 500)}
+                  onLoad={() => setTimeout(() =>
+                    this.handleImageOnload(selfUrl),
+                    500
+                  )}
                   style={{ display: "none" }}
                 />
             </div>
