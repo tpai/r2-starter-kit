@@ -1,6 +1,6 @@
 # R^2 Starter Kit with [TocasUI](https://github.com/TeaMeow/TocasUI/)
 
-> R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack.
+> R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack 3.
 
 [![Greenkeeper badge][greenkeeper-badge]][greenkeeper]
 [![Travis Build Status][build-badge]][build]
@@ -9,11 +9,11 @@
 [![devDependency Status][dev-deps-badge]][dev-deps]
 [![Heroku][heroku-deployment-badge]][heroku-app]
 
-![](http://i.giphy.com/l41Ye4NTTyZciqVgI.gif)
+![](http://i.giphy.com/69jtJzHmbccnmL1W8k.gif)
 
 ### Presets And Loaders
 
-* babel-preset-es2015
+* babel-preset-env
 * babel-preset-react
 * babel-preset-stage-0
 * style-loader
@@ -33,7 +33,9 @@ $ cd r2-starter-kit
 $ yarn
 ```
 
-### Run Developing Server
+### Usage
+
+#### Run Developing Server
 
 ```
 $ yarn start
@@ -41,13 +43,24 @@ $ yarn start
 
 It will start a development server which listen to 8080 port.
 
-### Compile And Distribute
+#### Compile And Distribute
 
 ```
 $ yarn build
 ```
 
 It will distribute bundled JS files into `www/` directory.
+
+#### Code Coverage Report
+
+Install [zeit/serve](https://github.com/zeit/serve) globally and serve test report html.
+
+```
+$ yarn add global serve
+$ serve tests/__coverage__
+```
+
+Check out `http://localhost:5000`.
 
 [build-badge]: https://travis-ci.org/tpai/r2-starter-kit.svg?branch=master
 [build]: https://travis-ci.org/tpai/r2-starter-kit
