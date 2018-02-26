@@ -15,4 +15,5 @@ script:
   - npm run test:cov
 after_script:
   - npm install coveralls && cat ./tests/__coverage__/lcov.info | coveralls
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter format-coverage -t lcov ./tests/__coverage__/lcov.info
+  - ./cc-test-reporter upload-coverage
