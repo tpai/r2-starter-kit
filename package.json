@@ -54,7 +54,7 @@
     "eslint-loader": "^1.5.0",
     "eslint-plugin-react": "^7.0.0",
     "expect": "^22.0.0",
-    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-plugin": "^3.0.4",
     "husky": "^0.14.0",
     "isomorphic-fetch": "^2.2.1",
     "jasmine-reporters": "^2.3.0",
