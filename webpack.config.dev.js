@@ -6,6 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var defaultConfig = require('./webpack.config.js');
 
 module.exports = Object.assign({}, defaultConfig, {
+    mode: 'development',
     devtool: 'cheap-module-source-map',
     devServer: {
         host: 'localhost',
