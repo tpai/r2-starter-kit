@@ -1,7 +1,7 @@
 {
   "name": "r2-starter-kit",
   "version": "2.0.0",
-  "description": "R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack 3.",
+  "description": "R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack 4.",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
     "build": "rm -rf www/*.*.js && cross-env NODE_ENV=production webpack -p --config webpack.config.prod.js",
