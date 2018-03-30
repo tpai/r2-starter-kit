@@ -9,7 +9,7 @@ exports[`<Content /> should render component when receive next props 1`] = `
       className="image"
     >
       <FadeOutImage
-        placeholderUrl="https://picsum.photos/60/36?image=1"
+        placeholder="https://picsum.photos/60/36?image=1"
         url="https://picsum.photos/1200/720?image=1"
       />
     </div>

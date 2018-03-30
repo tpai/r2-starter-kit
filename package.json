@@ -30,7 +30,8 @@
     "react-redux": "^5.0.3",
     "react-router-dom": "^4.0.0",
     "redux": "^3.5.2",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "styled-components": "^3.2.3"
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",

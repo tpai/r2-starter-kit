@@ -8,7 +8,7 @@ describe('<FadeOutImage />', () => {
 
   const initProps = {
     url: '',
-    placeholderUrl: ''
+    placeholder: ''
   };
 
   let wrapper;
@@ -21,7 +21,7 @@ describe('<FadeOutImage />', () => {
   it('should render initial component', () => {
     wrapper.setProps({
       url: 'https://placehold.it/800x600',
-      placeholderUrl: 'https://placehold.it/40x30'
+      placeholder: 'https://placehold.it/40x30'
     });
     expect(wrapper).toMatchSnapshot();
   });
