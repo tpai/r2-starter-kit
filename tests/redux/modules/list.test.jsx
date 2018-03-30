@@ -39,7 +39,8 @@ describe('Modules::List', () => {
       title: 'Title A',
       link: '/article/1',
       desc: 'Body A',
-      img: 'https://picsum.photos/320/180?image=1'
+      imgUrl: 'https://picsum.photos/320/180?image=1',
+      imgPlaceholder: 'https://picsum.photos/32/18?image=1',
     };
     expect(reducer(stateBefore, action).shift()).toEqual(stateAfter);
   });

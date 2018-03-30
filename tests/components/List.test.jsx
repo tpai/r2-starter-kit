@@ -5,19 +5,23 @@ import List from 'components/List';
 describe('<List />', () => {
   let wrapper;
   beforeAll(() => {
-    wrapper = shallow(<List />);
+    wrapper = shallow(
+      <List
+        data={[
+          {
+            id: 0,
+            title: 'Title',
+            link: '#',
+            desc: 'Content',
+            imgUrl: 'https://placehold.it/320x180',
+            imgPlaceholder: 'https://placehold.it/32x18',
+          },
+        ]}
+      />,
+    );
   });
 
   it('should render initial component', () => {
-    wrapper.setProps({
-      data: [{
-        id: 0,
-        title: 'Title',
-        link: '#',
-        desc: 'Content',
-        img: 'https://placehold.it/320x180',
-      }]
-    });
     expect(wrapper).toMatchSnapshot();
   });
 });

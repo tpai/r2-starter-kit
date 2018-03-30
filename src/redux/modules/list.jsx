@@ -17,7 +17,8 @@ const reducer = (state = [], action) => {
             title: item.title,
             link: `/article/${item.id}`,
             desc: item.body,
-            img: `https://picsum.photos/320/180?image=${item.id}`,
+            imgUrl: `https://picsum.photos/320/180?image=${item.id}`,
+            imgPlaceholder: `https://picsum.photos/32/18?image=${item.id}`,
         }));
     case FAILED:
         return [];
