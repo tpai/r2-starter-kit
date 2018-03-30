@@ -10,10 +10,7 @@ describe('<Breadcrumb />', () => {
 
   it('should render initial component', () => {
     wrapper.setProps({
-      data: [
-        { text: 'Post List', link: '/' },
-        { text: 'Content' }
-      ]
+      data: [{ text: 'Post List', link: '/' }, { text: 'Content' }],
     });
     expect(wrapper).toMatchSnapshot();
   });

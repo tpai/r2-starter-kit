@@ -9,12 +9,12 @@ import App from './AppRouter';
 import store from 'redux/store';
 import 'index.css';
 
-const render = Component => {
+const render = (Component) => {
   ReactDOM.render(
     <Provider store={store}>
       <Component />
     </Provider>,
-    document.getElementById('react')
+    document.getElementById('react'),
   );
 };
 

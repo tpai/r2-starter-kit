@@ -3,34 +3,34 @@ export const IDLE = 'app/state/IDLE';
 export const FAILURE = 'app/state/FAILURE';
 
 const reducer = (state = 'idle', action) => {
-    switch (action.type) {
+  switch (action.type) {
     case LOADING:
-        return 'loading';
+      return 'loading';
     case IDLE:
-        return 'idle';
+      return 'idle';
     case FAILURE:
-        return 'failure';
+      return 'failure';
     default:
-        return state;
-    }
+      return state;
+  }
 };
 
 export default reducer;
 
 export function stateLoading() {
-    return {
-        type: LOADING
-    };
+  return {
+    type: LOADING,
+  };
 }
 
 export function stateIdle() {
-    return {
-        type: IDLE
-    };
+  return {
+    type: IDLE,
+  };
 }
 
 export function stateFailure() {
-    return {
-        type: FAILURE
-    };
+  return {
+    type: FAILURE,
+  };
 }

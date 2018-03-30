@@ -17,7 +17,7 @@ describe('<Content />', () => {
       id: 1,
       title: 'Title',
       author: { name: 'Author', email: 'Email' },
-      body: 'Content'
+      body: 'Content',
     });
     expect(wrapper).toMatchSnapshot();
   });
