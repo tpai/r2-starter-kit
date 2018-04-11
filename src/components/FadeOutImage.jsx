@@ -1,14 +1,10 @@
 /* global setTimeout */
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-export default class FadeOutImage extends Component {
-  static propTypes = {
-    url: PropTypes.string.isRequired,
-    placeholder: PropTypes.string.isRequired,
-  };
+export default class FadeOutImage extends PureComponent {
   constructor(props) {
     super();
     this.state = {
@@ -34,6 +30,10 @@ export default class FadeOutImage extends Component {
       </div>
     );
   }
+  static propTypes = {
+    url: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+  };
 }
 
 const Image = styled.img`

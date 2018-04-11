@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import FadeOutImage from 'components/FadeOutImage';
 
-export default class Content extends Component {
+export default class Content extends PureComponent {
   render() {
     const {
       id,
       title,
-      author = {
-        name: '',
-        email: '',
-      },
+      author,
       body,
     } = this.props;
     return (
@@ -27,7 +24,7 @@ export default class Content extends Component {
             <div className="content">
               <div className="header">{title}</div>
               <div className="bulleted meta">
-                {`${author.name} (${author.email})`}
+                {`${author.name || ''} (${author.email || ''})`}
               </div>
               <div
                 className="description"
