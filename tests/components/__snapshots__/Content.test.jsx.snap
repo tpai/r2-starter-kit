@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Content /> should render component when receive next props 1`] = `
+exports[`<Content /> should render correct component with assigned values 1`] = `
 <div>
   <div
     className="ts card text container"
@@ -9,8 +9,8 @@ exports[`<Content /> should render component when receive next props 1`] = `
       className="image"
     >
       <FadeOutImage
-        placeholder="https://picsum.photos/60/36?image=1"
-        url="https://picsum.photos/1200/720?image=1"
+        placeholder="https://picsum.photos/60/36?image=2"
+        url="https://picsum.photos/1200/720?image=2"
       />
     </div>
     <div
@@ -39,4 +39,39 @@ exports[`<Content /> should render component when receive next props 1`] = `
 </div>
 `;
 
-exports[`<Content /> should render initial component 1`] = `<div />`;
+exports[`<Content /> should render initial component 1`] = `
+<div>
+  <div
+    className="ts card text container"
+  >
+    <div
+      className="image"
+    >
+      <FadeOutImage
+        placeholder="https://picsum.photos/60/36?image=1"
+        url="https://picsum.photos/1200/720?image=1"
+      />
+    </div>
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      />
+      <div
+        className="bulleted meta"
+      >
+         ()
+      </div>
+      <div
+        className="description"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
