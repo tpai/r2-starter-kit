@@ -16,9 +16,6 @@ export default class FadeOutImage extends Component {
       blur: 5,
     };
   }
-  componentWillReceiveProps(nextProps) {
-    this.setState({ url: nextProps.placeholder });
-  }
   handleImageOnload = (url) => {
     this.setState({ url, blur: 0 });
   };
