@@ -6,8 +6,8 @@ import FadeOutImage from 'components/FadeOutImage';
 
 describe('<FadeOutImage />', () => {
   const initProps = {
-    url: '',
-    placeholder: '',
+    url: 'https://placehold.it/800x600',
+    placeholder: 'https://placehold.it/40x30',
   };
 
   let wrapper;
@@ -16,19 +16,19 @@ describe('<FadeOutImage />', () => {
   });
 
   it('should render initial component', () => {
-    wrapper.setProps({
-      url: 'https://placehold.it/800x600',
-      placeholder: 'https://placehold.it/40x30',
-    });
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should set next placeholderUrl prop to url state when pass new props', () => {
+  it('should set selfUrl instead of placeholder after image onload', () => {
     jest.useFakeTimers();
+
+    expect(wrapper.instance().state.url).toBe('https://placehold.it/40x30');
+
     wrapper.find('#preload_image').simulate('load');
     setTimeout(() => {
       expect(wrapper.instance().state.url).toBe('https://placehold.it/800x600');
     }, 500);
+
     jest.runAllTimers();
   });
 });
