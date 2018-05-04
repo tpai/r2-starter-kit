@@ -11,6 +11,7 @@
     "start": "node server.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
     "build": "rm -rf www/*.*.js && cross-env NODE_ENV=production webpack -p --config webpack.config.prod.js",
+    "e2e": "testcafe chrome tests/e2e.js",
     "test": "cross-env NODE_ENV=test NODE_PATH=./src jest",
     "test:cov": "cross-env NODE_ENV=test NODE_PATH=./src jest --coverage",
     "test:upd": "cross-env NODE_ENV=test NODE_PATH=./src jest --updateSnapshot",
@@ -76,6 +77,7 @@
     "redux-mock-store": "^1.4.0",
     "sass-loader": "^7.0.0",
     "style-loader": "^0.21.0",
+    "testcafe": "^0.19.2",
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^3.1.0"
