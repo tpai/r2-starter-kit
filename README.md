@@ -38,29 +38,22 @@ $ yarn
 #### Run Developing Server
 
 ```
-$ yarn start
+yarn dev
 ```
 
 It will start a development server which listen to 8080 port.
 
-#### Compile And Distribute
+#### Build Bundled JS
 
 ```
-$ yarn build
+yarn build
 ```
 
-It will distribute bundled JS files into `www/` directory.
+It will distribute the files into `dist/` directory.
 
 #### Code Coverage Report
 
-Install [zeit/serve](https://github.com/zeit/serve) globally and serve test report html.
-
-```
-$ yarn add global serve
-$ serve tests/__coverage__
-```
-
-Check out `http://localhost:5000`.
+You could find the report html in `tests/__coverage__`, then double click `index.html`.
 
 [build-badge]: https://travis-ci.org/tpai/r2-starter-kit.svg?branch=master
 [build]: https://travis-ci.org/tpai/r2-starter-kit
