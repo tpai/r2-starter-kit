@@ -1,0 +1,14 @@
+.placeholder {
+  display: block;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  filter: blur(5px);
+  transition: 0.5s;
+}
+
+.noBlur {
+  filter: blur(0px);
+}

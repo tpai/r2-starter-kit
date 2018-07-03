@@ -1,7 +1,0 @@
-@import 'normalize.css';
-
-$bgcolor: #fffffe;
-
-body {
-  background-color: $bgcolor;
-}

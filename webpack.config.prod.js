@@ -1,21 +1,25 @@
-var webpack = require('webpack');
-var defaultConfig = require('./webpack.config.js');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = Object.assign({}, defaultConfig, {
-    mode: 'production',
-    entry: {
-        app: './src/index',
-        react: ['react', 'react-dom'],
-        redux: ['redux', 'react-redux']
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: 'www/index.tpl.html'
-        }),
-        new webpack.DefinePlugin({
-            __DEVELOPMENT__: JSON.stringify(false)
-        })
-    ]
+const config = require('./webpack.config.js');
+
+module.exports = Object.assign({}, config, {
+  mode: 'production',
+  output: {
+    publicPath: '/',
+    filename: 'static/js/[name].[hash].js',
+    chunkFilename: 'static/js/[name].[hash].js',
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+    }),
+    new BundleAnalyzerPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'static/css/[name].[hash].css',
+      chunkFilename: 'static/css/[name].[hash].css',
+    }),
+  ],
 });

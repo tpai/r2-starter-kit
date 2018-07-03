@@ -1,12 +1,12 @@
-var path = require('path');
+const path = require('path');
 
 module.exports = () => ({
   plugins: {
-    'postcss-import': {
-      path: [ path.resolve(__dirname + '/src') ]
-    },
     autoprefixer: {
-      browsers: ['> 5%']
-    }
-  }
+      browsers: ['> 1%'],
+    },
+    'postcss-import': {
+      path: [path.resolve(__dirname, 'src')],
+    },
+  },
 });

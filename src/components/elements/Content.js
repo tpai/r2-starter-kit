@@ -1,9 +1,27 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import FadeOutImage from 'components/FadeOutImage';
+import FadeOutImage from 'components/elements/FadeOutImage';
 
 export default class Content extends PureComponent {
+  static propTypes = {
+    id: PropTypes.number,
+    title: PropTypes.string,
+    author: PropTypes.shape({
+      name: PropTypes.string,
+      email: PropTypes.string,
+    }),
+    body: PropTypes.string,
+  };
+  static defaultProps = {
+    id: null,
+    title: '',
+    author: {
+      name: '',
+      email: '',
+    },
+    body: '',
+  };
   render() {
     const {
       id,
@@ -36,13 +54,4 @@ export default class Content extends PureComponent {
       </div>
     );
   }
-  static propTypes = {
-    id: PropTypes.number,
-    title: PropTypes.string,
-    author: PropTypes.shape({
-      name: PropTypes.string,
-      email: PropTypes.string,
-    }),
-    body: PropTypes.string,
-  };
 }

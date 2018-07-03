@@ -9,9 +9,9 @@ const reducer = (state = [], action) => {
   switch (action.type) {
     case GET:
       return action.data.map((item) => ({
-        id: item.id,
+        id: parseInt(item.id, 10),
         title: item.title,
-        link: `/article/${item.id}`,
+        link: `/post/${item.id}`,
         desc: item.body,
         imgUrl: `https://picsum.photos/320/180?image=${item.id}`,
         imgPlaceholder: `https://picsum.photos/32/18?image=${item.id}`,
