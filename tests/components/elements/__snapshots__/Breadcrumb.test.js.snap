@@ -5,7 +5,7 @@ exports[`<Breadcrumb /> should render initial component 1`] = `
   className="ts breadcrumb"
 >
   <div
-    className=" section"
+    className="section "
     key="crumb0"
   >
     <Link
@@ -19,7 +19,7 @@ exports[`<Breadcrumb /> should render initial component 1`] = `
     />
   </div>
   <div
-    className="active section"
+    className="section active"
     key="crumb1"
   >
     Content

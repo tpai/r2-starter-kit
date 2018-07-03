@@ -39,7 +39,7 @@ describe('Modules::List', () => {
     const stateAfter = {
       id: 1,
       title: 'Title A',
-      link: '/article/1',
+      link: '/post/1',
       desc: 'Body A',
       imgUrl: 'https://picsum.photos/320/180?image=1',
       imgPlaceholder: 'https://picsum.photos/32/18?image=1',

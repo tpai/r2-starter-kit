@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { mount } from 'enzyme';
-import FadeOutImage from 'components/FadeOutImage';
+import FadeOutImage from 'components/elements/FadeOutImage';
 
 describe('<FadeOutImage />', () => {
   const initProps = {
@@ -23,10 +23,12 @@ describe('<FadeOutImage />', () => {
     jest.useFakeTimers();
 
     expect(wrapper.instance().state.url).toBe('https://placehold.it/40x30');
+    expect(wrapper.instance().state.noBlur).toBe(false);
 
-    wrapper.find('#preload_image').simulate('load');
+    wrapper.find('img').at(1).simulate('load');
     setTimeout(() => {
       expect(wrapper.instance().state.url).toBe('https://placehold.it/800x600');
+      expect(wrapper.instance().state.noBlur).toBe(true);
     }, 500);
 
     jest.runAllTimers();

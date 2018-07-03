@@ -6,16 +6,15 @@ exports[`<FadeOutImage /> should render initial component 1`] = `
   url="https://placehold.it/800x600"
 >
   <div>
-    <styled.img
-      blur={5}
-      url="https://placehold.it/40x30"
-    >
-      <img
-        className="sc-bdVaJa kpFRyp"
-      />
-    </styled.img>
     <img
-      id="preload_image"
+      className="placeholder"
+      style={
+        Object {
+          "backgroundImage": "url('https://placehold.it/40x30')",
+        }
+      }
+    />
+    <img
       onLoad={[Function]}
       src="https://placehold.it/800x600"
       style={

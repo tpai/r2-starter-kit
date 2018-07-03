@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Breadcrumb from 'components/Breadcrumb';
+import Breadcrumb from 'components/elements/Breadcrumb';
 
 describe('<Breadcrumb />', () => {
   const initProps = {

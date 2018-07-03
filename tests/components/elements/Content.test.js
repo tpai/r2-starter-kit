@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Content from 'components/Content';
+import Content from 'components/elements/Content';
 
 describe('<Content />', () => {
   const initProps = {
@@ -22,9 +22,12 @@ describe('<Content />', () => {
   it('should render correct component with assigned values', () => {
     wrapper.setProps({
       id: 2,
-      title: 'Title',
-      author: { name: 'Author', email: 'Email' },
-      body: 'Content',
+      title: 'Post Title',
+      author: {
+        name: 'Tony Pai',
+        email: 'tonypai@me.com',
+      },
+      body: 'Post Content',
     });
     expect(wrapper).toMatchSnapshot();
   });

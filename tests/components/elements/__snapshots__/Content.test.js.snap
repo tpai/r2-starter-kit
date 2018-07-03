@@ -19,18 +19,18 @@ exports[`<Content /> should render correct component with assigned values 1`] = 
       <div
         className="header"
       >
-        Title
+        Post Title
       </div>
       <div
         className="bulleted meta"
       >
-        Author (Email)
+        Tony Pai (tonypai@me.com)
       </div>
       <div
         className="description"
         dangerouslySetInnerHTML={
           Object {
-            "__html": "Content",
+            "__html": "Post Content",
           }
         }
       />

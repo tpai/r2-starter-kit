@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Post /> should render loading page 1`] = `
+<div>
+  <div
+    className="ts active inverted dimmer"
+  >
+    <div
+      className="ts text loader"
+    >
+      Loading...
+    </div>
+  </div>
+  <div
+    className="ts text container"
+  >
+    <Breadcrumb
+      data={
+        Array [
+          Object {
+            "link": "/",
+            "text": "Post List",
+          },
+          Object {
+            "text": undefined,
+          },
+        ]
+      }
+    />
+    <div
+      className="ts divider"
+    />
+  </div>
+</div>
+`;
+
+exports[`<Post /> should render post content page 1`] = `
+<div>
+  <div
+    className="ts text container"
+  >
+    <Breadcrumb
+      data={
+        Array [
+          Object {
+            "link": "/",
+            "text": "Post List",
+          },
+          Object {
+            "text": "Post Title",
+          },
+        ]
+      }
+    />
+    <div
+      className="ts divider"
+    />
+    <Content
+      author={
+        Object {
+          "email": "tonypai@me.com",
+          "name": "Tony Pai",
+        }
+      }
+      body="Post Content"
+      id={1}
+      title="Post Title"
+    />
+  </div>
+</div>
+`;

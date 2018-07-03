@@ -24,7 +24,7 @@ test('detail page', async (t) => {
 test('go to detail page and back', async (t) => {
   await t
     .click(Selector('.header').nth(0))
-    .expect(getPageUrl()).contains('http://localhost:8080/article/1')
+    .expect(getPageUrl()).contains('http://localhost:8080/post/1')
     .click(Selector('.breadcrumb a').nth(0))
     .expect(getPageUrl()).contains('http://localhost:8080/')
     .wait(1000);
