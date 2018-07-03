@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Posts /> should render loading page 1`] = `
+<div>
+  <div
+    className="ts active inverted dimmer"
+  >
+    <div
+      className="ts text loader"
+    >
+      Loading...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Posts /> should render post list page 1`] = `
+<div>
+  <div
+    className="ts text container"
+  >
+    <List
+      data={
+        Array [
+          Object {
+            "author": Object {
+              "email": "tonypai@me.com",
+              "name": "Tony Pai",
+            },
+            "body": "Posts Content",
+            "title": "Posts Title",
+          },
+        ]
+      }
+    />
+  </div>
+</div>
+`;

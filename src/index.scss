@@ -1,0 +1,12 @@
+:global {
+  html, body {
+    height: 100%;
+  }
+  div#react {
+    height: 100%;
+
+    > div {
+      height: 100%;
+    }
+  }
+}

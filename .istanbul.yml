@@ -3,4 +3,4 @@ instrumentation:
   extensions:
     - .jsx
     - .js
-  excludes: ['www/dist/*.js']
+  excludes: ['dist/**/*.js']
