@@ -9,10 +9,22 @@
     'stage-0',
     'react'
   ],
+  'plugins': [
+    'syntax-dynamic-import'
+  ],
   'env': {
     'test': {
+      'presets': [
+        ['env', {
+          'targets': {
+            'browsers': ['ie >= 11']
+          }
+        }],
+        'stage-0',
+        'react'
+      ],
       'plugins': [
-        'transform-es2015-modules-commonjs'
+        'syntax-dynamic-import'
       ]
     }
   }
