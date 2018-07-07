@@ -1,5 +1,3 @@
-/* global describe it */
-import expect from 'expect';
 import nock from 'nock';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
