@@ -21,3 +21,8 @@ after_script:
   - ./cc-test-reporter format-coverage -t lcov ./tests/__coverage__/lcov.info
   - ./cc-test-reporter upload-coverage
   - greenkeeper-lockfile-upload
+deploy:
+  provider: heroku
+  api_key:
+    secure: $HEROKU_API_KEY
+  app: r2-starter-kit
