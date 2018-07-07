@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Breadcrumb from 'components/elements/Breadcrumb';
 import Content from 'components/elements/Content';
+import Loading from 'components/elements/Loading';
 
 class Post extends PureComponent {
   static propTypes = {
@@ -29,11 +30,7 @@ class Post extends PureComponent {
     const { id, post, state } = this.props;
     return (
       <div>
-        {state === 'loading' && (
-          <div className="ts active inverted dimmer">
-            <div className={`ts text loader`}>Loading...</div>
-          </div>
-        )}
+        {state === 'loading' && <Loading />}
         <div className="ts text container">
           <Breadcrumb
             data={[

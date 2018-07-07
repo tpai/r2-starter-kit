@@ -2,15 +2,7 @@
 
 exports[`<Post /> should render loading page 1`] = `
 <div>
-  <div
-    className="ts active inverted dimmer"
-  >
-    <div
-      className="ts text loader"
-    >
-      Loading...
-    </div>
-  </div>
+  <Loading />
   <div
     className="ts text container"
   >

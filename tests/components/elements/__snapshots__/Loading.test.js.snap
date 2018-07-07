@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loading /> should render initial component 1`] = `
+<div
+  className="ts active inverted dimmer"
+>
+  <div
+    className="ts text loader"
+  >
+    Loading...
+  </div>
+</div>
+`;

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import List from 'components/elements/List';
+import Loading from 'components/elements/Loading';
 
 class Posts extends PureComponent {
   static propTypes = {
@@ -27,11 +28,7 @@ class Posts extends PureComponent {
     const { list, state } = this.props;
     return (
       <div>
-        {state === 'loading' && (
-          <div className="ts active inverted dimmer">
-            <div className={`ts text loader`}>Loading...</div>
-          </div>
-        )}
+        {state === 'loading' && <Loading />}
         {state === 'idle' && (
           <div className="ts text container">
             <List data={list} />
