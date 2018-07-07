@@ -2,7 +2,7 @@ jasmine.VERBOSE = true;
 
 var reporters = require('jasmine-reporters');
 var junitReporter = new reporters.JUnitXmlReporter({
-  savePath: 'output/',
+  savePath: 'tests/jenkins/',
   consolidateAll: false
 });
 

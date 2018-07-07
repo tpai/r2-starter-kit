@@ -28,4 +28,4 @@ node_modules
 
 # Test related files
 tests/__coverage__
-output/
+tests/jenkins
