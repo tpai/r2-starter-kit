@@ -2,7 +2,7 @@
 
 > R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack 4.
 
-[![Greenkeeper badge][greenkeeper-badge]][greenkeeper]
+[![Maintainability][maintainability-badge]][maintainability]
 [![Travis Build Status][build-badge]][build]
 [![Coverage Status][coveralls-badge]][coveralls]
 [![Dependency Status][deps-badge]][deps]
@@ -55,6 +55,9 @@ It will distribute the files into `dist/` directory.
 
 You could find the report html in `tests/__coverage__`, then double click `index.html`.
 
+[maintainability-badge]: https://api.codeclimate.com/v1/badges/807d78f313c0b1eec23b/maintainability
+[maintainability]: https://codeclimate.com/github/tpai/r2-starter-kit/maintainability
+
 [build-badge]: https://travis-ci.org/tpai/r2-starter-kit.svg?branch=master
 [build]: https://travis-ci.org/tpai/r2-starter-kit
 
@@ -69,6 +72,3 @@ You could find the report html in `tests/__coverage__`, then double click `index
 
 [heroku-deployment-badge]: https://heroku-badge.herokuapp.com/?app=r2-starter-kit
 [heroku-app]: http://r2-starter-kit.herokuapp.com
-
-[greenkeeper-badge]: https://badges.greenkeeper.io/tpai/r2-starter-kit.svg
-[greenkeeper]: https://greenkeeper.io/
