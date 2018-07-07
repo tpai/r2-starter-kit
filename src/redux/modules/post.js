@@ -7,12 +7,12 @@ export const FAILED = 'app/post/FAILED';
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
-    case GET:
-      return Object.assign({}, state, action.post);
-    case FAILED:
-      return {};
-    default:
-      return state;
+  case GET:
+    return Object.assign({}, state, action.post);
+  case FAILED:
+    return {};
+  default:
+    return state;
   }
 };
 

@@ -4,14 +4,14 @@ export const FAILURE = 'app/state/FAILURE';
 
 const reducer = (state = 'idle', action) => {
   switch (action.type) {
-    case LOADING:
-      return 'loading';
-    case IDLE:
-      return 'idle';
-    case FAILURE:
-      return 'failure';
-    default:
-      return state;
+  case LOADING:
+    return 'loading';
+  case IDLE:
+    return 'idle';
+  case FAILURE:
+    return 'failure';
+  default:
+    return state;
   }
 };
 

@@ -13,6 +13,12 @@ export default class FadeOutImage extends PureComponent {
     url: '',
     placeholder: '',
   };
+  handleImageOnload = (url) => {
+    this.setState({
+      url,
+      noBlur: true,
+    });
+  }
   constructor(props) {
     super();
     this.state = {
@@ -20,12 +26,6 @@ export default class FadeOutImage extends PureComponent {
       noBlur: false,
     };
   }
-  handleImageOnload = (url) => {
-    this.setState({
-      url,
-      noBlur: true,
-    });
-  };
   render() {
     const { url, noBlur } = this.state;
     const { url: selfUrl } = this.props;

@@ -7,19 +7,19 @@ export const FAILED = 'app/list/FAILED';
 
 const reducer = (state = [], action) => {
   switch (action.type) {
-    case GET:
-      return action.data.map((item) => ({
-        id: parseInt(item.id, 10),
-        title: item.title,
-        link: `/post/${item.id}`,
-        desc: item.body,
-        imgUrl: `https://picsum.photos/320/180?image=${item.id}`,
-        imgPlaceholder: `https://picsum.photos/32/18?image=${item.id}`,
-      }));
-    case FAILED:
-      return [];
-    default:
-      return state;
+  case GET:
+    return action.data.map((item) => ({
+      id: parseInt(item.id, 10),
+      title: item.title,
+      link: `/post/${item.id}`,
+      desc: item.body,
+      imgUrl: `https://picsum.photos/320/180?image=${item.id}`,
+      imgPlaceholder: `https://picsum.photos/32/18?image=${item.id}`,
+    }));
+  case FAILED:
+    return [];
+  default:
+    return state;
   }
 };
 
