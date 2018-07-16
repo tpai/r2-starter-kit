@@ -36,7 +36,7 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
-    "autoprefixer": "^8.0.0",
+    "autoprefixer": "^9.0.0",
     "babel-cli": "^6.8.0",
     "babel-core": "^6.10.4",
     "babel-eslint": "^8.0.0",
