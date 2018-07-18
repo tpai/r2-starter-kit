@@ -8,7 +8,6 @@ node_js:
 cache:
   yarn: true
 before_install:
-  - export PATH="$(yarn global bin):$PATH"
   - yarn global add greenkeeper-lockfile@1
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
