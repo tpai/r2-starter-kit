@@ -50,7 +50,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^1.0.0",
     "enzyme": "^3.4.3",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-16": "^1.2.0",
     "enzyme-to-json": "^3.3.0",
     "eslint": "^5.0.1",
     "eslint-loader": "^2.0.0",
