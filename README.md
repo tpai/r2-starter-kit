@@ -13,9 +13,8 @@
 
 ### Presets And Loaders
 
-* babel-preset-env
-* babel-preset-react
-* babel-preset-stage-0
+* @babel/preset-env
+* @babel/preset-react
 * style-loader
 * css-loader
 * sass-loader
@@ -53,7 +52,11 @@ It will distribute the files into `dist/` directory.
 
 #### Code Coverage Report
 
-You could find the report html in `tests/__coverage__`, then double click `index.html`.
+```
+yarn test
+```
+
+You will find the report html in `tests/__coverage__`.
 
 [maintainability-badge]: https://api.codeclimate.com/v1/badges/807d78f313c0b1eec23b/maintainability
 [maintainability]: https://codeclimate.com/github/tpai/r2-starter-kit/maintainability
