@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const SizePlugin = require('size-plugin');
 
 const config = require('./webpack.config.js');
 
@@ -11,15 +12,17 @@ module.exports = Object.assign({}, config, {
     filename: 'static/js/[name].[hash].js',
     chunkFilename: 'static/js/[name].[hash].js',
   },
+  stats: 'errors-only',
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
     }),
-    new BundleAnalyzerPlugin(),
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[hash].css',
       chunkFilename: 'static/css/[name].[hash].css',
     }),
+    // new BundleAnalyzerPlugin(),
+    new SizePlugin(),
   ],
 });
