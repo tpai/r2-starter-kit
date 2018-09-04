@@ -57,7 +57,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "autoprefixer": "^8.0.0",
+    "autoprefixer": "^9.1.4",
     "babel-core": "^7.0.0-0",
     "babel-eslint": "^8.0.0",
     "babel-jest": "^23.2.0",
