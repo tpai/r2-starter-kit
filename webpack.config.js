@@ -17,7 +17,10 @@ module.exports = {
       'react-loadable',
       'prop-types',
       'redux',
-      'redux-thunk',
+      'redux-saga',
+      'redux-actions',
+      'history',
+      'connected-react-router',
     ],
   },
   module: {

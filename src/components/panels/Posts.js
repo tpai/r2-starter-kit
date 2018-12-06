@@ -1,37 +1,59 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import List from 'components/elements/List';
 import Loading from 'components/elements/Loading';
+import FadeOutImage from 'components/elements/FadeOutImage';
 
 class Posts extends PureComponent {
   static propTypes = {
-    // container state
-    list: PropTypes.arrayOf(PropTypes.object),
-    state: PropTypes.oneOf(['loading', 'idle', 'failure']),
-
-    // container actions
-    getList: PropTypes.func,
+    uiState: PropTypes.oneOf(['loading', 'idle', 'failure']),
+    posts: PropTypes.array,
+    handleClick: PropTypes.func,
   };
   static defaultProps = {
-    // container state
-    list: [],
-    state: 'idle',
-
-    // container actions
-    getList: () => {},
+    uiState: 'idle',
+    posts: [],
+    handleClick: () => {},
   };
-  componentDidMount() {
-    this.props.getList();
-  }
   render() {
-    const { list, state } = this.props;
+    const {
+      uiState,
+      posts,
+      handleClick,
+    } = this.props;
     return (
       <div>
-        {state === 'loading' && <Loading />}
-        {state === 'idle' && (
+        {uiState === 'loading' && <Loading />}
+        {uiState === 'idle' && (
           <div className="ts text container">
-            <List data={list} />
+            <div className="ts divided items">
+              {posts.map(({
+                id,
+                title,
+                description,
+                image,
+                placeholder,
+              }, key) => (
+                <div key={`item${key}`} className="item">
+                  <div className="image">
+                    <FadeOutImage
+                      url={image}
+                      placeholder={placeholder}
+                    />
+                  </div>
+                  <div className="content">
+                    <div
+                      onClick={() => handleClick(id)}
+                      className="header"
+                      style={{ cursor: 'pointer' }}
+                    >
+                      {title}
+                    </div>
+                    <div className="description">{description}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>

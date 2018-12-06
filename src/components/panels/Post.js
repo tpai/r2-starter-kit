@@ -1,46 +1,29 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import Breadcrumb from 'components/elements/Breadcrumb';
-import Content from 'components/elements/Content';
 import Loading from 'components/elements/Loading';
+import Breadcrumb from 'containers/blocks/Breadcrumb';
+import Content from 'containers/blocks/Content';
 
 class Post extends PureComponent {
   static propTypes = {
-    // container state
-    id: PropTypes.number,
-    post: PropTypes.object,
-    state: PropTypes.oneOf(['loading', 'idle', 'failure']),
-
-    // container actions
-    getPost: PropTypes.func,
+    uiState: PropTypes.oneOf(['loading', 'idle', 'failure']),
   };
   static defaultProps = {
-    id: null,
-    post: {},
-    state: 'idle',
-
-    getPost: () => {},
-  }
-  componentDidMount() {
-    const { id, getPost } = this.props;
-    getPost(id);
+    uiState: 'idle',
   }
   render() {
-    const { id, post, state } = this.props;
+    const { uiState } = this.props;
     return (
       <div>
-        {state === 'loading' && <Loading />}
-        <div className="ts text container">
-          <Breadcrumb
-            data={[
-              { text: 'Post List', link: '/' },
-              { text: post.title }
-            ]}
-          />
-          <div className="ts divider" />
-          {state === 'idle' && <Content id={id} {...post} />}
-        </div>
+        {uiState === 'loading' && <Loading />}
+        {uiState === 'idle' &&
+          <div className="ts text container">
+            <Breadcrumb />
+            <div className="ts divider" />
+            <Content />
+          </div>
+        }
       </div>
     );
   }
