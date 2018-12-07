@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-import styles from './FadeOutImage.scss';
+import styles from './ProgressiveImage.scss';
 
 export default class FadeOutImage extends PureComponent {
   static propTypes = {
@@ -13,35 +13,35 @@ export default class FadeOutImage extends PureComponent {
     url: '',
     placeholder: '',
   };
-  handleImageOnload = (url) => {
+  handleImageOnload = () => {
+    const { url } = this.props;
     this.setState({
-      url,
-      noBlur: true,
+      currentUrl: url,
+      isSharp: true,
     });
   }
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-      url: props.placeholder,
-      noBlur: false,
+      currentUrl: props.placeholder,
+      isSharp: false,
     };
   }
   render() {
-    const { url, noBlur } = this.state;
-    const { url: selfUrl } = this.props;
+    const { currentUrl, isSharp } = this.state;
+    const { url } = this.props;
     return (
       <div>
         <img
           ref={(c) => (this.component = c)}
-          style={{ backgroundImage: `url('${url}')` }}
-          className={cx({
-            [styles['placeholder']]: true,
-            [styles['noBlur']]: noBlur,
+          style={{ backgroundImage: `url('${currentUrl}')` }}
+          className={cx(styles['placeholder'], {
+            [styles['sharp']]: isSharp,
           })}
         />
         <img
-          src={selfUrl}
-          onLoad={() => setTimeout(() => this.handleImageOnload(selfUrl), 500)}
+          src={url}
+          onLoad={() => this.handleImageOnload()}
           style={{ display: 'none' }}
         />
       </div>

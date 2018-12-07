@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import Loading from 'components/elements/Loading';
-import FadeOutImage from 'components/elements/FadeOutImage';
+import ProgressiveImage from 'components/elements/ProgressiveImage';
 
 class Posts extends PureComponent {
   static propTypes = {
@@ -36,7 +36,7 @@ class Posts extends PureComponent {
               }, key) => (
                 <div key={`item${key}`} className="item">
                   <div className="image">
-                    <FadeOutImage
+                    <ProgressiveImage
                       url={image}
                       placeholder={placeholder}
                     />

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import FadeOutImage from 'components/elements/FadeOutImage';
+import ProgressiveImage from 'components/elements/ProgressiveImage';
 
 export default class Content extends PureComponent {
   static propTypes = {
@@ -33,7 +33,7 @@ export default class Content extends PureComponent {
       <div>
         <div className="ts card text container">
           <div className="image">
-            <FadeOutImage
+            <ProgressiveImage
               url={image}
               placeholder={placeholder}
             />
