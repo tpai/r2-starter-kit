@@ -22,7 +22,7 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.6",
-    "connected-react-router": "^5.0.1",
+    "connected-react-router": "^6.0.0",
     "express": "^4.16.2",
     "express-history-api-fallback": "^2.2.1",
     "history": "^4.7.2",
