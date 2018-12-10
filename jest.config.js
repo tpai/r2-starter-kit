@@ -4,7 +4,8 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/components/**/*.{js,jsx}',
-    'src/redux/modules/*.{js,jsx}',
+    'src/redux/reducers/**/*.{js,jsx}',
+    '!src/redux/reducers/**/index.{js,jsx}',
     '!**/node_modules/**',
     '!**/vendor/**',
   ],

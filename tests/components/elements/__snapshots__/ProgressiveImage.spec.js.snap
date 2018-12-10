@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FadeOutImage /> should render initial component 1`] = `
+exports[`<ProgressiveImage /> should render initial component 1`] = `
 <FadeOutImage
   placeholder="https://placehold.it/40x30"
   url="https://placehold.it/800x600"

@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Loading from 'components/elements/Loading';
+import Component from 'components/elements/Loading';
 
 describe('<Loading />', () => {
   let wrapper;
   beforeAll(() => {
-    wrapper = shallow(<Loading />);
+    wrapper = shallow(<Component />);
   });
 
   it('should render initial component', () => {

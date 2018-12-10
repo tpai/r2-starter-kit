@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Post /> should render component with uiState prop which value is "loading" 1`] = `
+<div>
+  <Loading />
+</div>
+`;
+
+exports[`<Post /> should render initial page 1`] = `
+<div>
+  <div
+    className="ts text container"
+  >
+    <Connect(Breadcrumb) />
+    <div
+      className="ts divider"
+    />
+    <Connect(Content) />
+  </div>
+</div>
+`;
