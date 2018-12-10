@@ -34,7 +34,7 @@ module.exports = {
     }
   },
   "parser": "babel-eslint",
-  "plugins": ["react", "sort-class-members"],
+  "plugins": ["react", "jest", "sort-class-members"],
   "env": {
     "browser": true,
     "node": true,
