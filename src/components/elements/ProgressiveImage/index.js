@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-import styles from './ProgressiveImage.scss';
+import styles from './index.scss';
 
 export default class FadeOutImage extends PureComponent {
   static propTypes = {
