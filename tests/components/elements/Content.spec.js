@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Component from 'components/blocks/Content';
+import Component from 'components/elements/Content';
 
 describe('<Content />', () => {
   const initProps = {

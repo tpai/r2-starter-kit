@@ -2,10 +2,12 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Component from 'components/panels/Post';
+import Item from 'components/blocks/Item';
 
 describe('<Post />', () => {
   const initProps = {
     uiState: 'idle',
+    Item: <Item />,
   };
 
   let wrapper;

@@ -1,8 +1,10 @@
+import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import Post from 'components/panels/Post';
 import { withLifecycle } from 'components/hoc';
+import Item from 'containers/blocks/Item';
 import { handleDidMount } from 'sagas/panels/post';
 
 function mapStateToProps(state) {
@@ -22,6 +24,7 @@ function mergeProps(state, { dispatch }, ownProps) {
 
     // custom props
     uiState: state.ui.state.data,
+    Item: <Item />,
   };
 }
 

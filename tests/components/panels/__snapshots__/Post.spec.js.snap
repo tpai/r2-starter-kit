@@ -8,14 +8,9 @@ exports[`<Post /> should render component with uiState prop which value is "load
 
 exports[`<Post /> should render initial page 1`] = `
 <div>
-  <div
-    className="ts text container"
-  >
-    <Connect(Breadcrumb) />
-    <div
-      className="ts divider"
-    />
-    <Connect(Content) />
-  </div>
+  <Item
+    breadcrumb={Object {}}
+    content={Object {}}
+  />
 </div>
 `;
