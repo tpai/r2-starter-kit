@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Posts from 'components/panels/Posts';
 import { withLifecycle } from 'components/hoc';
 import Items from 'containers/blocks/Items';
-import { handleDidMount, clickPost } from 'sagas/panels/posts';
+import { handleDidMount } from 'sagas/panels/posts';
 
 function mapStateToProps(state) {
   return state;
