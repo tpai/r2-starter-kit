@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Items /> should render component with props 1`] = `
+<div
+  className="ts text container"
+>
+  <div
+    className="ts divided items"
+  >
+    <div
+      className="item"
+      key="item0"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    >
+      <div
+        className="image"
+      >
+        <FadeOutImage
+          placeholder="https://placehold.it/20x20"
+          url="https://placehold.it/200x200"
+        />
+      </div>
+      <div
+        className="content"
+      >
+        <div
+          className="header"
+        >
+          title
+        </div>
+        <div
+          className="description"
+        >
+          description
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Items /> should render initial component 1`] = `
+<div
+  className="ts text container"
+>
+  <div
+    className="ts divided items"
+  />
+</div>
+`;

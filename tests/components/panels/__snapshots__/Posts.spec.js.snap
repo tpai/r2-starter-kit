@@ -8,12 +8,9 @@ exports[`<Posts /> should render component with uiState prop which value is "loa
 
 exports[`<Posts /> should render initial page 1`] = `
 <div>
-  <div
-    className="ts text container"
-  >
-    <div
-      className="ts divided items"
-    />
-  </div>
+  <Items
+    handleClick={[Function]}
+    posts={Array []}
+  />
 </div>
 `;
