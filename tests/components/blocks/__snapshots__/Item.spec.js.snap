@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Item /> should render initial component 1`] = `
+<div
+  className="ts text container"
+>
+  <Breadcrumb
+    handleClick={[Function]}
+    title=""
+  />
+  <div
+    className="ts divider"
+  />
+  <Content
+    authorEmail=""
+    authorName=""
+    description=""
+    image=""
+    placeholder=""
+    title=""
+  />
+</div>
+`;
