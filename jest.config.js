@@ -1,4 +1,9 @@
 module.exports = {
+  roots: ['<rootDir>/src/', '<rootDir>/tests/'],
+  moduleDirectories: ['node_modules'],
+  modulePaths: ['<rootDir>/src'],
+  moduleFileExtensions: ['js', 'jsx'],
+  testRegex: '\\.(spec|e2e|snapshot)\\.js$',
   setupFiles: ['./jest.setup.js'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   collectCoverage: true,
