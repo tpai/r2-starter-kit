@@ -4,6 +4,9 @@ module.exports = {
   modulePaths: ['<rootDir>/src'],
   moduleFileExtensions: ['js', 'jsx'],
   testRegex: '\\.(spec|e2e|snapshot)\\.js$',
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest'
+  },
   setupFiles: ['./jest.setup.js'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   collectCoverage: true,
