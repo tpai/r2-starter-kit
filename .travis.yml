@@ -3,12 +3,13 @@ language: node_js
 env:
   global:
     - CC_TEST_REPORTER_ID=$CC_TEST_REPORTER_ID
+    - COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN
 node_js:
   - 8
 cache:
   yarn: true
 before_install:
-  - npm install --global greenkeeper-lockfile@1
+  - yarn global add greenkeeper-lockfile@1
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
@@ -16,8 +17,8 @@ before_script:
   - greenkeeper-lockfile-update
 script:
   - yarn test:cov
+  - yarn add coveralls && cat tests/__coverage__/lcov.info | coveralls
 after_script:
-  - yarn add coveralls && cat ./tests/__coverage__/lcov.info | coveralls
   - ./cc-test-reporter format-coverage -t lcov ./tests/__coverage__/lcov.info
   - ./cc-test-reporter upload-coverage
   - greenkeeper-lockfile-upload
