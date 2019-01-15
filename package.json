@@ -6,7 +6,7 @@
     "start": "node server.js",
     "dev": "webpack-dev-server --config webpack.config.dev.js",
     "build": "rm -rf dist/ && webpack -p --config webpack.config.prod.js",
-    "e2e": "testcafe chrome tests/e2e.js",
+    "e2e": "yarn dev && testcafe safari tests/e2e.js",
     "test": "NODE_ENV=test NODE_PATH=./src jest --watch",
     "test:cov": "NODE_ENV=test NODE_PATH=./src jest --coverage",
     "lint": "eslint $(find src -name \\*.js)"
