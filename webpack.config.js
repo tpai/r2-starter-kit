@@ -51,7 +51,19 @@ module.exports = {
           },
           {
             loader: 'postcss-loader',
-            query: {
+            options: {
+              ident: 'postcss',
+              plugins: [
+                require('postcss-preset-env')({
+                  path: [path.resolve(__dirname, 'src')],
+                }),
+                require('postcss-import')({
+                  browsers: 'last 2 versions, ie > 9',
+                }),
+              ].concat(process.env.NODE_ENV === 'development'
+                ? []
+                : [require('cssnano')()],
+              ),
               sourceMap: true,
             },
           },

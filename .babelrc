@@ -3,7 +3,10 @@
     [
       "@babel/preset-env",
       {
-        "targets": ["last 2 versions", "not ie > 0"]
+        "targets": [
+          "last 2 versions",
+          "ie > 9"
+        ]
       }
     ],
     "@babel/preset-react"
