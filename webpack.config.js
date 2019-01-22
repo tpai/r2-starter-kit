@@ -8,20 +8,6 @@ module.exports = {
   },
   entry: {
     app: path.resolve(__dirname, 'src/index'),
-    vendor: [
-      'react',
-      'react-dom',
-      'react-redux',
-      'react-router',
-      'react-router-dom',
-      'react-loadable',
-      'prop-types',
-      'redux',
-      'redux-saga',
-      'redux-actions',
-      'history',
-      'connected-react-router',
-    ],
   },
   module: {
     rules: [
@@ -78,16 +64,25 @@ module.exports = {
     ],
   },
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
+        shared: {
+          name: 'shared',
+          minChunks: 2,
+          test: /\.jsx?$/,
+        },
+        styles: {
+          name: 'styles',
+          minSize: 0, //Ignore minSize for CSS files, to force them in new chunks
+          test: /\.scss|\.css$/,
+        },
         vendor: {
-          chunks: 'initial',
           name: 'vendor',
-          test: 'vendor',
-          enforce: true,
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'initial',
         },
       },
     },
-    runtimeChunk: true,
   },
 };

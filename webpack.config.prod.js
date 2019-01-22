@@ -9,8 +9,8 @@ module.exports = Object.assign({}, config, {
   mode: 'production',
   output: {
     publicPath: '/',
-    filename: 'static/js/[name].[hash].js',
-    chunkFilename: 'static/js/[name].[hash].js',
+    filename: 'static/js/[name].[contenthash].js',
+    chunkFilename: 'static/js/[name].[contenthash].js',
   },
   stats: 'errors-only',
   plugins: [
@@ -19,8 +19,8 @@ module.exports = Object.assign({}, config, {
       template: 'index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'static/css/[name].[hash].css',
-      chunkFilename: 'static/css/[name].[hash].css',
+      filename: 'static/css/[name].[contenthash].css',
+      chunkFilename: 'static/css/[name].[contenthash].css',
     }),
     // new BundleAnalyzerPlugin(),
     new SizePlugin(),
