@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -22,6 +23,7 @@ module.exports = Object.assign({}, config, {
       filename: 'static/css/[name].[contenthash].css',
       chunkFilename: 'static/css/[name].[contenthash].css',
     }),
+    new webpack.HashedModuleIdsPlugin(), // so that file hashes don't change unexpectedly
     // new BundleAnalyzerPlugin(),
     new SizePlugin(),
   ],
