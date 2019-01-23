@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Loading from 'components/elements/Loading';
@@ -15,10 +15,10 @@ class Posts extends PureComponent {
   render() {
     const { uiState, Items } = this.props;
     return (
-      <div>
+      <Fragment>
         {uiState === 'loading' && <Loading />}
         {uiState === 'idle' && Items}
-      </div>
+      </Fragment>
     );
   }
 }

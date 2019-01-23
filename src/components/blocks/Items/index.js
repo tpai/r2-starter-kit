@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 import ProgressiveImage from 'components/elements/ProgressiveImage';
+import styles from './styles.scss';
 
 class Items extends PureComponent {
   static propTypes = {
@@ -26,8 +28,7 @@ class Items extends PureComponent {
           }, key) => (
             <div
               key={`item${key}`}
-              className="item"
-              style={{ cursor: 'pointer' }}
+              className={cx('item', styles.post)}
               onClick={() => handleClick(id)}
             >
               <div className="image">

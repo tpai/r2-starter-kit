@@ -1,12 +1,3 @@
-:global {
-  html, body {
-    height: 100%;
-  }
-  div#react {
-    height: 100%;
-
-    > div {
-      height: 100%;
-    }
-  }
+.container {
+  margin: 0 0 30px;
 }
