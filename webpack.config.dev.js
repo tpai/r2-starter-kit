@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ExtractCssChunksWebpackPlugin = require('extract-css-chunks-webpack-plugin');
 
 const config = require('./webpack.config.js');
 
@@ -29,7 +29,7 @@ module.exports = Object.assign({}, config, {
       template: path.resolve(__dirname, 'index.html'),
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new MiniCssExtractPlugin({
+    new ExtractCssChunksWebpackPlugin({
       filename: 'static/css/[name].css',
       chunkFilename: 'static/css/[name].css',
     }),

@@ -1,4 +1,5 @@
 const path = require('path');
+const ExtractCssChunksWebpackPlugin = require('extract-css-chunks-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -23,12 +24,7 @@ module.exports = {
         test: /\.scss|\.css$/,
         use: [
           process.env.NODE_ENV === 'development'
-            ? {
-              loader: 'style-loader',
-              query: {
-                sourceMap: true,
-              },
-            }
+            ? ExtractCssChunksWebpackPlugin.loader
             : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
