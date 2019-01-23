@@ -4,7 +4,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   resolve: {
-    modules: [path.resolve('src'), 'node_modules'],
+    modules: [
+      path.resolve('src'),
+      'node_modules',
+    ],
     alias: {
       assets: path.resolve('src', 'assets'),
     },
