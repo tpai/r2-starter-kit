@@ -4,6 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   resolve: {
     modules: [path.resolve('src'), 'node_modules'],
+    alias: {
+      assets: path.resolve('src', 'assets'),
+    },
     extensions: ['.js', '.jsx', '.css', '.scss'],
   },
   entry: {
@@ -60,6 +63,42 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /.(jpeg|jpg|png|gif)$/,
+        loaders: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: process.env.NODE_ENV === 'development'
+                ? 'static/files/[name].[ext]'
+                : 'static/files/[name]-[hash:6].[ext]',
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            query: {
+              mozjpeg: {
+                optimizationLevel: 7,
+                interlaced:        false,
+              },
+              pngquant: {
+                optimizationLevel: 7,
+                interlaced:        false,
+                quality:           '65-90',
+                speed:             4,
+              },
+              gifsicle: {
+                optimizationLevel: 7,
+                interlaced:        false,
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /.svg$/,
+        loader: 'svg-inline-loader',
       },
     ],
   },
