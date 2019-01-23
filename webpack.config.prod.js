@@ -15,6 +15,10 @@ module.exports = Object.assign({}, config, {
   },
   stats: 'errors-only',
   plugins: [
+    new webpack.HashedModuleIdsPlugin(),
+    new webpack.NamedChunksPlugin(
+      chunk => chunk.name || Array.from(chunk.modulesIterable, m => m.id).join("_")
+    ),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
@@ -23,7 +27,6 @@ module.exports = Object.assign({}, config, {
       filename: 'static/css/[name].[contenthash].css',
       chunkFilename: 'static/css/[name].[contenthash].css',
     }),
-    new webpack.HashedModuleIdsPlugin(), // so that file hashes don't change unexpectedly
     // new BundleAnalyzerPlugin(),
     new SizePlugin(),
   ],
