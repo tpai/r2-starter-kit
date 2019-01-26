@@ -13,18 +13,25 @@
 
 ### Presets And Loaders
 
-* @babel/preset-env
-* @babel/preset-react
-* style-loader
-* css-loader
-* sass-loader
-* postcss-loader
-* postcss-import
-* autoprefixer
+* .babelrc
+  * @babel/preset-env
+  * @babel/preset-react
+  * @babel/plugin-proposal-class-properties
+  * @babel/plugin-syntax-dynamic-import
+* webpack.config.js
+  * css-loader
+  * postcss-loader
+    * postcss-preset-env
+    * postcss-import
+    * cssnano
+  * sass-loader
+  * file-loader
+  * image-webpack-loader
+  * svg-inline-loader
 
 ### Get Started
 
-Clone this repo and make something awesome!
+Clone this repo and install dependencies.
 
 ```
 $ git clone https://github.com/tpai/r2-starter-kit.git
@@ -40,7 +47,7 @@ $ yarn
 yarn dev
 ```
 
-It will start a development server which listen to 8080 port.
+It will start a development server which listen to port 8080.
 
 #### Build Bundled JS
 
@@ -48,15 +55,24 @@ It will start a development server which listen to 8080 port.
 yarn build
 ```
 
-It will distribute the files into `dist/` directory.
+It will distribute the files into `dist/` directory, and open bundle analyzation report.
+
+#### Run E2E test
+
+```
+yarn dev
+yarn e2e
+```
+
+Start dev server first, then run the tests.
 
 #### Code Coverage Report
 
 ```
-yarn test
+yarn test:cov
 ```
 
-You will find the report html in `tests/__coverage__`.
+Check out the report in `tests/__coverage__/index.html`.
 
 [maintainability-badge]: https://api.codeclimate.com/v1/badges/807d78f313c0b1eec23b/maintainability
 [maintainability]: https://codeclimate.com/github/tpai/r2-starter-kit/maintainability
