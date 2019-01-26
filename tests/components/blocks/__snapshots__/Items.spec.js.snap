@@ -8,14 +8,9 @@ exports[`<Items /> should render component with props 1`] = `
     className="ts divided items"
   >
     <div
-      className="item"
+      className="item post"
       key="item0"
       onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
     >
       <div
         className="image"

@@ -2,7 +2,7 @@
 
 exports[`<Loading /> should render initial component 1`] = `
 <div
-  className="ts active inverted dimmer"
+  className="ts active inverted dimmer container"
 >
   <div
     className="ts text loader"

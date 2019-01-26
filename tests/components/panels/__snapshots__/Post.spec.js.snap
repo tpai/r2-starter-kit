@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Post /> should render component with uiState prop which value is "loading" 1`] = `
-<div>
+<Fragment>
   <Loading />
-</div>
+</Fragment>
 `;
 
 exports[`<Post /> should render initial page 1`] = `
-<div>
+<Fragment>
   <Item
     breadcrumb={Object {}}
     content={Object {}}
   />
-</div>
+</Fragment>
 `;
