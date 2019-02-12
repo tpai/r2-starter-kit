@@ -60,11 +60,11 @@ It will distribute the files into `dist/` directory, and open bundle analyzation
 #### Run E2E test
 
 ```
-yarn dev
+yarn build && yarn start
 yarn e2e
 ```
 
-Start dev server first, then run the tests.
+Start server first, then run the tests.
 
 #### Code Coverage Report
 
