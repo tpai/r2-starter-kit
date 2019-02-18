@@ -19,7 +19,7 @@ module.exports = {
   ],
   coverageReporters: ['json', 'html', 'lcov'],
   coverageDirectory: '<rootDir>/tests/__coverage__/',
-  setupTestFrameworkScriptFile: '<rootDir>/setup-jasmine-env.js',
+  setupFilesAfterEnv: ['<rootDir>/setup-jasmine-env.js'],
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/__mocks__/fileMock.js',
