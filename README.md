@@ -11,7 +11,7 @@
 
 ![](http://i.giphy.com/69jtJzHmbccnmL1W8k.gif)
 
-### Presets And Loaders
+## Presets And Loaders
 
 * .babelrc
   * @babel/preset-env
@@ -29,7 +29,7 @@
   * image-webpack-loader
   * svg-inline-loader
 
-### Get Started
+## Get Started
 
 Clone this repo and install dependencies.
 
@@ -39,9 +39,9 @@ $ cd r2-starter-kit
 $ yarn
 ```
 
-### Usage
+## Usage
 
-#### Run Developing Server
+### Run Developing Server
 
 ```
 yarn dev
@@ -49,7 +49,7 @@ yarn dev
 
 It will start a development server which listen to port 8080.
 
-#### Build Bundled JS
+### Build Bundled JS
 
 ```
 yarn build
@@ -57,7 +57,7 @@ yarn build
 
 It will distribute the files into `dist/` directory, and open bundle analyzation report.
 
-#### Run E2E test
+### Run E2E test
 
 ```
 yarn build && yarn start
@@ -66,7 +66,7 @@ yarn e2e
 
 Start server first, then run the tests.
 
-#### Code Coverage Report
+### Code Coverage Report
 
 ```
 yarn test:cov
