@@ -6,11 +6,11 @@ import Loading from 'components/elements/Loading';
 class Posts extends PureComponent {
   static propTypes = {
     uiState: PropTypes.oneOf(['loading', 'idle', 'failure']),
-    Items: PropTypes.element,
+    Items:   PropTypes.element,
   };
   static defaultProps = {
     uiState: 'idle',
-    Items: null,
+    Items:   null,
   };
   render() {
     const { uiState, Items } = this.props;

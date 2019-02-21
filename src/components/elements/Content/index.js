@@ -5,19 +5,19 @@ import ProgressiveImage from 'components/elements/ProgressiveImage';
 
 export default class Content extends PureComponent {
   static propTypes = {
-    authorName: PropTypes.string,
+    authorName:  PropTypes.string,
     authorEmail: PropTypes.string,
-    title: PropTypes.string,
+    title:       PropTypes.string,
     description: PropTypes.string,
-    image: PropTypes.string,
+    image:       PropTypes.string,
     placeholder: PropTypes.string,
   };
   static defaultProps = {
-    authorName: '',
+    authorName:  '',
     authorEmail: '',
-    title: '',
+    title:       '',
     description: '',
-    image: '',
+    image:       '',
     placeholder: '',
   };
   render() {

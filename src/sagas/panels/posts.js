@@ -12,10 +12,10 @@ import {
 import { fixPosts } from 'utils/normalizer';
 
 export const HANDLE_DID_MOUNT = `posts/HANDLE_DID_MOUNT`;
-export const CLICK_POST = `posts/CLICK_POST`;
+export const CLICK_POST       = `posts/CLICK_POST`;
 
 export const handleDidMount = createAction(HANDLE_DID_MOUNT);
-export const clickPost = createAction(CLICK_POST, value => value);
+export const clickPost      = createAction(CLICK_POST, value => value);
 
 export const sagas = {
   * handleDidMount () {

@@ -7,11 +7,11 @@ import styles from './styles.scss';
 
 class Items extends PureComponent {
   static propTypes = {
-    posts: PropTypes.array,
+    posts:       PropTypes.array,
     handleClick: PropTypes.func,
   }
   static defaultProps = {
-    posts: [],
+    posts:       [],
     handleClick: () => {},
   }
   render() {

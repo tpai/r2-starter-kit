@@ -13,10 +13,10 @@ import {
 } from 'redux/reducers/ui/state';
 
 export const HANDLE_DID_MOUNT = `post/HANDLE_DID_MOUNT`;
-export const CLICK_ROOT_PATH = `post/CLICK_ROOT_PATH`;
+export const CLICK_ROOT_PATH  = `post/CLICK_ROOT_PATH`;
 
 export const handleDidMount = createAction(HANDLE_DID_MOUNT);
-export const clickRootPath = createAction(CLICK_ROOT_PATH);
+export const clickRootPath  = createAction(CLICK_ROOT_PATH);
 
 export const sagas = {
   * handleDidMount () {

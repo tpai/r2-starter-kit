@@ -6,11 +6,11 @@ import styles from './styles.scss';
 
 export default class FadeOutImage extends PureComponent {
   static propTypes = {
-    url: PropTypes.string.isRequired,
+    url:         PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,
   };
   static defaultProps = {
-    url: '',
+    url:         '',
     placeholder: '',
   };
   handleImageOnload = () => {

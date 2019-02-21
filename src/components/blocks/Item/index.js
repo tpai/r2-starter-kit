@@ -7,11 +7,11 @@ import Content from 'components/elements/Content';
 class Item extends PureComponent {
   static propTypes = {
     breadcrumb: PropTypes.object,
-    content: PropTypes.object,
+    content:    PropTypes.object,
   }
   static defaultProps = {
     breadcrumb: {},
-    content: {},
+    content:    {},
   }
   render() {
     const { breadcrumb, content } = this.props;
