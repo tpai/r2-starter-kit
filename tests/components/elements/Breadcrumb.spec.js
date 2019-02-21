@@ -4,8 +4,11 @@ import Component from 'components/elements/Breadcrumb';
 
 describe('<Breadcrumb />', () => {
   const initProps = {
-    title: '',
-    handleClick: jest.fn(),
+    data: [
+      { id: 1, text: 'Home',       handleClick: jest.fn() },
+      { id: 2, text: 'Post Title', handleClick: jest.fn() },
+    ],
+    activeId: 2,
   };
 
   let wrapper;
@@ -23,8 +26,8 @@ describe('<Breadcrumb />', () => {
   });
 
   it('should call handleClick when click root path', () => {
-    expect(initProps.handleClick).toHaveBeenCalledTimes(0);
+    expect(initProps.data[0].handleClick).not.toHaveBeenCalled();
     wrapper.find('a').simulate('click');
-    expect(initProps.handleClick).toHaveBeenCalledTimes(1);
+    expect(initProps.data[0].handleClick).toHaveBeenCalled();
   });
 });

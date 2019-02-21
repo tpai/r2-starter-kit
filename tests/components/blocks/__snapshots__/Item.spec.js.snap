@@ -5,8 +5,8 @@ exports[`<Item /> should render initial component 1`] = `
   className="ts text container"
 >
   <Breadcrumb
-    handleClick={[Function]}
-    title=""
+    activeId={null}
+    data={Array []}
   />
   <div
     className="ts divider"

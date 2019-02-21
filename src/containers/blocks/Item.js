@@ -18,8 +18,19 @@ function mergeProps(state, { dispatch }, ownProps) {
 
     // custom props
     breadcrumb: {
-      title: state.response.post.data.title,
-      handleClick: () => dispatch(clickRootPath()),
+      data: [
+        {
+          id:          -1,
+          text:        'Home',
+          handleClick: () => dispatch(clickRootPath()),
+        },
+        {
+          id:          state.response.post.data.id,
+          text:        state.response.post.data.title,
+          handleClick: () => {},
+        },
+      ],
+      activeId: state.response.post.data.id,
     },
     content: {
       authorName:  state.response.user.data.name,
