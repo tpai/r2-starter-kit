@@ -26,9 +26,14 @@ module.exports = {
       {
         test: /\.scss|\.css$/,
         use: [
-          process.env.NODE_ENV === 'development'
-            ? ExtractCssChunksWebpackPlugin.loader
-            : MiniCssExtractPlugin.loader,
+          process.env.NODE_ENV === 'development' ? {
+            loader: ExtractCssChunksWebpackPlugin.loader,
+            options: {
+              hot: true,
+              modules: true,
+              reloadAll: true
+            },
+          } : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             query: {
