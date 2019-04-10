@@ -22,7 +22,7 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.6",
-    "connected-react-router": "^6.0.0",
+    "connected-react-router": "^6.3.2",
     "express": "^4.16.2",
     "express-history-api-fallback": "^2.2.1",
     "history": "^4.7.2",
@@ -30,7 +30,7 @@
     "react-dom": "^16.0.0",
     "react-loadable": "^5.4.0",
     "react-redux": "^6.0.0",
-    "react-router-dom": "^4.0.0",
+    "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "redux-actions": "^2.6.4",
     "redux-devtools-extension": "^2.13.5",
