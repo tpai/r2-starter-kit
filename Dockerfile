@@ -3,10 +3,9 @@ FROM node:8-alpine
 WORKDIR /app
 
 # Install git, autoreconf and png library
-RUN apk update && apk upgrade && \
-  apk add --no-cache bash git openssh && \
-  apk add --no-cache autoconf automake build-base libtool nasm && \
-  apk add --no-cache g++ make zlib-dev libpng-dev
+RUN apk update && \
+  apk add --no-cache autoconf automake build-base nasm && \
+  apk add --no-cache libpng-dev
 
 COPY package.json /app
 COPY yarn.lock /app
