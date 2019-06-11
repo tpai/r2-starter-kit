@@ -47,7 +47,7 @@
     "babel-eslint": "^10.0.0",
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.0",
-    "css-loader": "^2.0.0",
+    "css-loader": "^3.0.0",
     "cssnano": "^4.1.8",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.4.0",
