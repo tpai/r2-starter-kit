@@ -36,10 +36,12 @@ module.exports = {
           } : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            query: {
-              modules: true,
+            options: {
+              importLoaders: 2,
+              modules: {
+                localIdentName: '[folder]-[local]-[hash:6]',
+              },
               sourceMap: true,
-              localIdentName: '[folder]-[local]-[hash:6]',
             },
           },
           {
@@ -62,7 +64,7 @@ module.exports = {
           },
           {
             loader: 'sass-loader',
-            query: {
+            options: {
               sourceMap: true,
             },
           },
