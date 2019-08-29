@@ -74,7 +74,7 @@
     "postcss-preset-env": "^6.5.0",
     "raf": "^3.4.0",
     "redux-logger": "^3.0.0",
-    "sass-loader": "^7.0.0",
+    "sass-loader": "^8.0.0",
     "size-plugin": "^2.0.0",
     "svg-inline-loader": "^0.8.0",
     "testcafe": "^1.1.0",
