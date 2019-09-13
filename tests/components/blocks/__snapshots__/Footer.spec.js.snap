@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> should render initial component 1`] = `
+<div
+  className="default"
+>
+  <div>
+    Icons from 
+    <a
+      href="https://www.flaticon.com/"
+      title="Flaticon"
+    >
+      www.flaticon.com
+    </a>
+     is licensed by 
+    <a
+      href="http://creativecommons.org/licenses/by/3.0/"
+      rel="noopener noreferrer"
+      target="_blank"
+      title="Creative Commons BY 3.0"
+    >
+      CC 3.0 BY
+    </a>
+  </div>
+</div>
+`;

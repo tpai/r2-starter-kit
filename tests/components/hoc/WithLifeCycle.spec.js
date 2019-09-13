@@ -8,7 +8,7 @@ describe('withLifecycle', () => {
   let handleDidMount;
   let handleWillUnmount;
 
-  beforeEach(() => {
+  it('should render with initial props', () => {
     handleDidMount = jest.fn();
     handleWillUnmount = jest.fn();
     const WrappedComponent = withLifecycle()(() => <h1>hello</h1>);
@@ -18,26 +18,27 @@ describe('withLifecycle', () => {
         handleWillUnmount={handleWillUnmount}
       />
     );
-  });
-
-  it('should render with initial props', () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
+    expect(handleDidMount).toBeCalled();
+    expect(handleWillUnmount).not.toBeCalled();
+    wrapper.unmount();
+    expect(handleWillUnmount).toBeCalled();
   });
 
   it('should render with undefined props', () => {
-    wrapper.setProps({
-      handleDidMount: undefined,
-      handleWillUnmount: undefined,
-    });
+    window.console.log = jest.fn();
+    handleDidMount = undefined;
+    handleWillUnmount = undefined;
+    const WrappedComponent = withLifecycle()(() => <h1>hello</h1>);
+    wrapper = shallow(
+      <WrappedComponent
+        handleDidMount={handleDidMount}
+        handleWillUnmount={handleWillUnmount}
+      />
+    );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
-  });
-
-  it('handleDidMount is called', () => {
-    expect(handleDidMount).toBeCalled();
-  });
-
-  it('handleWillUnmount is called', () => {
+    expect(window.console.log).toHaveBeenCalledTimes(1);
     wrapper.unmount();
-    expect(handleWillUnmount).toBeCalled();
+    expect(window.console.log).toHaveBeenCalledTimes(2);
   });
 });
