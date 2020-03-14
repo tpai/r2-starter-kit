@@ -1142,9 +1142,9 @@ acorn-walk@^6.0.1, acorn-walk@^6.1.1:
   integrity sha512-7evsyfH1cLOCdAzZAd43Cic04yKydNx0cF+7tiA19p1XnLLPU4dpCQOqpjqwokFe//vS0QqfqqjCS2JkiIs0cA==
 
 acorn@^5.5.3:
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
-  integrity sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw==
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
+  integrity sha512-1D++VG7BhrtvQpNbBzovKNc1FLGGEE/oGe7b9xJm/RFHMBeUaUGpluV9RLjZa47YFdPcDAenEYuq9pQPcMdLJg==
 
 acorn@^6.0.1, acorn@^6.0.5, acorn@^6.0.7:
   version "6.2.0"
@@ -11572,10 +11572,10 @@ testcafe-legacy-api@3.1.10:
     pinkie "^2.0.1"
     strip-bom "^2.0.0"
 
-testcafe-react-selectors@^3.0.2:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/testcafe-react-selectors/-/testcafe-react-selectors-3.0.3.tgz#4426566d69d465e896e31e46fc9b96a063440030"
-  integrity sha512-EA0VmJJQNVtQK+gF39y7VemNb8bAXONfV0TtqM64TJ8cH2geIxeX2pUxBaJ6zRA/vtSofeJNqTm4+fxoQW2voA==
+testcafe-react-selectors@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/testcafe-react-selectors/-/testcafe-react-selectors-4.0.0.tgz#75cb0396ced6121c4562f7fbe809a289664d62d7"
+  integrity sha512-di03HvtEqLzCaCkWd4PumWgfhgmz7K8XVduYUY0aCQ1p4zFtO2S1suAte6IvakvG8yAKr1oH5OL0yTdXgcPf6Q==
 
 testcafe-reporter-json@^2.1.0:
   version "2.1.0"
