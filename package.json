@@ -79,7 +79,7 @@
     "svg-inline-loader": "^0.8.0",
     "testcafe": "^1.1.0",
     "testcafe-react-selectors": "^4.0.0",
-    "wait-on": "^4.0.0",
+    "wait-on": "^5.0.0",
     "webpack": "^4.14.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.0.8",
