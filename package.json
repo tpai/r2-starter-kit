@@ -4,7 +4,8 @@
   "description": "R^2 Starter Kit is an boilerplate for web development built on top of React, Redux and Webpack 4.",
   "scripts": {
     "start": "node server.js",
-    "dev": "yarn kill && NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
+    "dev": "yarn kill && NODE_ENV=development webpack-dev-server --config webpack.config.dev.js & yarn fake_db",
+    "fake_db": "json-server -w db.json --routes routes.json",
     "build": "rm -rf dist/ && NODE_ENV=production webpack --config webpack.config.prod.js",
     "e2e": "yarn dev & wait-on http://localhost:8080 && testcafe safari tests/e2e.js",
     "test": "NODE_ENV=test NODE_PATH=./src jest --watch",
@@ -67,6 +68,7 @@
     "isomorphic-fetch": "^2.2.1",
     "jasmine-reporters": "^2.3.0",
     "jest": "^24.1.0",
+    "json-server": "^0.16.1",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.5.0",
     "postcss-import": "^12.0.0",
