@@ -2,11 +2,19 @@ const myFetch = async (url, options) => {
   const response = await fetch(url, options);
   if (response.status >= 500) throw new Error(response);
 
+  let total;
+  for(let entry of response.headers.entries()) {
+    if (entry[0] === 'x-total-count') {
+      total = Number(entry[1]);
+    }
+  }
+
   const body = await response.json();
   const result = {
     body,
     status:     response.status,
     statusText: response.statusText,
+    ...(total ? { total } : {}),
   };
 
   return response.status >= 400 ? { error: result } : { success: result };
