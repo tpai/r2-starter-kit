@@ -30,10 +30,19 @@ export default function Repos({
 
   return (
     <div className={styles['default']}>
-      <img className="ts small rounded image" src={user.avatar_url} />
-      <div className="ts big header">{user.name}</div>
+      <img
+        className="ts small rounded image"
+        src={user.avatar_url}
+        data-testid="avatar"
+      />
+      <div
+        className="ts big header"
+        data-testid="name"
+      >
+        {user.name}
+      </div>
       {repos.length > 0 && <div ref={el} className="ts container very narrow segment">
-        <div className="ts divided items">
+        <div className="ts divided items" data-testid="repos">
           {repos.map(({
             id,
             name,
@@ -45,6 +54,7 @@ export default function Repos({
               key={`repo${id}`}
               className={cx('item', styles['link'])}
               onClick={() => window.open(html_url)}
+              data-testid={`repo${id}`}
             >
               <div className="content">
                 <div className="header">
