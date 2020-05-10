@@ -7,27 +7,24 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 
-import Header from 'components/blocks/Header';
-import Footer from 'components/blocks/Footer';
-import store from 'redux/store';
-import history from 'redux/history';
-import asyncContainerLoader from 'utils/asyncContainerLoader';
-import styles from './index.scss';
+import NotFound from '~/components/pages/NotFound';
+import store from '~/redux/store';
+import history from '~/redux/history';
+import asyncContainerLoader from '~/utils/asyncContainerLoader';
 
-const Posts = asyncContainerLoader('panels/Posts');
-const Post = asyncContainerLoader('panels/Post');
+const Repos = asyncContainerLoader('pages/Repos');
+const Loading = asyncContainerLoader('overlays/Loading');
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <div className={styles.container}>
-        <Route component={Header} />
+      <div>
+        <Loading />
         <Switch>
-          <Route path="/" component={Posts} exact />
-          <Route path="/posts/:id" component={Post} />
-          <Route render={() => <h1>404 not found</h1>} />
+          <Route path="/" component={Repos} exact />
+          <Route path="/users/:user" component={Repos} />
+          <Route render={() => <NotFound />} />
         </Switch>
-        <Route component={Footer} />
       </div>
     </ConnectedRouter>
   </Provider>,

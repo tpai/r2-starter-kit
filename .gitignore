@@ -29,3 +29,9 @@ node_modules
 # Test related files
 tests/__coverage__
 tests/__jenkins__
+
+# Size plugin output
+size-plugin.json
+
+# Environment variable
+.env

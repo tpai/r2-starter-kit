@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   "extends": [
     "eslint:recommended",
@@ -25,14 +23,7 @@ module.exports = {
     }]
   },
   "settings": {
-    "import/resolver": {
-      "node": {
-        "moduleDirectory": [
-          path.resolve(__dirname, "src"),
-          path.resolve(__dirname, "node_modules")
-        ]
-      }
-    }
+    "import/resolver": "webpack"
   },
   "parser": "babel-eslint",
   "plugins": ["react", "jest", "sort-class-members"],

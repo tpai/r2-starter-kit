@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`withLifecycle should render with initial props 1`] = `<Component />`;
-
-exports[`withLifecycle should render with undefined props 1`] = `<Component />`;

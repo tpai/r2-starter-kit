@@ -4,9 +4,9 @@ import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { routerMiddleware } from 'connected-react-router';
 
-import createRootReducer from 'redux/reducers';
-import history from 'redux/history';
-import rootSaga from 'sagas';
+import createRootReducer from '~/redux/reducers';
+import history from '~/redux/history';
+import rootSaga from '~/sagas';
 
 const saga = createSaga();
 const logger = createLogger({ diff: true });

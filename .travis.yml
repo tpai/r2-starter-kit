@@ -20,8 +20,8 @@ before_script:
   - greenkeeper-lockfile-update
 script:
   - yarn test:cov
-  - yarn add coveralls && cat tests/__coverage__/lcov.info | coveralls
 after_script:
-  - ./cc-test-reporter format-coverage -t lcov ./tests/__coverage__/lcov.info
+  - yarn add coveralls && ./node_modules/.bin/coveralls < ./coverage/lcov.info
+  - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.info
   - ./cc-test-reporter upload-coverage
   - greenkeeper-lockfile-upload

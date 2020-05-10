@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:10-alpine
 
 WORKDIR /app
 
@@ -11,13 +11,11 @@ COPY package.json /app
 COPY yarn.lock /app
 
 # Install dependencies
-RUN yarn
+RUN yarn install --production
 
-# Add source code
-COPY . /app
-
-# Run build script
-RUN yarn build
+# Add required assets
+COPY dist /app
+COPY server.js /app
 
 EXPOSE 8080
 CMD ["yarn", "start"]

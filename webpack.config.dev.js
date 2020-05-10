@@ -16,6 +16,12 @@ module.exports = Object.assign({}, config, {
     hot: true,
     inline: true,
     historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        pathRewrite: {'^/api' : ''}
+      }
+    }
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
