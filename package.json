@@ -7,7 +7,7 @@
     "dev": "yarn kill && NODE_ENV=development webpack-dev-server --config webpack.config.dev.js & yarn fake_db",
     "fake_db": "json-server -w db.json --routes routes.json",
     "build": "rm -rf dist/ && NODE_ENV=production webpack --config webpack.config.prod.js",
-    "e2e": "yarn dev & wait-on http://localhost:8080 && testcafe safari tests/e2e.js",
+    "e2e": "yarn dev & wait-on http://localhost:8080 && testcafe safari src/e2e.js",
     "test": "NODE_ENV=test NODE_PATH=./src jest --watch",
     "test:cov": "NODE_ENV=test NODE_PATH=./src jest --coverage",
     "kill": "lsof -Pni4 | grep :8080 | awk '{print $2;}' | xargs kill",
