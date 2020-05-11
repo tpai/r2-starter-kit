@@ -9,7 +9,7 @@
 [![devDependency Status][dev-deps-badge]][dev-deps]
 [![Heroku][heroku-deployment-badge]][heroku-app]
 
-![](http://i.giphy.com/69jtJzHmbccnmL1W8k.gif)
+![demo](http://i.giphy.com/RMwOR7Z42FpiHnU0tw.gif)
 
 ## Presets And Loaders
 
@@ -60,11 +60,10 @@ It will distribute the files into `dist/` directory, and open bundle analyzation
 ### Run E2E test
 
 ```
-yarn build && yarn start
 yarn e2e
 ```
 
-Start server first, then run the tests.
+It will automatically start dev server and run end to end test.
 
 ### Code Coverage Report
 
@@ -72,7 +71,7 @@ Start server first, then run the tests.
 yarn test:cov
 ```
 
-Check out the report in `tests/__coverage__/index.html`.
+Check out the report in `./coverage/index.html`.
 
 [maintainability-badge]: https://api.codeclimate.com/v1/badges/807d78f313c0b1eec23b/maintainability
 [maintainability]: https://codeclimate.com/github/tpai/r2-starter-kit/maintainability
