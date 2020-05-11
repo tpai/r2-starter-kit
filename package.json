@@ -10,7 +10,7 @@
     "e2e": "yarn dev & wait-on http://localhost:8080 && testcafe safari src/e2e.js",
     "test": "NODE_ENV=test NODE_PATH=./src jest --watch",
     "test:cov": "NODE_ENV=test NODE_PATH=./src jest --coverage",
-    "kill": "lsof -Pni4 | grep :8080 | awk '{print $2;}' | xargs kill",
+    "kill": "lsof -Pni4 | grep ':8080\\|:3000' | awk '{print $2;}' | xargs kill",
     "lint": "eslint $(find src -name \\*.js)"
   },
   "repository": {
