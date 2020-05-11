@@ -61,9 +61,9 @@ export default function Repos({
                   {name}
                 </div>
                 {stargazers_count ? (
-                  <span>
+                  <span className={styles['icon']}>
+                    <i className="star icon"></i>
                     {stargazers_count}
-                    <i className="like outline icon"></i>
                   </span>
                 ): null}
                 <div className="description">
