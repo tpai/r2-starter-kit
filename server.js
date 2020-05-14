@@ -17,25 +17,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/users/:name/repos', (req, res) => {
   const { name = 'tpai' } = req.params;
   const { _page = 1, _limit = 10 } = req.query;
-  fetch(`https://api.github.com/users/${name}/repos?page=${_page}&per_page=${_limit}`, {
+  fetch(`https://api.github.com/search/repositories?q=user:${name}&sort=stars&order=desc&page=${_page}&per_page=${_limit}`, {
     method: 'GET',
     headers: {
       'Authorization': `token ${process.env.GITHUB_TOKEN}`
     }
   })
-    .then(response => {
-      const linkHeader = response.headers.get('Link');
-      const links = linkHeader.split(', ');
-      const last = links.filter(link => link.includes('last')).join('');
-      const matches = last.match(/\?page=(\d{1,})/) || [];
-      const matched = matches.slice(-1) || [];
-      const lastPage = matched.toString() || 1;
-      res.setHeader('x-total-count', lastPage * _limit);
-      return response.json();
-    })
+    .then(res => res.json())
     .then(json => {
       res.setHeader('Content-Type', 'application/json');
-      res.send(JSON.stringify(json));
+      res.setHeader('x-total-count', json.total_count);
+      res.send(JSON.stringify(json.items));
     });
 });
 
