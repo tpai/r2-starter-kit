@@ -1,7 +1,6 @@
-import { createStore, applyMiddleware } from 'redux';
 import createSaga from 'redux-saga';
+import { configureStore } from '@reduxjs/toolkit';
 import { createLogger } from 'redux-logger';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { routerMiddleware } from 'connected-react-router';
 
 import createRootReducer from '~/redux/reducers';
@@ -16,11 +15,10 @@ const middleware = process.env.NODE_ENV === 'development'
   ? [saga, router, logger]
   : [saga, router];
 
-const store = createStore(
-  createRootReducer(history),
-  undefined,
-  composeWithDevTools(applyMiddleware(...middleware)),
-);
+const store = configureStore({
+  reducer: createRootReducer(history),
+  middleware,
+});
 
 saga.run(rootSaga);
 

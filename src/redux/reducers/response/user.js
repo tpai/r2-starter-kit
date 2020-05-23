@@ -1,18 +1,16 @@
-import { createAction, handleActions } from 'redux-actions';
+import { createAction, createReducer } from '@reduxjs/toolkit';
 
-export const SET_DATA = `response/user/SET_DATA`;
-export const setData = createAction(SET_DATA, (value) => value);
+export const setData = createAction(`response/user/SET_DATA`, (value) => ({
+  payload: value,
+}));
 
 export const defaultState = {
   data: {},
 };
 
-export const reducer = handleActions(
-  {
-    [SET_DATA]: (state, { payload }) => ({
-      ...state,
-      data: payload,
-    }),
-  },
-  defaultState,
-);
+export const reducer = createReducer(defaultState, {
+  [setData]: (state, { payload }) => ({
+    ...state,
+    data: payload,
+  }),
+});

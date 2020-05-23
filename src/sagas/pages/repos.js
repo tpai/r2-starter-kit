@@ -1,5 +1,5 @@
 import { takeLatest, all, put, call, select } from 'redux-saga/effects';
-import { createAction } from 'redux-actions';
+import { createAction } from '@reduxjs/toolkit';
 import { createMatchSelector } from 'connected-react-router';
 
 import {
@@ -19,10 +19,8 @@ import { getNextPage as getReposNextPage } from '~/selectors/response/repos';
 import { getLogin as getUserLogin } from '~/selectors/response/user';
 import { getIsLoading } from '~/selectors/ui/state';
 
-export const DID_MOUNT = `repos/DID_MOUNT`;
-export const LOAD_MORE = `repos/LOAD_MORE`;
-export const didMount = createAction(DID_MOUNT);
-export const loadMore = createAction(LOAD_MORE);
+export const didMount = createAction(`repos/DID_MOUNT`);
+export const loadMore = createAction(`repos/LOAD_MORE`);
 
 export const sagas = {
   * didMount () {
@@ -81,9 +79,9 @@ export const sagas = {
 
 export const watchers = {
   * didMount () {
-    yield takeLatest(DID_MOUNT, sagas.didMount);
+    yield takeLatest(didMount.toString(), sagas.didMount);
   },
   * loadMore () {
-    yield takeLatest(LOAD_MORE, sagas.loadMore);
+    yield takeLatest(loadMore.toString(), sagas.loadMore);
   },
 };
