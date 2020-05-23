@@ -9,11 +9,10 @@ import {
 
 import styles from './styles.module.scss';
 
-const root = document.getElementById('overlay');
-
 export default function Loading({ isLoading }) {
   const el = useRef(document.createElement('div'));
 
+  const root = document.getElementById('overlay');
   useEffect(() => {
     root.appendChild(el.current);
     return () => {
@@ -34,7 +33,7 @@ export default function Loading({ isLoading }) {
 
   return ReactDOM.createPortal(
     isLoading ?
-      <div className={styles['default']}>
+      <div data-testid="loader" className={styles['default']}>
         <div className="ts active inverted dimmer">
           <div className="ts loader"></div>
         </div>
