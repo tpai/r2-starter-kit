@@ -71,13 +71,25 @@ It will automatically start dev server and run end to end test.
 yarn test:cov
 ```
 
-Check out the report in `./coverage/index.html`.
+Check out the report at `./coverage/lconv-report/index.html`.
+
+## CI/CD
+
+|                | Trigger       | Action                                                   |
+| ---            | ---           | ---                                                      |
+| Github Actions | Pull Request  | Unit Test                                                |
+| Travis CI      | Master Branch | Unit Test, Generate Test Coverage                        |
+| Heroku         | Master Branch | Deployment                                               |
+| Snyk           | --            | Packages Vulnerability Check, Autofix PR (e.g. lockfile) |
+| CodeClimate    | --            | Code Maintainability, Coverage Report                    |
+| Coveralls      | --            | Coverage Report                                          |
+
 
 [maintainability-badge]: https://api.codeclimate.com/v1/badges/807d78f313c0b1eec23b/maintainability
 [maintainability]: https://codeclimate.com/github/tpai/r2-starter-kit/maintainability
 
-[build-badge]: https://travis-ci.org/tpai/r2-starter-kit.svg?branch=master
-[build]: https://travis-ci.org/tpai/r2-starter-kit
+[build-badge]: https://api.travis-ci.com/tpai/r2-starter-kit.svg?branch=master
+[build]: https://travis-ci.com/github/tpai/r2-starter-kit
 
 [coveralls-badge]: https://coveralls.io/repos/github/tpai/r2-starter-kit/badge.svg?branch=master
 [coveralls]: https://coveralls.io/github/tpai/r2-starter-kit?branch=master
