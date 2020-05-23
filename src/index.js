@@ -11,8 +11,8 @@ import NotFound from '~/components/pages/NotFound';
 import store from '~/redux/store';
 import history from '~/redux/history';
 
-const Repos = lazy(() => import('~/components/pages/Repos'));
-const Loading = lazy(() => import('~/components/overlays/Loading'));
+const Repos = lazy(() => import('~/components/pages/Repos/container'));
+const Loading = lazy(() => import('~/components/overlays/Loading/container'));
 
 ReactDOM.render(
   <Provider store={store}>

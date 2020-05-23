@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import {
@@ -12,7 +12,7 @@ import styles from './styles.module.scss';
 const root = document.getElementById('overlay');
 
 export default function Loading({ isLoading }) {
-  let el = useRef(document.createElement('div'));
+  const el = useRef(document.createElement('div'));
 
   useEffect(() => {
     root.appendChild(el.current);

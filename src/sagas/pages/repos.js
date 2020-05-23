@@ -19,13 +19,13 @@ import { getNextPage as getReposNextPage } from '~/selectors/response/repos';
 import { getLogin as getUserLogin } from '~/selectors/response/user';
 import { getIsLoading } from '~/selectors/ui/state';
 
-export const HANDLE_DID_MOUNT = `repos/HANDLE_DID_MOUNT`;
+export const DID_MOUNT = `repos/DID_MOUNT`;
 export const LOAD_MORE = `repos/LOAD_MORE`;
-export const handleDidMount = createAction(HANDLE_DID_MOUNT);
+export const didMount = createAction(DID_MOUNT);
 export const loadMore = createAction(LOAD_MORE);
 
 export const sagas = {
-  * handleDidMount () {
+  * didMount () {
     try {
       const matchSelector = createMatchSelector({ path: '/users/:user' });
       const match = yield select(matchSelector);
@@ -80,8 +80,8 @@ export const sagas = {
 };
 
 export const watchers = {
-  * handleDidMount () {
-    yield takeLatest(HANDLE_DID_MOUNT, sagas.handleDidMount);
+  * didMount () {
+    yield takeLatest(DID_MOUNT, sagas.didMount);
   },
   * loadMore () {
     yield takeLatest(LOAD_MORE, sagas.loadMore);
