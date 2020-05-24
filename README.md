@@ -2,12 +2,12 @@
 
 > R^2 Starter Kit is an boilerplate for web development built on top of React, Redux, Redux Saga and Webpack 4.
 
-[![Maintainability][maintainability-badge]][maintainability]
 [![Travis Build Status][build-badge]][build]
+[![Heroku][heroku-deployment-badge]][heroku-app]
 [![Coverage Status][coveralls-badge]][coveralls]
 [![Dependency Status][deps-badge]][deps]
-[![devDependency Status][dev-deps-badge]][dev-deps]
-[![Heroku][heroku-deployment-badge]][heroku-app]
+[![Maintainability][maintainability-badge]][maintainability]
+[![Snyk][snyk-badge]][snyk]
 
 ![demo](http://i.giphy.com/RMwOR7Z42FpiHnU0tw.gif)
 
@@ -97,8 +97,8 @@ Check out the report at `./coverage/lconv-report/index.html`.
 [deps-badge]: https://david-dm.org/tpai/r2-starter-kit.svg
 [deps]: https://david-dm.org/tpai/r2-starter-kit
 
-[dev-deps-badge]: https://david-dm.org/tpai/r2-starter-kit/dev-status.svg
-[dev-deps]: https://david-dm.org/tpai/r2-starter-kit#info=devDependencies
+[snyk-badge]: https://snyk.io/test/github/tpai/r2-starter-kit/badge.svg
+[snyk]: https://snyk.io/test/github/tpai/r2-starter-kit
 
 [heroku-deployment-badge]: https://heroku-badge.herokuapp.com/?app=r2-starter-kit
 [heroku-app]: http://r2-starter-kit.herokuapp.com
