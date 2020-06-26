@@ -13,21 +13,21 @@
 
 ## Presets And Loaders
 
-* .babelrc
-  * @babel/preset-env
-  * @babel/preset-react
-  * @babel/plugin-proposal-class-properties
-  * @babel/plugin-syntax-dynamic-import
-* webpack.config.js
-  * css-loader
-  * postcss-loader
-    * postcss-preset-env
-    * postcss-import
-    * cssnano
-  * sass-loader
-  * file-loader
-  * image-webpack-loader
-  * svg-inline-loader
+- .babelrc
+  - @babel/preset-env
+  - @babel/preset-react
+  - @babel/plugin-proposal-class-properties
+  - @babel/plugin-syntax-dynamic-import
+- webpack.config.js
+  - css-loader
+  - postcss-loader
+    - postcss-preset-env
+    - postcss-import
+    - cssnano
+  - sass-loader
+  - file-loader
+  - image-webpack-loader
+  - svg-inline-loader
 
 ## Get Started
 
@@ -76,7 +76,7 @@ Check out the report at `./coverage/lconv-report/index.html`.
 ## CI/CD
 
 |                | Trigger       | Action                                                   |
-| ---            | ---           | ---                                                      |
+| -------------- | ------------- | -------------------------------------------------------- |
 | Github Actions | Pull Request  | Unit Test                                                |
 | Travis CI      | Master Branch | Unit Test, Generate Test Coverage                        |
 | Heroku         | Master Branch | Deployment                                               |
@@ -84,21 +84,15 @@ Check out the report at `./coverage/lconv-report/index.html`.
 | CodeClimate    | --            | Code Maintainability, Coverage Report                    |
 | Coveralls      | --            | Coverage Report                                          |
 
-
 [maintainability-badge]: https://api.codeclimate.com/v1/badges/807d78f313c0b1eec23b/maintainability
 [maintainability]: https://codeclimate.com/github/tpai/r2-starter-kit/maintainability
-
 [build-badge]: https://api.travis-ci.com/tpai/r2-starter-kit.svg?branch=master
 [build]: https://travis-ci.com/github/tpai/r2-starter-kit
-
 [coveralls-badge]: https://coveralls.io/repos/github/tpai/r2-starter-kit/badge.svg?branch=master
 [coveralls]: https://coveralls.io/github/tpai/r2-starter-kit?branch=master
-
 [deps-badge]: https://david-dm.org/tpai/r2-starter-kit.svg
 [deps]: https://david-dm.org/tpai/r2-starter-kit
-
 [snyk-badge]: https://snyk.io/test/github/tpai/r2-starter-kit/badge.svg
 [snyk]: https://snyk.io/test/github/tpai/r2-starter-kit
-
 [heroku-deployment-badge]: https://heroku-badge.herokuapp.com/?app=r2-starter-kit
 [heroku-app]: http://r2-starter-kit.herokuapp.com
