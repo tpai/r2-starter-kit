@@ -8,6 +8,7 @@
 [![Dependency Status][deps-badge]][deps]
 [![Maintainability][maintainability-badge]][maintainability]
 [![Snyk][snyk-badge]][snyk]
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftpai%2Fr2-starter-kit.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftpai%2Fr2-starter-kit?ref=badge_shield)
 
 ![demo](http://i.giphy.com/RMwOR7Z42FpiHnU0tw.gif)
 
@@ -96,3 +97,7 @@ Check out the report at `./coverage/lconv-report/index.html`.
 [snyk]: https://snyk.io/test/github/tpai/r2-starter-kit
 [heroku-deployment-badge]: https://heroku-badge.herokuapp.com/?app=r2-starter-kit
 [heroku-app]: http://r2-starter-kit.herokuapp.com
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftpai%2Fr2-starter-kit.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftpai%2Fr2-starter-kit?ref=badge_large)
