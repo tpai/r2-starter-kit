@@ -60,7 +60,7 @@ jobs:
 
     - run: |
        curl -o- -L https://yarnpkg.com/install.sh | bash
-       yarn build
+       yarn && yarn build
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
