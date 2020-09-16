@@ -8,7 +8,7 @@ const http = require('http').createServer(app);
 const port = process.env.PORT || 8080;
 
 // API
-const fetch = require('isomorphic-fetch');
+const fetch = require('node-fetch');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
