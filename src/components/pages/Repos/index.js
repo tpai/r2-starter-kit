@@ -28,6 +28,7 @@ export default function Repos({ user, repos, handleDidMount, handleLoadMore }) {
         className="ts small rounded image"
         src={user.avatar_url}
         data-testid="avatar"
+        alt="avatar"
       />
       <div className="ts big header" data-testid="name">
         {user.name}
