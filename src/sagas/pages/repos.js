@@ -25,7 +25,7 @@ export const loadMore = createAction(`repos/LOAD_MORE`);
 export const sagas = {
   * didMount () {
     try {
-      const matchSelector = createMatchSelector({ path: '/users/:user' });
+      const matchSelector = createMatchSelector({ path: '/:user' });
       const match = yield select(matchSelector);
       const { params = {} } = match || {};
       const { user = 'tpai' } = params;

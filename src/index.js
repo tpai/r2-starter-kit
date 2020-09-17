@@ -21,7 +21,7 @@ ReactDOM.render(
         <Loading />
         <Switch>
           <Route exact path="/" component={Repos} />
-          <Route path="/users/:user" component={Repos} />
+          <Route path="/:user" component={Repos} />
           <Route render={() => <NotFound />} />
         </Switch>
       </Suspense>
