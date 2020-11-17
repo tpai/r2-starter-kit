@@ -5,8 +5,8 @@
 [![Travis Build Status][build-badge]][build]
 [![Heroku][heroku-deployment-badge]][heroku-app]
 [![Coverage Status][coveralls-badge]][coveralls]
-[![Dependency Status][deps-badge]][deps]
 [![Maintainability][maintainability-badge]][maintainability]
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/tpai/r2-starter-kit.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/tpai/r2-starter-kit/alerts/)
 [![Snyk][snyk-badge]][snyk]
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftpai%2Fr2-starter-kit.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftpai%2Fr2-starter-kit?ref=badge_shield)
 
@@ -81,6 +81,7 @@ Check out the report at `./coverage/lconv-report/index.html`.
 | Github Actions | Pull Request  | Unit Test                                                |
 | Travis CI      | Master Branch | Unit Test, Generate Test Coverage                        |
 | Heroku         | Master Branch | Deployment                                               |
+| LGTM           | Pull Request  | Code vulnerability check                                 |
 | Snyk           | --            | Packages Vulnerability Check, Autofix PR (e.g. lockfile) |
 | CodeClimate    | --            | Code Maintainability, Coverage Report                    |
 | Coveralls      | --            | Coverage Report                                          |
@@ -91,13 +92,11 @@ Check out the report at `./coverage/lconv-report/index.html`.
 [build]: https://travis-ci.com/github/tpai/r2-starter-kit
 [coveralls-badge]: https://coveralls.io/repos/github/tpai/r2-starter-kit/badge.svg?branch=master
 [coveralls]: https://coveralls.io/github/tpai/r2-starter-kit?branch=master
-[deps-badge]: https://david-dm.org/tpai/r2-starter-kit.svg
-[deps]: https://david-dm.org/tpai/r2-starter-kit
 [snyk-badge]: https://snyk.io/test/github/tpai/r2-starter-kit/badge.svg
 [snyk]: https://snyk.io/test/github/tpai/r2-starter-kit
 [heroku-deployment-badge]: https://heroku-badge.herokuapp.com/?app=r2-starter-kit
 [heroku-app]: http://r2-starter-kit.herokuapp.com
 
-
 ## License
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftpai%2Fr2-starter-kit.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftpai%2Fr2-starter-kit?ref=badge_large)
