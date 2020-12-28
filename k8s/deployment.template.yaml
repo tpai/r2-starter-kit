@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: r2-starter-kit
+spec:
+  selector:
+    matchLabels:
+      app: r2-starter-kit
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: r2-starter-kit
+    spec:
+      containers:
+      - name: r2-starter-kit
+        image: okteto.dev/r2-starter-kit:latest
+        env:
+        - name: GITHUB_TOKEN
+          value: $GITHUB_TOKEN
+        ports:
+        - containerPort: 8080

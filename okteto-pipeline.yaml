@@ -1,0 +1,4 @@
+deploy:
+  - envsubst < k8s/deployment.template.yaml > k8s/deployment.yaml
+  - okteto build -t okteto.dev/r2-starter-kit:latest
+  - kubectl apply -f k8s
