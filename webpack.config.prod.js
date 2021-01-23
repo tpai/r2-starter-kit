@@ -10,8 +10,8 @@ module.exports = Object.assign({}, config, {
   mode: 'production',
   output: {
     publicPath: '/',
-    filename: 'static/js/[name].[contenthash:6].js',
-    chunkFilename: 'static/js/[name].[contenthash:6].js',
+    filename: 'static/js/[name].[hash:6].js',
+    chunkFilename: 'static/js/[name].[chunkhash:6].js',
   },
   stats: 'errors-only',
   plugins: [
