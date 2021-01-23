@@ -1,69 +1,75 @@
-import { takeLatest, all, put, call, select } from 'redux-saga/effects';
-import { createAction } from '@reduxjs/toolkit';
-import { createMatchSelector } from 'connected-react-router';
+import { takeLatest, put, call, select } from "redux-saga/effects";
+import { createAction } from "@reduxjs/toolkit";
+import { createMatchSelector, push } from "connected-react-router";
 
 import {
   getUserInfo as getUserInfoAPI,
   getRepos as getReposAPI,
-} from '~/api/github';
-import { REPOS_PAGE_LIMIT } from '~/constants/pagination';
+} from "~/api/github";
+import { REPOS_PAGE_LIMIT } from "~/constants/pagination";
 import {
   addData as addRepos,
   setData as setRepos,
   setTotal as setReposTotal,
   setCurrent as setReposCurrent,
-} from '~/redux/reducers/response/repos';
-import { setData as setUser } from '~/redux/reducers/response/user';
-import { setLoading } from '~/redux/reducers/ui/state';
-import { getNextPage as getReposNextPage } from '~/selectors/response/repos';
-import { getLogin as getUserLogin } from '~/selectors/response/user';
-import { getIsLoading } from '~/selectors/ui/state';
+} from "~/redux/reducers/response/repos";
+import { setData as setUser } from "~/redux/reducers/response/user";
+import { setLoading } from "~/redux/reducers/ui/state";
+import { getNextPage as getReposNextPage } from "~/selectors/response/repos";
+import { getLogin as getUserLogin } from "~/selectors/response/user";
+import { getIsLoading } from "~/selectors/ui/state";
 
 export const didMount = createAction(`repos/DID_MOUNT`);
 export const loadMore = createAction(`repos/LOAD_MORE`);
 
 export const sagas = {
-  * didMount () {
+  *didMount() {
     try {
-      const matchSelector = createMatchSelector({ path: '/:user' });
+      const matchSelector = createMatchSelector({ path: "/:user" });
       const match = yield select(matchSelector);
       const { params = {} } = match || {};
-      const { user = 'tpai' } = params;
+      const { user = "tpai" } = params;
 
       yield put(setLoading(true));
 
-      const [userInfo, repos] = yield all([
-        call(getUserInfoAPI, user),
-        call(getReposAPI, user, {page: 1, limit: REPOS_PAGE_LIMIT}),
-      ]);
+      const userInfo = yield call(getUserInfoAPI, user);
 
-      if (userInfo.success) {
+      if (userInfo?.success) {
+        if (userInfo?.success?.body?.message === "Not Found") {
+          throw new Error("User not found");
+        }
         yield put(setUser(userInfo.success.body));
       }
-      if (repos.success) {
+
+      const repos = yield call(getReposAPI, user, {
+        page: 1,
+        limit: REPOS_PAGE_LIMIT,
+      });
+
+      if (repos?.success) {
         yield put(setRepos(repos.success.body));
         yield put(setReposTotal(repos.success.total));
         yield put(setReposCurrent(1));
       }
     } catch (err) {
       console.log(err);
+      yield put(push("/not-found"));
     } finally {
       yield put(setLoading(false));
     }
   },
-  * loadMore() {
+  *loadMore() {
     const isLoading = yield select(getIsLoading);
     const nextPage = yield select(getReposNextPage);
-    if (isLoading || !nextPage)return;
+    if (isLoading || !nextPage) return;
 
     try {
       yield put(setLoading(true));
       const user = yield select(getUserLogin);
-      const { success } = yield call(
-        getReposAPI,
-        user,
-        {page: nextPage, limit: REPOS_PAGE_LIMIT}
-      );
+      const { success } = yield call(getReposAPI, user, {
+        page: nextPage,
+        limit: REPOS_PAGE_LIMIT,
+      });
       if (success) {
         yield put(addRepos(success.body));
         yield put(setReposTotal(success.total));
@@ -74,14 +80,14 @@ export const sagas = {
     } finally {
       yield put(setLoading(false));
     }
-  }
+  },
 };
 
 export const watchers = {
-  * didMount () {
+  *didMount() {
     yield takeLatest(didMount.toString(), sagas.didMount);
   },
-  * loadMore () {
+  *loadMore() {
     yield takeLatest(loadMore.toString(), sagas.loadMore);
   },
 };
