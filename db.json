@@ -1,4 +1,7 @@
 {
+  "notfound": {
+    "message": "Not Found"
+  },
   "users": {
     "login": "vansteki",
     "id": 1705361,
