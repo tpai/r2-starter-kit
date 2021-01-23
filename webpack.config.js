@@ -111,18 +111,18 @@ module.exports = {
       cacheGroups: {
         shared: {
           name: 'shared',
-          minChunks: 2,
           test: /\.jsx?$/,
+          minChunks: 2,
         },
         styles: {
           name: 'styles',
-          minSize: 0, //Ignore minSize for CSS files, to force them in new chunks
           test: /\.scss|\.css$/,
+          minSize: 0, //Ignore minSize for CSS files, to force them in new chunks
         },
         vendor: {
           name: 'vendor',
           test: /[\\/]node_modules[\\/]/,
-          chunks: 'initial',
+          chunks: 'all',
         },
       },
     },

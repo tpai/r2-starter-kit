@@ -7,12 +7,12 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 
+import Loading from '~/components/overlays/Loading/container';
 import NotFound from '~/components/pages/NotFound';
 import store from '~/redux/store';
 import history from '~/redux/history';
 
-const Repos = lazy(() => import('~/components/pages/Repos/container'));
-const Loading = lazy(() => import('~/components/overlays/Loading/container'));
+const Repos = lazy(() => import(/* webpackChunkName: "repos" */ '~/components/pages/Repos/container'));
 
 ReactDOM.render(
   <Provider store={store}>
