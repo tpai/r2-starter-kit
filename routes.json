@@ -1,4 +1,5 @@
 {
   "/api/*": "/$1",
+  "/users/404": "/notfound",
   "/users/:user": "/users"
 }

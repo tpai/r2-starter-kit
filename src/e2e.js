@@ -20,3 +20,8 @@ test('infinite load', async t => {
   await scrollToBottom();
   await t.expect(Selector('.item').count).eql(20);
 });
+
+test('user not found', async t => {
+  await t.navigateTo('http://localhost:8080/404');
+  await t.expect(Selector('img[alt="kitty"]').count).eql(1);
+});
