@@ -80,7 +80,9 @@ Check out the report at `./coverage/lconv-report/index.html`.
 | -------------- | ------------- | -------------------------------------------------------- |
 | Github Actions | Pull Request  | Unit Test                                                |
 | Travis CI      | Master Branch | Unit Test, Generate Test Coverage                        |
+| Layer CI       | Master Branch | Deployment                                               |
 | Heroku         | Master Branch | Deployment                                               |
+| Okteto         | Master Branch | Kubernetes Deployment                                    |
 | LGTM           | Pull Request  | Code vulnerability check                                 |
 | Snyk           | --            | Packages Vulnerability Check, Autofix PR (e.g. lockfile) |
 | CodeClimate    | --            | Code Maintainability, Coverage Report                    |
